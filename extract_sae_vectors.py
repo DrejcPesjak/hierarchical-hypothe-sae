@@ -18,6 +18,9 @@ python extract_sae_vectors.py --sae-on-cpu --batch-size 8
 
 # With shorter sequences (faster, less memory)
 python extract_sae_vectors.py --max-length 256 --batch-size 16
+
+# Our current best:
+python extract_sae_vectors.py --sae-on-cpu --batch-size 5 --max-length 256 --minibatch-size 5000
 """
 
 import time
@@ -165,6 +168,11 @@ def extract_sae_vectors_batch(model, sae, tokenizer, target_layer, texts, device
         
         # Average (excluding padding)
         avg_acts = sum_acts / count  # [batch, d_sae]
+
+        if torch.isnan(target_acts).any() or torch.isinf(target_acts).any():
+            print("NaNs/Infs in target_acts!")
+        if torch.isnan(sae_acts).any() or torch.isinf(sae_acts).any():
+            print("NaNs/Infs in sae_acts!")
     
     # Move to CPU and convert to numpy
     result = avg_acts.cpu().numpy()
@@ -175,10 +183,100 @@ def extract_sae_vectors_batch(model, sae, tokenizer, target_layer, texts, device
     return result
 
 
+def save_minibatch(vectors_list, labels_list, output_dir, output_stem, minibatch_idx, d_sae):
+    """
+    Save a minibatch of vectors and labels to disk.
+    
+    Args:
+        vectors_list: List of numpy arrays (batches of vectors)
+        labels_list: List of labels
+        output_dir: Output directory
+        output_stem: Base name for output files
+        minibatch_idx: Index of this minibatch
+        d_sae: SAE dimension (for validation)
+    
+    Returns:
+        Paths to saved files
+    """
+    if not vectors_list:
+        return None, None
+    
+    # Concatenate vectors
+    sae_array = np.vstack(vectors_list)
+    best_array = np.array(labels_list).reshape(-1, 1)
+    
+    # Convert to sparse matrix
+    sparse_matrix = csr_matrix(sae_array)
+    
+    # Save minibatch files
+    sparse_path = output_dir / f"{output_stem}_sparse_minibatch_{minibatch_idx:03d}.npz"
+    best_path = output_dir / f"{output_stem}_best_minibatch_{minibatch_idx:03d}.npy"
+    
+    np.savez_compressed(sparse_path, 
+                       data=sparse_matrix.data,
+                       indices=sparse_matrix.indices,
+                       indptr=sparse_matrix.indptr,
+                       shape=sparse_matrix.shape)
+    
+    np.save(best_path, best_array)
+    
+    return sparse_path, best_path
+
+
+# def combine_minibatches(output_dir, output_stem, num_minibatches):
+#     """
+#     Combine all saved minibatches into final output files.
+    
+#     Args:
+#         output_dir: Output directory
+#         output_stem: Base name for output files
+#         num_minibatches: Number of minibatches to combine
+    
+#     Returns:
+#         Combined sparse matrix and best labels array
+#     """
+#     print(f"Combining {num_minibatches} minibatches...")
+    
+#     sparse_matrices = []
+#     best_arrays = []
+    
+#     for i in range(num_minibatches):
+#         sparse_path = output_dir / f"{output_stem}_sparse_minibatch_{i}.npz"
+#         best_path = output_dir / f"{output_stem}_best_minibatch_{i}.npy"
+        
+#         if not sparse_path.exists() or not best_path.exists():
+#             print(f"Warning: Minibatch {i} files not found, skipping...")
+#             continue
+        
+#         # Load minibatch
+#         sparse_data = np.load(sparse_path)
+#         sparse_matrix = csr_matrix(
+#             (sparse_data['data'], sparse_data['indices'], sparse_data['indptr']),
+#             shape=sparse_data['shape']
+#         )
+#         best_array = np.load(best_path)
+        
+#         sparse_matrices.append(sparse_matrix)
+#         best_arrays.append(best_array)
+    
+#     if not sparse_matrices:
+#         raise ValueError("No minibatches found to combine!")
+    
+#     # Combine sparse matrices
+#     print("Stacking sparse matrices...")
+#     combined_sparse = sparse_vstack(sparse_matrices)
+    
+#     # Combine best arrays
+#     combined_best = np.vstack(best_arrays)
+    
+#     return combined_sparse, combined_best
+
+
 def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer, device, 
-                     batch_size=8, max_length=512, save_interval=1000):
+                     batch_size=8, max_length=512, minibatch_size=5000):
     """
     Process a CSV file and extract SAE vectors for each row using batch processing.
+    Saves minibatches periodically to disk to manage memory.
     
     Args:
         csv_path: Path to input CSV
@@ -188,9 +286,9 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
         tokenizer: The tokenizer
         target_layer: Which layer to extract from
         device: Device for model
-        batch_size: Number of sentences to process at once
+        batch_size: Number of sentences to process at once (GPU batch)
         max_length: Maximum sequence length
-        save_interval: Save intermediate results every N rows
+        minibatch_size: Number of sentences after which to save and clear memory (default: 5000)
     """
     print(f"\nProcessing: {csv_path}")
     df = pd.read_csv(csv_path)
@@ -214,12 +312,20 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
     # Get SAE dimension for zero vector fallback
     d_sae = sae.w_enc.shape[1]
     
-    # Process in batches
-    all_vectors = []
-    all_labels = []
+    # Setup output paths
+    output_dir = Path(output_path).parent
+    output_stem = Path(output_path).stem
+    
+    # Process in batches with minibatch saving
+    current_minibatch_vectors = []  # Accumulated vectors for current minibatch
+    current_minibatch_labels = []    # Accumulated labels for current minibatch
+    sentences_processed = 0          # Total sentences processed in current minibatch
+    minibatch_idx = 0                # Current minibatch index
+    
     num_batches = (len(sentences) + batch_size - 1) // batch_size
     
     print(f"Processing {len(sentences):,} sentences in {num_batches:,} batches (batch_size={batch_size})...")
+    print(f"Minibatch size: {minibatch_size:,} sentences (will save and clear memory after >= {minibatch_size:,} sentences)")
     
     pbar = tqdm(total=len(sentences), desc="Extracting SAE vectors")
     
@@ -229,25 +335,55 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
         
         batch_texts = sentences[start_idx:end_idx]
         batch_labels = best_labels[start_idx:end_idx]
+        batch_size_actual = len(batch_texts)
         
         try:
             # Extract SAE vectors for the batch
             batch_vectors = extract_sae_vectors_batch(
                 model, sae, tokenizer, target_layer, batch_texts, device, max_length
             )
-            all_vectors.append(batch_vectors)
-            all_labels.extend(batch_labels)
+            current_minibatch_vectors.append(batch_vectors)
+            current_minibatch_labels.extend(batch_labels)
+            sentences_processed += batch_size_actual
             
         except Exception as e:
             print(f"\nError processing batch {batch_idx}: {e}")
             # Use zero vectors as fallback for this batch
-            fallback = np.zeros((len(batch_texts), d_sae))
-            all_vectors.append(fallback)
-            all_labels.extend(batch_labels)
+            fallback = np.zeros((batch_size_actual, d_sae))
+            current_minibatch_vectors.append(fallback)
+            current_minibatch_labels.extend(batch_labels)
+            sentences_processed += batch_size_actual
         
-        pbar.update(len(batch_texts))
+        pbar.update(batch_size_actual)
         
-        # Periodic cache clearing
+        # Check if we've processed enough sentences to save a minibatch
+        if sentences_processed >= minibatch_size:
+            print(f"\nSaving minibatch {minibatch_idx} ({sentences_processed:,} sentences)...")
+            sparse_path, best_path = save_minibatch(
+                current_minibatch_vectors,
+                current_minibatch_labels,
+                output_dir,
+                output_stem,
+                minibatch_idx,
+                d_sae
+            )
+            
+            if sparse_path:
+                print(f"  Saved: {sparse_path.name}, {best_path.name}")
+            
+            # Clear current minibatch from memory
+            del current_minibatch_vectors, current_minibatch_labels
+            current_minibatch_vectors = []
+            current_minibatch_labels = []
+            sentences_processed = 0
+            minibatch_idx += 1
+            
+            # Aggressive cleanup
+            gc.collect()
+            if device == 'cuda':
+                torch.cuda.empty_cache()
+        
+        # Periodic cache clearing (every 10 batches)
         if (batch_idx + 1) % 10 == 0:
             if device == 'cuda':
                 torch.cuda.empty_cache()
@@ -255,67 +391,97 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
     
     pbar.close()
     
-    # Concatenate all vectors
-    print("Concatenating vectors...")
-    sae_array = np.vstack(all_vectors)
+    # Save any remaining vectors in the last minibatch
+    if current_minibatch_vectors:
+        print(f"\nSaving final minibatch {minibatch_idx} ({sentences_processed:,} sentences)...")
+        sparse_path, best_path = save_minibatch(
+            current_minibatch_vectors,
+            current_minibatch_labels,
+            output_dir,
+            output_stem,
+            minibatch_idx,
+            d_sae
+        )
+        if sparse_path:
+            print(f"  Saved: {sparse_path.name}, {best_path.name}")
+        minibatch_idx += 1
+        del current_minibatch_vectors, current_minibatch_labels
+        gc.collect()
+        if device == 'cuda':
+            torch.cuda.empty_cache()
     
-    # Convert to sparse matrix
-    print("Converting to sparse matrix...")
-    sparse_matrix = csr_matrix(sae_array)
+    # # Combine all minibatches into final output
+    # total_minibatches = minibatch_idx
+    # print(f"\nCombining {total_minibatches} minibatches into final output...")
     
-    # Best labels array
-    best_array = np.array(all_labels).reshape(-1, 1)
+    # try:
+    #     combined_sparse, combined_best = combine_minibatches(
+    #         output_dir, output_stem, total_minibatches
+    #     )
+    # except Exception as e:
+    #     print(f"Error combining minibatches: {e}")
+    #     raise
     
-    # Save outputs
-    print(f"Saving to {output_path}...")
-    output_dir = Path(output_path).parent
-    output_stem = Path(output_path).stem
+    # # Save final combined outputs
+    # print(f"Saving final combined output to {output_path}...")
     
-    # Save sparse matrix
-    sparse_path = output_dir / f"{output_stem}_sparse.npz"
-    np.savez_compressed(sparse_path, 
-                       data=sparse_matrix.data,
-                       indices=sparse_matrix.indices,
-                       indptr=sparse_matrix.indptr,
-                       shape=sparse_matrix.shape)
+    # # Save sparse matrix
+    # sparse_path = output_dir / f"{output_stem}_sparse.npz"
+    # np.savez_compressed(sparse_path, 
+    #                    data=combined_sparse.data,
+    #                    indices=combined_sparse.indices,
+    #                    indptr=combined_sparse.indptr,
+    #                    shape=combined_sparse.shape)
     
-    # Save best labels
-    best_path = output_dir / f"{output_stem}_best.npy"
-    np.save(best_path, best_array)
+    # # Save best labels
+    # best_path = output_dir / f"{output_stem}_best.npy"
+    # np.save(best_path, combined_best)
     
-    # Save metadata
-    nnz = sparse_matrix.nnz
-    size = sparse_matrix.shape[0] * sparse_matrix.shape[1]
-    sparsity = 1.0 - (nnz / size) if size > 0 else 0.0
+    # # Save metadata
+    # nnz = combined_sparse.nnz
+    # size = combined_sparse.shape[0] * combined_sparse.shape[1]
+    # sparsity = 1.0 - (nnz / size) if size > 0 else 0.0
     
-    metadata = {
-        'num_rows': len(df),
-        'num_features': sae_array.shape[1],
-        'sparse_matrix_shape': list(sparse_matrix.shape),
-        'sparsity': sparsity,
-        'nnz': int(nnz),
-        'batch_size': batch_size,
-        'max_length': max_length,
-        'layer': target_layer,
-    }
+    # metadata = {
+    #     'num_rows': len(df),
+    #     'num_features': combined_sparse.shape[1],
+    #     'sparse_matrix_shape': list(combined_sparse.shape),
+    #     'sparsity': sparsity,
+    #     'nnz': int(nnz),
+    #     'batch_size': batch_size,
+    #     'minibatch_size': minibatch_size,
+    #     'num_minibatches': total_minibatches,
+    #     'max_length': max_length,
+    #     'layer': target_layer,
+    # }
     
-    metadata_path = output_dir / f"{output_stem}_metadata.json"
-    with open(metadata_path, 'w') as f:
-        json.dump(metadata, f, indent=2)
+    # metadata_path = output_dir / f"{output_stem}_metadata.json"
+    # with open(metadata_path, 'w') as f:
+    #     json.dump(metadata, f, indent=2)
     
-    print(f"Saved sparse matrix: {sparse_path}")
-    print(f"Saved best labels: {best_path}")
-    print(f"Saved metadata: {metadata_path}")
-    print(f"Sparsity: {sparsity:.4f}")
-    print(f"Non-zero elements: {nnz:,}")
+    # print(f"Saved sparse matrix: {sparse_path}")
+    # print(f"Saved best labels: {best_path}")
+    # print(f"Saved metadata: {metadata_path}")
+    # print(f"Sparsity: {sparsity:.4f}")
+    # print(f"Non-zero elements: {nnz:,}")
     
-    # Clean up
-    del sae_array, all_vectors
-    gc.collect()
-    if device == 'cuda':
-        torch.cuda.empty_cache()
+    # # Optionally clean up minibatch files (comment out if you want to keep them)
+    # # print("\nCleaning up minibatch files...")
+    # # for i in range(total_minibatches):
+    # #     (output_dir / f"{output_stem}_sparse_minibatch_{i}.npz").unlink(missing_ok=True)
+    # #     (output_dir / f"{output_stem}_best_minibatch_{i}.npy").unlink(missing_ok=True)
     
-    return sparse_matrix, best_array
+    # # Store results before cleanup
+    # result_sparse = combined_sparse
+    # result_best = combined_best
+    
+    # # Clean up
+    # del combined_sparse, combined_best
+    # gc.collect()
+    # if device == 'cuda':
+    #     torch.cuda.empty_cache()
+    
+    # return result_sparse, result_best
 
 
 def load_model_and_sae(device='cuda', use_quantization=False, sae_on_cpu=False):
@@ -340,7 +506,7 @@ def load_model_and_sae(device='cuda', use_quantization=False, sae_on_cpu=False):
             "google/gemma-3-4b-it",
             device_map='auto',
             quantization_config=bnb_config,
-            torch_dtype=torch.float16,
+            dtype=torch.bfloat16,
         )
     else:
         print("Loading model without quantization (using optimizations)...")
@@ -348,7 +514,7 @@ def load_model_and_sae(device='cuda', use_quantization=False, sae_on_cpu=False):
         model = AutoModelForCausalLM.from_pretrained(
             "google/gemma-3-4b-it",
             device_map='auto',
-            torch_dtype=torch.float16,
+            dtype=torch.bfloat16,
             low_cpu_mem_usage=True,
         )
     
@@ -489,6 +655,8 @@ def main():
                        help='Batch size (0 = auto-estimate based on VRAM)')
     parser.add_argument('--max-length', type=int, default=512,
                        help='Maximum sequence length for tokenization')
+    parser.add_argument('--minibatch-size', type=int, default=5000,
+                       help='Number of sentences after which to save and clear memory (default: 5000)')
     
     args = parser.parse_args()
     
@@ -537,7 +705,8 @@ def main():
                 LAYER, 
                 args.device,
                 batch_size=batch_size,
-                max_length=args.max_length
+                max_length=args.max_length,
+                minibatch_size=args.minibatch_size
             )
         except Exception as e:
             print(f"Error processing {csv_file}: {e}")
