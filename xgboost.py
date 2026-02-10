@@ -3,7 +3,7 @@ import numpy as np
 from pathlib import Path
 from scipy.sparse import csr_matrix, vstack
 from sklearn.linear_model import SGDClassifier
-# from xgboost import XGBClassifier
+from xgboost import XGBClassifier
 from sklearn.preprocessing import StandardScaler, MaxAbsScaler
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.model_selection import train_test_split
@@ -56,7 +56,15 @@ X_test = scaler.transform(X_test)
 # %% train logistic regression
 print("Training logistic regression model...")
 
-model = SGDClassifier(loss='log_loss', penalty='l2', alpha=0.0001, max_iter=2000, tol=1e-3, verbose=1, n_jobs=-1, random_state=0)
+model = XGBClassifier(
+    n_estimators=100,
+    max_depth=6,
+    learning_rate=0.1,
+    n_jobs=-1,
+    random_state=42,
+    eval_metric='mlogloss',
+    verbosity=1 
+)
 
 model.fit(X_train, y_train)
 
@@ -69,7 +77,13 @@ print(classification_report(y_test, y_pred))
 # print(confusion_matrix(y_test, y_pred))
 
 # %% feature importance
-feature_importances = model.coef_
+if isinstance(model, SGDClassifier):
+    feature_importances = model.coef_
+elif isinstance(model, XGBClassifier):
+    feature_importances = model.feature_importances_.reshape(1, -1)
+else:
+    raise ValueError("Unsupported model type for feature importance extraction.")
+
 top10 = np.argsort(feature_importances.flatten())[-10:][::-1]
 bottom10 = np.argsort(feature_importances.flatten())[:10]
 print("\nTop 10 feature indices and importance scores:")
@@ -115,3 +129,27 @@ for feature_idx in bottom10:
     url = get_dashboard_html(feature_idx=feature_idx)
     explanation = get_explanation(url)
     print(f"Feature {feature_idx}: {explanation}")
+
+# %%
+from xgboost import plot_tree
+import matplotlib.pyplot as plt
+plt.figure(figsize=(3000, 2000))  
+plot_tree(model, num_trees=1) 
+plt.show()
+
+# %% graphviz .dot
+import graphviz
+import xgboost as xgb
+import os
+tree_dot = xgb.to_graphviz(model, num_trees=1)
+# Save the dot file
+dot_file_path = "xgboost_tree.dot"
+tree_dot.save(dot_file_path)
+# Convert dot file to png and display
+with open(dot_file_path) as f:
+    dot_graph = f.read()
+# Use graphviz to display the tree
+graph = graphviz.Source(dot_graph)
+graph.render("xgboost_tree")
+# Optionally, visualize the graph directly
+graph

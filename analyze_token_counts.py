@@ -22,8 +22,15 @@ def analyze_token_counts(csv_path):
     print(f"Total rows: {len(df):,}")
     
     # Combine headline + lede into sentences
+    # df['sentence'] = df.apply(
+    #     lambda row: f"{row['headline']} {row['lede']}" if pd.notna(row['headline']) and pd.notna(row['lede']) 
+    #     else (str(row['headline']) if pd.notna(row['headline']) else ''),
+    #     axis=1
+    # )
+
+    # Updated to only use headline as per latest version
     df['sentence'] = df.apply(
-        lambda row: f"{row['headline']} {row['lede']}" if pd.notna(row['headline']) and pd.notna(row['lede']) 
+        lambda row: f"{row['headline']}" if pd.notna(row['headline']) and pd.notna(row['lede']) 
         else (str(row['headline']) if pd.notna(row['headline']) else ''),
         axis=1
     )

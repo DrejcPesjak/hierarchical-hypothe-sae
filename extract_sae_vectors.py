@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Extract sparse SAE vectors from preprocessed CSV files.
-For each sentence (headline + lede), extracts activations, then latent vectors,
-averages them across the sentence, and saves as sparse matrix.
+Extract sparse SAE delta vectors from preprocessed CSV files.
+For each test_id, extracts best and worst headlines (by CTR), passes through LLM,
+masks instruction tokens, encodes through SAE, max-pools per sentence,
+then creates delta vectors: best-worst (label=1) and worst-best (label=0).
 
 Optimized for batch processing.
 
@@ -79,8 +80,12 @@ class JumpReLUSAE(nn.Module):
 
 def gather_acts_hook_batched(mod, inputs, outputs, cache: dict, key: str):
     """Hook function to store batched activations."""
-    # outputs[0] has shape [batch, seq_len, d_model]
-    cache[key] = outputs[0]
+    # outputs is tensor [batch, seq_len, d_model] for this model
+    # (for some models it's a tuple, so we handle both)
+    if isinstance(outputs, tuple):
+        cache[key] = outputs[0]
+    else:
+        cache[key] = outputs
     return outputs
 
 
@@ -106,17 +111,103 @@ def format_prompt(user_prompt: str) -> str:
 """
 
 
+# Instruction prefix/suffix for content token masking
+INSTRUCTION_PREFIX = "<start_of_turn>user\n"
+INSTRUCTION_SUFFIX = "<end_of_turn>\n<start_of_turn>model\n"
+
+
+def get_content_token_mask(tokenizer, texts, input_ids, device):
+    """
+    Create a mask that is 1 for content tokens (headline) and 0 for instruction tokens.
+    
+    Args:
+        tokenizer: The tokenizer
+        texts: Original text strings (without prompt formatting)
+        input_ids: Tokenized input_ids tensor [batch, seq_len]
+        device: Device for the mask tensor
+    
+    Returns:
+        Tensor of shape [batch, seq_len] with 1s for content tokens, 0s for instruction tokens
+    """
+    batch_size, seq_len = input_ids.shape
+    
+    # Tokenize prefix to get its length (same for all samples)
+    prefix_tokens = tokenizer(INSTRUCTION_PREFIX, add_special_tokens=True)['input_ids']
+    prefix_len = len(prefix_tokens)
+    
+    # Tokenize suffix to get its length
+    suffix_tokens = tokenizer(INSTRUCTION_SUFFIX, add_special_tokens=False)['input_ids']
+    suffix_len = len(suffix_tokens)
+    
+    # Create mask for each sample
+    content_mask = torch.zeros(batch_size, seq_len, device=device)
+    
+    for i, text in enumerate(texts):
+        # Tokenize just the content to get its length
+        content_tokens = tokenizer(text, add_special_tokens=False)['input_ids']
+        content_len = len(content_tokens)
+        
+        # Content starts after prefix, ends before suffix
+        content_start = prefix_len
+        content_end = prefix_len + content_len
+        
+        # Set mask to 1 for content tokens
+        if content_end <= seq_len:
+            content_mask[i, content_start:content_end] = 1.0
+    
+    return content_mask
+
+
+def get_best_worst_pairs(df):
+    """
+    Extract best and worst headline pairs per test_id based on CTR.
+    
+    Args:
+        df: DataFrame with columns: clickability_test_id, headline, ctr
+    
+    Returns:
+        List of tuples: (best_headline, worst_headline, test_id)
+    """
+    pairs = []
+    
+    for test_id, group in df.groupby('clickability_test_id'):
+        # Need at least 2 different headlines
+        if len(group) < 2:
+            continue
+        
+        # Get best (max CTR) and worst (min CTR) headlines
+        best_idx = group['ctr'].idxmax()
+        worst_idx = group['ctr'].idxmin()
+        
+        # Skip if same headline (tie in CTR)
+        if best_idx == worst_idx:
+            continue
+        
+        best_headline = group.loc[best_idx, 'headline']
+        worst_headline = group.loc[worst_idx, 'headline']
+        
+        # Skip if either is empty/NaN
+        if pd.isna(best_headline) or pd.isna(worst_headline):
+            continue
+        if str(best_headline).strip() == '' or str(worst_headline).strip() == '':
+            continue
+            
+        pairs.append((str(best_headline), str(worst_headline), test_id))
+    
+    return pairs
+
+
 def extract_sae_vectors_batch(model, sae, tokenizer, target_layer, texts, device, max_length=512):
     """
     Extract sparse SAE vectors for a batch of sentences.
-    Returns averaged latent vectors across all tokens (excluding padding).
+    Returns max-pooled latent vectors across content tokens only (excluding padding and instruction tokens).
     
     Args:
         model: The language model
         sae: The SAE model
         tokenizer: The tokenizer
         target_layer: Which layer to extract from
-        texts: List of text strings
+        texts: List of text strings (raw headlines, not formatted)
         device: Device for model
         max_length: Maximum sequence length
     
@@ -141,7 +232,7 @@ def extract_sae_vectors_batch(model, sae, tokenizer, target_layer, texts, device
     
     # Get activations for the batch
     with torch.no_grad():
-        # Shape: [batch, seq_len, d_model]
+        # Step 1: Get LLM activations - Shape: [batch, seq_len, d_model]
         target_acts = gather_residual_activations_batched(
             model, target_layer, input_ids, attention_mask
         )
@@ -153,32 +244,60 @@ def extract_sae_vectors_batch(model, sae, tokenizer, target_layer, texts, device
         if target_acts.device != sae_device:
             target_acts = target_acts.to(sae_device)
         
-        # Encode through SAE - shape: [batch, seq_len, d_sae]
-        sae_acts = sae.encode(target_acts.to(torch.float32))
+        # Step 2: Create content token mask (excludes instruction tokens and padding)
+        content_mask = get_content_token_mask(tokenizer, texts, input_ids, sae_device)
+        combined_mask = content_mask * attention_mask.to(sae_device).float()
         
-        # Average across sequence length, excluding padding tokens
-        # attention_mask shape: [batch, seq_len]
-        # Expand mask for broadcasting: [batch, seq_len, 1]
-        mask_expanded = attention_mask.to(sae_device).unsqueeze(-1).float()
+        # Step 3: Extract ONLY content token activations (remove instruction/padding)
+        batch_size, seq_len = input_ids.shape
+        d_model = target_acts.shape[-1]
         
-        # Masked sum and count
-        masked_acts = sae_acts * mask_expanded
-        sum_acts = masked_acts.sum(dim=1)  # [batch, d_sae]
-        count = mask_expanded.sum(dim=1).clamp(min=1)  # [batch, 1]
+        content_counts = combined_mask.sum(dim=1).long()  # [batch] - tokens per sample
         
-        # Average (excluding padding)
-        avg_acts = sum_acts / count  # [batch, d_sae]
+        # Flatten and extract only content tokens
+        flat_mask = combined_mask.view(-1).bool()  # [batch * seq_len]
+        flat_acts = target_acts.view(-1, d_model)  # [batch * seq_len, d_model]
+        content_acts = flat_acts[flat_mask]  # [total_content_tokens, d_model]
+        
+        # Step 4: Encode ONLY content activations through SAE (much smaller!)
+        content_sae_acts = sae.encode(content_acts.to(torch.float32))  # [total_content_tokens, d_sae]
+        d_sae = content_sae_acts.shape[-1]
+        
+        # # OLD: Average across sequence length, excluding padding tokens
+        # # attention_mask shape: [batch, seq_len]
+        # # Expand mask for broadcasting: [batch, seq_len, 1]
+        # mask_expanded = attention_mask.to(sae_device).unsqueeze(-1).float()
+        # 
+        # # Masked sum and count
+        # masked_acts = sae_acts * mask_expanded
+        # sum_acts = masked_acts.sum(dim=1)  # [batch, d_sae]
+        # count = mask_expanded.sum(dim=1).clamp(min=1)  # [batch, 1]
+        # 
+        # # Average (excluding padding)
+        # avg_acts = sum_acts / count  # [batch, d_sae]
+        
+        # Step 5: Max pool per sample (split back by sample)
+        max_acts = torch.zeros(batch_size, d_sae, device=sae_device)
+        offset = 0
+        for i, count in enumerate(content_counts):
+            count_val = count.item()
+            if count_val > 0:
+                sample_acts = content_sae_acts[offset:offset + count_val]  # [count, d_sae]
+                max_acts[i] = sample_acts.max(dim=0)[0]
+            # else: max_acts[i] stays zero
+            offset += count_val
 
         if torch.isnan(target_acts).any() or torch.isinf(target_acts).any():
             print("NaNs/Infs in target_acts!")
-        if torch.isnan(sae_acts).any() or torch.isinf(sae_acts).any():
-            print("NaNs/Infs in sae_acts!")
+        if torch.isnan(content_sae_acts).any() or torch.isinf(content_sae_acts).any():
+            print("NaNs/Infs in content_sae_acts!")
     
     # Move to CPU and convert to numpy
-    result = avg_acts.cpu().numpy()
+    result = max_acts.cpu().numpy()
     
     # Clean up
-    del input_ids, attention_mask, target_acts, sae_acts, masked_acts, sum_acts, count, avg_acts
+    del input_ids, attention_mask, target_acts, content_mask, combined_mask, content_acts, content_sae_acts, max_acts
+    # del input_ids, attention_mask, target_acts, sae_acts, masked_acts, sum_acts, count, avg_acts
     
     return result
 
@@ -275,8 +394,9 @@ def save_minibatch(vectors_list, labels_list, output_dir, output_stem, minibatch
 def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer, device, 
                      batch_size=8, max_length=512, minibatch_size=5000):
     """
-    Process a CSV file and extract SAE vectors for each row using batch processing.
-    Saves minibatches periodically to disk to manage memory.
+    Process a CSV file and extract SAE delta vectors for best/worst headline pairs.
+    For each test_id, extracts best and worst headlines by CTR, computes delta vectors.
+    Creates two examples per pair: best-worst (label=1) and worst-best (label=0).
     
     Args:
         csv_path: Path to input CSV
@@ -286,28 +406,32 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
         tokenizer: The tokenizer
         target_layer: Which layer to extract from
         device: Device for model
-        batch_size: Number of sentences to process at once (GPU batch)
+        batch_size: Number of pairs to process at once (GPU batch)
         max_length: Maximum sequence length
-        minibatch_size: Number of sentences after which to save and clear memory (default: 5000)
+        minibatch_size: Number of delta examples after which to save and clear memory
     """
     print(f"\nProcessing: {csv_path}")
     df = pd.read_csv(csv_path)
     print(f"Total rows: {len(df):,}")
     
-    # Combine headline + lede into sentences
-    df['sentence'] = df.apply(
-        lambda row: f"{row['headline']} {row['lede']}" if pd.notna(row['headline']) and pd.notna(row['lede']) 
-        else (str(row['headline']) if pd.notna(row['headline']) else ''),
-        axis=1
-    )
+    # # OLD: Combine headline + lede into sentences
+    # df['sentence'] = df.apply(
+    #     lambda row: f"{row['headline']} {row['lede']}" if pd.notna(row['headline']) and pd.notna(row['lede']) 
+    #     else (str(row['headline']) if pd.notna(row['headline']) else ''),
+    #     axis=1
+    # )
+    # 
+    # # Filter out empty sentences
+    # df = df[df['sentence'].str.strip() != ''].copy()
+    # print(f"Rows with valid sentences: {len(df):,}")
+    # 
+    # # Get sentences and labels
+    # sentences = df['sentence'].tolist()
+    # best_labels = df['best'].tolist()
     
-    # Filter out empty sentences
-    df = df[df['sentence'].str.strip() != ''].copy()
-    print(f"Rows with valid sentences: {len(df):,}")
-    
-    # Get sentences and labels
-    sentences = df['sentence'].tolist()
-    best_labels = df['best'].tolist()
+    # NEW: Get best/worst headline pairs per test_id
+    pairs = get_best_worst_pairs(df)
+    print(f"Found {len(pairs):,} best/worst headline pairs")
     
     # Get SAE dimension for zero vector fallback
     d_sae = sae.w_enc.shape[1]
@@ -317,48 +441,76 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
     output_stem = Path(output_path).stem
     
     # Process in batches with minibatch saving
-    current_minibatch_vectors = []  # Accumulated vectors for current minibatch
+    current_minibatch_vectors = []  # Accumulated delta vectors for current minibatch
     current_minibatch_labels = []    # Accumulated labels for current minibatch
-    sentences_processed = 0          # Total sentences processed in current minibatch
+    examples_processed = 0           # Total delta examples processed in current minibatch
     minibatch_idx = 0                # Current minibatch index
     
-    num_batches = (len(sentences) + batch_size - 1) // batch_size
+    # Each pair produces 2 examples (best-worst and worst-best)
+    total_examples = len(pairs) * 2
+    num_batches = (len(pairs) + batch_size - 1) // batch_size
     
-    print(f"Processing {len(sentences):,} sentences in {num_batches:,} batches (batch_size={batch_size})...")
-    print(f"Minibatch size: {minibatch_size:,} sentences (will save and clear memory after >= {minibatch_size:,} sentences)")
+    print(f"Processing {len(pairs):,} pairs in {num_batches:,} batches (batch_size={batch_size})...")
+    print(f"Will produce {total_examples:,} delta examples (2 per pair)")
+    print(f"Minibatch size: {minibatch_size:,} examples")
     
-    pbar = tqdm(total=len(sentences), desc="Extracting SAE vectors")
+    pbar = tqdm(total=len(pairs), desc="Extracting delta vectors")
     
     for batch_idx in range(num_batches):
         start_idx = batch_idx * batch_size
-        end_idx = min(start_idx + batch_size, len(sentences))
+        end_idx = min(start_idx + batch_size, len(pairs))
         
-        batch_texts = sentences[start_idx:end_idx]
-        batch_labels = best_labels[start_idx:end_idx]
-        batch_size_actual = len(batch_texts)
+        batch_pairs = pairs[start_idx:end_idx]
+        batch_size_actual = len(batch_pairs)
+        
+        # Separate best and worst headlines
+        best_headlines = [p[0] for p in batch_pairs]
+        worst_headlines = [p[1] for p in batch_pairs]
         
         try:
-            # Extract SAE vectors for the batch
-            batch_vectors = extract_sae_vectors_batch(
-                model, sae, tokenizer, target_layer, batch_texts, device, max_length
+            # Extract SAE vectors for best headlines
+            best_vectors = extract_sae_vectors_batch(
+                model, sae, tokenizer, target_layer, best_headlines, device, max_length
             )
-            current_minibatch_vectors.append(batch_vectors)
-            current_minibatch_labels.extend(batch_labels)
-            sentences_processed += batch_size_actual
+            
+            # Extract SAE vectors for worst headlines
+            worst_vectors = extract_sae_vectors_batch(
+                model, sae, tokenizer, target_layer, worst_headlines, device, max_length
+            )
+            
+            # Compute delta vectors
+            # best - worst with label 1
+            delta_best_worst = best_vectors - worst_vectors
+            # worst - best with label 0
+            delta_worst_best = worst_vectors - best_vectors
+            
+            # Interleave: for each pair, add both deltas
+            for i in range(batch_size_actual):
+                current_minibatch_vectors.append(delta_best_worst[i:i+1])  # Keep as 2D
+                current_minibatch_labels.append(1)
+                current_minibatch_vectors.append(delta_worst_best[i:i+1])
+                current_minibatch_labels.append(0)
+            
+            examples_processed += batch_size_actual * 2
             
         except Exception as e:
             print(f"\nError processing batch {batch_idx}: {e}")
+            import traceback
+            traceback.print_exc()
             # Use zero vectors as fallback for this batch
-            fallback = np.zeros((batch_size_actual, d_sae))
-            current_minibatch_vectors.append(fallback)
-            current_minibatch_labels.extend(batch_labels)
-            sentences_processed += batch_size_actual
+            for _ in range(batch_size_actual):
+                fallback = np.zeros((1, d_sae))
+                current_minibatch_vectors.append(fallback)
+                current_minibatch_labels.append(1)
+                current_minibatch_vectors.append(fallback)
+                current_minibatch_labels.append(0)
+            examples_processed += batch_size_actual * 2
         
         pbar.update(batch_size_actual)
         
-        # Check if we've processed enough sentences to save a minibatch
-        if sentences_processed >= minibatch_size:
-            print(f"\nSaving minibatch {minibatch_idx} ({sentences_processed:,} sentences)...")
+        # Check if we've processed enough examples to save a minibatch
+        if examples_processed >= minibatch_size:
+            print(f"\nSaving minibatch {minibatch_idx} ({examples_processed:,} examples)...")
             sparse_path, best_path = save_minibatch(
                 current_minibatch_vectors,
                 current_minibatch_labels,
@@ -375,7 +527,7 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
             del current_minibatch_vectors, current_minibatch_labels
             current_minibatch_vectors = []
             current_minibatch_labels = []
-            sentences_processed = 0
+            examples_processed = 0
             minibatch_idx += 1
             
             # Aggressive cleanup
@@ -393,7 +545,7 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
     
     # Save any remaining vectors in the last minibatch
     if current_minibatch_vectors:
-        print(f"\nSaving final minibatch {minibatch_idx} ({sentences_processed:,} sentences)...")
+        print(f"\nSaving final minibatch {minibatch_idx} ({examples_processed:,} examples)...")
         sparse_path, best_path = save_minibatch(
             current_minibatch_vectors,
             current_minibatch_labels,
@@ -409,79 +561,6 @@ def process_csv_file(csv_path, output_path, model, sae, tokenizer, target_layer,
         gc.collect()
         if device == 'cuda':
             torch.cuda.empty_cache()
-    
-    # # Combine all minibatches into final output
-    # total_minibatches = minibatch_idx
-    # print(f"\nCombining {total_minibatches} minibatches into final output...")
-    
-    # try:
-    #     combined_sparse, combined_best = combine_minibatches(
-    #         output_dir, output_stem, total_minibatches
-    #     )
-    # except Exception as e:
-    #     print(f"Error combining minibatches: {e}")
-    #     raise
-    
-    # # Save final combined outputs
-    # print(f"Saving final combined output to {output_path}...")
-    
-    # # Save sparse matrix
-    # sparse_path = output_dir / f"{output_stem}_sparse.npz"
-    # np.savez_compressed(sparse_path, 
-    #                    data=combined_sparse.data,
-    #                    indices=combined_sparse.indices,
-    #                    indptr=combined_sparse.indptr,
-    #                    shape=combined_sparse.shape)
-    
-    # # Save best labels
-    # best_path = output_dir / f"{output_stem}_best.npy"
-    # np.save(best_path, combined_best)
-    
-    # # Save metadata
-    # nnz = combined_sparse.nnz
-    # size = combined_sparse.shape[0] * combined_sparse.shape[1]
-    # sparsity = 1.0 - (nnz / size) if size > 0 else 0.0
-    
-    # metadata = {
-    #     'num_rows': len(df),
-    #     'num_features': combined_sparse.shape[1],
-    #     'sparse_matrix_shape': list(combined_sparse.shape),
-    #     'sparsity': sparsity,
-    #     'nnz': int(nnz),
-    #     'batch_size': batch_size,
-    #     'minibatch_size': minibatch_size,
-    #     'num_minibatches': total_minibatches,
-    #     'max_length': max_length,
-    #     'layer': target_layer,
-    # }
-    
-    # metadata_path = output_dir / f"{output_stem}_metadata.json"
-    # with open(metadata_path, 'w') as f:
-    #     json.dump(metadata, f, indent=2)
-    
-    # print(f"Saved sparse matrix: {sparse_path}")
-    # print(f"Saved best labels: {best_path}")
-    # print(f"Saved metadata: {metadata_path}")
-    # print(f"Sparsity: {sparsity:.4f}")
-    # print(f"Non-zero elements: {nnz:,}")
-    
-    # # Optionally clean up minibatch files (comment out if you want to keep them)
-    # # print("\nCleaning up minibatch files...")
-    # # for i in range(total_minibatches):
-    # #     (output_dir / f"{output_stem}_sparse_minibatch_{i}.npz").unlink(missing_ok=True)
-    # #     (output_dir / f"{output_stem}_best_minibatch_{i}.npy").unlink(missing_ok=True)
-    
-    # # Store results before cleanup
-    # result_sparse = combined_sparse
-    # result_best = combined_best
-    
-    # # Clean up
-    # del combined_sparse, combined_best
-    # gc.collect()
-    # if device == 'cuda':
-    #     torch.cuda.empty_cache()
-    
-    # return result_sparse, result_best
 
 
 def load_model_and_sae(device='cuda', use_quantization=False, sae_on_cpu=False):
