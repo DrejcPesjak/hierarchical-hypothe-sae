@@ -47,6 +47,23 @@ from sklearn.preprocessing import StandardScaler, MaxAbsScaler
 TOP_FEATURES = [9859, 11911, 13417, 5439, 11052, 433, 3759, 4294, 1847, 15267]
 BOTTOM_FEATURES = [11550, 15081, 5035, 6050, 11541, 11411, 13014, 2963, 15180, 8327]
 
+
+# Path 1: f11052: How to write clickbait titles
+# Path 2: f538: regulation, risk, and governance
+# Path 3: f12614: regex questions and explanations
+# Path 4: f613: clarifying question
+# Path 5: f726: foreign language text
+# Path 6: f1847: shocking or horrifying scenarios
+# Path 7: f2727: internet social media slang
+# Path 8: f605: past-tense narration
+# Path 9: f1389: past events
+# Path 10: f605: past-tense narration
+# Path 11: f538: regulation, risk, and governance
+# Path 12: f5439: offensive content
+# Path 13: f538: regulation, risk, and governance
+# Path 14: f1531: discovery and revelation
+# Path 15: f613: clarifying question
+
 FEATURE_LABELS = {
     9859: "objective factual rational",
     11911: "undesirable qualities",
@@ -68,6 +85,17 @@ FEATURE_LABELS = {
     2963: "constantly evolving",
     15180: "tax revenue and fees",
     8327: "referencing previous results or text",
+    
+    538: "regulation, risk, and governance",
+    12614: "regex questions and explanations",
+    613: "clarifying question",
+    726: "foreign language text",
+    1847: "shocking or horrifying scenarios",
+    2727: "internet social media slang",
+    605: "past-tense narration",
+    1389: "past events",
+    5439: "offensive content",
+    1531: "discovery and revelation",
 }
 
 # ============================================================================
@@ -320,7 +348,7 @@ def plot_feature_histograms(X, X_std, X_max, feature_indices, output_path="featu
     
     plt.suptitle("Feature Value Distributions Across Scaling Methods", fontsize=14, fontweight='bold')
     plt.tight_layout()
-    plt.savefig(output_path, dpi=150, bbox_inches='tight')
+    # plt.savefig(output_path, dpi=150, bbox_inches='tight')
     plt.close()
     print(f"\nHistogram figure saved to: {output_path}")
 
@@ -497,30 +525,38 @@ def main():
     # 2. Scaling Analysis
     X_std, X_max, scaler_std, scaler_max = analyze_scaling(X, "Confirmatory SAE Delta Vectors")
     
-    # 3. Feature Distribution Histograms (3x3 grid)
-    histogram_features = [11540, 3464, 11052]
-    plot_feature_histograms(X, X_std, X_max, histogram_features, output_path="feature_histograms.png")
+    # # 3. Feature Distribution Histograms (3x3 grid)
+    # histogram_features = [11540, 3464, 11052]
+    # plot_feature_histograms(X, X_std, X_max, histogram_features, output_path="feature_histograms.png")
     
-    # 4. Feature Activation Distribution (for the interesting features)
-    all_features = TOP_FEATURES + BOTTOM_FEATURES
-    analyze_feature_activations(X, all_features, FEATURE_LABELS, scaler_std, scaler_max)
+    # # 4. Feature Activation Distribution (for the interesting features)
+    # all_features = TOP_FEATURES + BOTTOM_FEATURES
+    # analyze_feature_activations(X, all_features, FEATURE_LABELS, scaler_std, scaler_max)
     
-    # 5. Top Activating Examples
-    # For TOP features (positive log reg coefficients): show pairs where this feature
-    # has highest positive delta (best >> worst)
-    print("\n" + "="*70)
-    print("TOP 10 FEATURES (positive log reg coefficients)")
-    print("="*70)
-    print_top_activating_examples(X, pairs, TOP_FEATURES, FEATURE_LABELS, 
-                                  n_examples=3, direction="positive")
+    # # 5. Top Activating Examples
+    # # For TOP features (positive log reg coefficients): show pairs where this feature
+    # # has highest positive delta (best >> worst)
+    # print("\n" + "="*70)
+    # print("TOP 10 FEATURES (positive log reg coefficients)")
+    # print("="*70)
+    # print_top_activating_examples(X, pairs, TOP_FEATURES, FEATURE_LABELS, 
+    #                               n_examples=3, direction="positive")
     
-    # For BOTTOM features (negative log reg coefficients): show pairs where this feature
-    # has most negative delta (worst >> best, or best << worst)
-    print("\n" + "="*70)
-    print("BOTTOM 10 FEATURES (negative log reg coefficients)")  
-    print("="*70)
-    print_top_activating_examples(X, pairs, BOTTOM_FEATURES, FEATURE_LABELS,
-                                  n_examples=3, direction="negative")
+    # # For BOTTOM features (negative log reg coefficients): show pairs where this feature
+    # # has most negative delta (worst >> best, or best << worst)
+    # print("\n" + "="*70)
+    # print("BOTTOM 10 FEATURES (negative log reg coefficients)")  
+    # print("="*70)
+    # print_top_activating_examples(X, pairs, BOTTOM_FEATURES, FEATURE_LABELS,
+    #                               n_examples=3, direction="negative")
+
+
+    tree_features = [11052, 538, 12614, 613, 726, 1847, 2727, 605, 1389, 5439, 1531]
+    additional_features = [1234, 5852, 136, 4127]
+    combined_features = tree_features + additional_features
+
+    print_top_activating_examples(X, pairs, combined_features, FEATURE_LABELS,
+                                  n_examples=5, direction="positive")
 
 
 if __name__ == "__main__":

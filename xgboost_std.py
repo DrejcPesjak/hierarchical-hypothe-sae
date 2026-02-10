@@ -57,7 +57,7 @@ X_test = scaler.transform(X_test)
 print("Training logistic regression model...")
 
 model = XGBClassifier(
-    n_estimators=100,
+    n_estimators=40,
     max_depth=6,
     learning_rate=0.1,
     n_jobs=-1,
@@ -92,6 +92,11 @@ for idx in top10:
 print("\nBottom 10 feature indices and importance scores:")
 for idx in bottom10:
     print(f"Feature {idx}: {feature_importances[0][idx]}")
+
+# %% dump all non zero feature importances indices and scores into file
+with open("feature_importances_xgb.txt", "w") as f:
+    for idx in np.where(feature_importances.flatten() != 0)[0]:
+        f.write(f"{idx}: {feature_importances[0][idx]}\n")
 
 # %% get feature names from neuronpedia
 from IPython.display import IFrame
@@ -131,7 +136,7 @@ for feature_idx in bottom10:
     print(f"Feature {feature_idx}: {explanation}")
 
 # %%
-from xgboost import plot_tree
+from xgboost_std import plot_tree
 import matplotlib.pyplot as plt
 plt.figure(figsize=(3000, 2000))  
 plot_tree(model, num_trees=1) 
@@ -139,7 +144,7 @@ plt.show()
 
 # %% graphviz .dot
 import graphviz
-import xgboost as xgb
+import xgboost_std as xgb
 import os
 tree_dot = xgb.to_graphviz(model, num_trees=1)
 # Save the dot file
