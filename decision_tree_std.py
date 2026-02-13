@@ -6,12 +6,12 @@ from scipy.sparse import csr_matrix, vstack
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import classification_report, accuracy_score
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GroupShuffleSplit, train_test_split
 import matplotlib.pyplot as plt
 
 # %% load important feature indices from xgboost
 important = {}
-with open("feature_importances_xgb.txt") as f:
+with open("tree_outputs/feature_importances_xgb_new.txt") as f:
     for line in f:
         idx_str, score_str = line.strip().split(": ", 1)
         important[int(idx_str)] = float(score_str)
@@ -19,40 +19,66 @@ with open("feature_importances_xgb.txt") as f:
 important_indices = np.array(sorted(important.keys()))
 print(f"Number of important features: {len(important_indices)}")
 
-# %% load data (only important columns)
+
+# %% load data
 N = None
 batch_dir = Path("./data/sae_vectors")
-batch_files = sorted(batch_dir.glob("confirmatory_preprocessed_sae_vectors_sparse_minibatch_*.npz"))
-batch_files = batch_files[:N] if N is not None else batch_files
+sparse_files = sorted(batch_dir.glob("confirmatory_preprocessed_sae_vectors_sparse_minibatch_*.npz"))
+meta_files = sorted(batch_dir.glob("confirmatory_preprocessed_sae_vectors_meta_minibatch_*.npz"))
+sparse_files = sparse_files[:N] if N is not None else sparse_files
+meta_files = meta_files[:N] if N is not None else meta_files
 
+# Load sparse vectors [context | diff] (each row is 2*d_sae wide)
 Xs = []
-for f in batch_files:
+for f in sparse_files:
     z = np.load(f)
     mat = csr_matrix((z["data"], z["indices"], z["indptr"]), shape=tuple(z["shape"]))
     Xs.append(mat[:, important_indices])
 
-X = vstack(Xs, format="csr")
-print(f"X shape (filtered): {X.shape}")
+X = vstack(Xs, format="csr")  # rows = examples
 
-best_files = sorted(batch_dir.glob("confirmatory_preprocessed_sae_vectors_best_minibatch_*.npy"))
-best_files = best_files[:N] if N is not None else best_files
-y = np.concatenate([np.load(f).reshape(-1) for f in best_files], axis=0)
-print(f"y shape: {y.shape}")
+# Load metadata
+test_ids_list, y_list = [], []
+w_diff_list, w_logit_list, w_beta_list = [], [], []
 
-# %% split data (by pairs to avoid data leakage)
-print("Splitting data into train and test sets (by pair)...")
-n_pairs = X.shape[0] // 2
-pair_indices = np.arange(n_pairs)
+for f in meta_files:
+    m = np.load(f, allow_pickle=True)
+    test_ids_list.append(m["test_id"])
+    y_list.append(m["better_label"])
+    w_diff_list.append(m["weight_diff"])
+    w_logit_list.append(m["weight_logit"])
+    w_beta_list.append(m["weight_beta"])
 
-train_pairs, test_pairs = train_test_split(pair_indices, test_size=0.2, random_state=42)
+test_ids = np.concatenate(test_ids_list)
+y = np.concatenate(y_list)
+w_diff = np.concatenate(w_diff_list)
+w_logit = np.concatenate(w_logit_list)
+w_beta = np.concatenate(w_beta_list)
 
-train_idx = np.sort(np.concatenate([train_pairs * 2, train_pairs * 2 + 1]))
-test_idx = np.sort(np.concatenate([test_pairs * 2, test_pairs * 2 + 1]))
+print(f"Loaded {X.shape[0]} examples, {X.shape[1]} features (context+diff)")
+print(f"Unique test_ids: {len(np.unique(test_ids))}")
+print(f"Label distribution: 0={np.sum(y == 0)}, 1={np.sum(y == 1)}")
+
+# %% choose weight scheme
+# Use simplest weight: absolute CTR difference
+# sample_weight = w_diff
+# sample_weight = w_logit    # logit difference (eps-clamped)
+sample_weight = w_beta     # Jeffreys beta posterior + sqrt(min impressions)
+
+# %% split data (by test_id to avoid data leakage)
+# All pairs from the same test_id must go into the same split
+print("Splitting data into train and test sets (by test_id)...")
+
+gss = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+train_idx, test_idx = next(gss.split(X, y, groups=test_ids))
 
 X_train, X_test = X[train_idx], X[test_idx]
 y_train, y_test = y[train_idx], y[test_idx]
+w_train, w_test = sample_weight[train_idx], sample_weight[test_idx]
 
-print(f"Train: {len(train_pairs)} pairs ({X_train.shape[0]} rows), Test: {len(test_pairs)} pairs ({X_test.shape[0]} rows)")
+n_train_ids = len(np.unique(test_ids[train_idx]))
+n_test_ids = len(np.unique(test_ids[test_idx]))
+print(f"Train: {n_train_ids} test_ids ({X_train.shape[0]} rows), Test: {n_test_ids} test_ids ({X_test.shape[0]} rows)")
 
 # %% standardize features
 scaler = StandardScaler(with_mean=False)
@@ -68,13 +94,20 @@ with open("data/gemmascope_explanations/ex/gemma3_4b_it_layer22_16k_explanations
 explanation_map = {int(item["index"]): item["description"] for item in explanations_list}
 
 feature_names = []
-for idx in important_indices:
-    if idx in explanation_map:
-        feature_names.append(f"f{idx}: {explanation_map[idx]}")
-    else:
-        feature_names.append(f"f_{idx}")
+d_sae = 16384
+for i in important_indices:
+    e = 'c'
+    idx = i
+    if i >= d_sae:
+        idx = i - d_sae
+        e = 'Δ'
 
-print(f"Feature names loaded: {len(feature_names)} ({sum(1 for n in feature_names if n.startswith('f_'))} missing explanations)")
+    if idx in explanation_map:
+        feature_names.append(f"{e}f_{idx}: {explanation_map[idx]}")
+    else:
+        feature_names.append(f"{e}f_{idx}")
+
+print(f"Feature names loaded: {len(feature_names)} ({sum(1 for n in feature_names if ':' not in n)} missing explanations)")
 
 # %% train decision tree
 print("Training decision tree...")
@@ -83,12 +116,12 @@ dt = DecisionTreeClassifier(
     min_samples_leaf=20,
     random_state=42,
 )
-dt.fit(X_train, y_train)
+dt.fit(X_train, y_train, sample_weight=w_train)
 print(f"Tree depth: {dt.get_depth()}, leaves: {dt.get_n_leaves()}")
 
 # %% evaluate on test set
 y_pred = dt.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
+accuracy = accuracy_score(y_test, y_pred, sample_weight=w_test)
 print(f"\nAccuracy: {accuracy}")
 print(classification_report(y_test, y_pred))
 
@@ -108,8 +141,8 @@ plot_tree(
 )
 ax.set_title("Decision Tree (XGB-selected features)", fontsize=24)
 fig.tight_layout()
-fig.savefig("decision_tree_uhd.png", dpi=160, bbox_inches="tight")
-print("Saved to decision_tree_uhd.png")
+fig.savefig("tree_outputs/decision_tree_uhd5.png", dpi=160, bbox_inches="tight")
+print("Saved to tree_outputs/decision_tree_uhd5.png")
 plt.show()
 
 
