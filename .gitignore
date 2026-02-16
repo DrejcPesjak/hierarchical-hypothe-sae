@@ -209,6 +209,9 @@ __marimo__/
 
 # Data folder
 data/
+*.npz
+*.npy
+*.csv
 
 # Test code
 test_code/

@@ -1,0 +1,117 @@
+Loading diff vectors and metadata...
+Diff vectors: 57289 examples × 16384 features
+Label distribution: 0=28804, 1=28485
+Loading cluster assignments...
+Clusters: 10, Train: 45657, Test: 11632
+
+================================================================================
+Training GLOBAL XGBoost on all diff features...
+================================================================================
+  Accuracy:          0.6101
+  Weighted Accuracy: 0.6720
+  F1:                0.6097
+  AUC-ROC:           0.7386
+              precision    recall  f1-score   support
+
+           0       0.61      0.61      0.61      5791
+           1       0.61      0.61      0.61      5841
+
+    accuracy                           0.61     11632
+   macro avg       0.61      0.61      0.61     11632
+weighted avg       0.61      0.61      0.61     11632
+
+
+================================================================================
+Training PER-CLUSTER XGBoost models...
+================================================================================
+
+Cluster 0: 3199 train, 813 test
+  Accuracy:          0.5633
+  Weighted Accuracy: 0.6281
+  F1:                0.6069
+  AUC-ROC:           0.6662
+
+Cluster 1: 4542 train, 1166 test
+  Accuracy:          0.5643
+  Weighted Accuracy: 0.5920
+  F1:                0.5456
+  AUC-ROC:           0.6719
+
+Cluster 2: 2539 train, 545 test
+  Accuracy:          0.5119
+  Weighted Accuracy: 0.5513
+  F1:                0.5696
+  AUC-ROC:           0.5596
+
+Cluster 3: 6628 train, 1687 test
+  Accuracy:          0.5762
+  Weighted Accuracy: 0.6290
+  F1:                0.5836
+  AUC-ROC:           0.6898
+
+Cluster 4: 3838 train, 1076 test
+  Accuracy:          0.5632
+  Weighted Accuracy: 0.6040
+  F1:                0.5272
+  AUC-ROC:           0.6837
+
+Cluster 5: 4572 train, 1128 test
+  Accuracy:          0.5629
+  Weighted Accuracy: 0.6050
+  F1:                0.5489
+  AUC-ROC:           0.6345
+
+Cluster 6: 5028 train, 1288 test
+  Accuracy:          0.5901
+  Weighted Accuracy: 0.6359
+  F1:                0.5503
+  AUC-ROC:           0.7084
+
+Cluster 7: 3386 train, 890 test
+  Accuracy:          0.5809
+  Weighted Accuracy: 0.6185
+  F1:                0.5678
+  AUC-ROC:           0.6642
+
+Cluster 8: 4957 train, 1230 test
+  Accuracy:          0.5618
+  Weighted Accuracy: 0.5960
+  F1:                0.5333
+  AUC-ROC:           0.6556
+
+Cluster 9: 6968 train, 1809 test
+  Accuracy:          0.5882
+  Weighted Accuracy: 0.6711
+  F1:                0.5886
+  AUC-ROC:           0.7202
+
+================================================================================
+COMBINED per-cluster predictions (each test sample scored by its cluster model)
+================================================================================
+  Accuracy:          0.5708
+  Weighted Accuracy: 0.6193
+  F1:                0.5639
+  AUC-ROC:           0.6726
+
+================================================================================
+COMPARISON SUMMARY
+================================================================================
+Model                 N_train   N_test      Acc    W_Acc       F1      AUC
+--------------------------------------------------------------------------
+GLOBAL                  45657    11632   0.6101   0.6720   0.6097   0.7386
+Cluster_0                3199      813   0.5633   0.6281   0.6069   0.6662
+Cluster_1                4542     1166   0.5643   0.5920   0.5456   0.6719
+Cluster_2                2539      545   0.5119   0.5513   0.5696   0.5596
+Cluster_3                6628     1687   0.5762   0.6290   0.5836   0.6898
+Cluster_4                3838     1076   0.5632   0.6040   0.5272   0.6837
+Cluster_5                4572     1128   0.5629   0.6050   0.5489   0.6345
+Cluster_6                5028     1288   0.5901   0.6359   0.5503   0.7084
+Cluster_7                3386      890   0.5809   0.6185   0.5678   0.6642
+Cluster_8                4957     1230   0.5618   0.5960   0.5333   0.6556
+Cluster_9                6968     1809   0.5882   0.6711   0.5886   0.7202
+COMBINED-CLUSTER        45657    11632   0.5708   0.6193   0.5639   0.6726
+
+Δ Accuracy (combined_cluster - global): -0.0393
+Δ W_Acc    (combined_cluster - global): -0.0527
+Δ F1       (combined_cluster - global): -0.0458
+Δ AUC      (combined_cluster - global): -0.0660

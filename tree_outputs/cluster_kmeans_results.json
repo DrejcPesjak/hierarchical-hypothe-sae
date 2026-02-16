@@ -1,0 +1,1462 @@
+{
+  "0": {
+    "size_train": 3199,
+    "size_test": 813,
+    "distinctive_features": [
+      {
+        "name": "f_352: it's contractions",
+        "sae_idx": 352,
+        "diff": 1425.4500732421875,
+        "cluster_mean": 1717.1583251953125,
+        "global_mean": 291.7082214355469
+      },
+      {
+        "name": "f_155: It's important/crucial/not",
+        "sae_idx": 155,
+        "diff": 1235.873291015625,
+        "cluster_mean": 1457.945068359375,
+        "global_mean": 222.07183837890625
+      },
+      {
+        "name": "f_506",
+        "sae_idx": 506,
+        "diff": 572.678955078125,
+        "cluster_mean": 1992.97021484375,
+        "global_mean": 1420.291259765625
+      },
+      {
+        "name": "f_1306: it is or it's statements",
+        "sae_idx": 1306,
+        "diff": 568.8176879882812,
+        "cluster_mean": 756.8787841796875,
+        "global_mean": 188.06109619140625
+      },
+      {
+        "name": "f_14715: days of the week",
+        "sae_idx": 14715,
+        "diff": 506.3270568847656,
+        "cluster_mean": 587.8478393554688,
+        "global_mean": 81.5207748413086
+      },
+      {
+        "name": "f_208: it's good",
+        "sae_idx": 208,
+        "diff": 476.05718994140625,
+        "cluster_mean": 995.0886840820312,
+        "global_mean": 519.031494140625
+      },
+      {
+        "name": "f_319",
+        "sae_idx": 319,
+        "diff": 452.6822814941406,
+        "cluster_mean": 925.500244140625,
+        "global_mean": 472.8179626464844
+      },
+      {
+        "name": "f_731: it's possible or impossible",
+        "sae_idx": 731,
+        "diff": 412.7061767578125,
+        "cluster_mean": 531.3648681640625,
+        "global_mean": 118.65869140625
+      },
+      {
+        "name": "f_250",
+        "sae_idx": 250,
+        "diff": 353.99951171875,
+        "cluster_mean": 1664.41552734375,
+        "global_mean": 1310.416015625
+      },
+      {
+        "name": "f_170: contrast and qualification",
+        "sae_idx": 170,
+        "diff": 344.9162292480469,
+        "cluster_mean": 574.4537353515625,
+        "global_mean": 229.53750610351562
+      },
+      {
+        "name": "f_92",
+        "sae_idx": 92,
+        "diff": 322.369873046875,
+        "cluster_mean": 2007.5291748046875,
+        "global_mean": 1685.1593017578125
+      },
+      {
+        "name": "f_461",
+        "sae_idx": 461,
+        "diff": 289.9471435546875,
+        "cluster_mean": 730.8887329101562,
+        "global_mean": 440.94158935546875
+      },
+      {
+        "name": "f_86: difficulties and support",
+        "sae_idx": 86,
+        "diff": 274.8636474609375,
+        "cluster_mean": 904.3760986328125,
+        "global_mean": 629.512451171875
+      },
+      {
+        "name": "f_230",
+        "sae_idx": 230,
+        "diff": 273.4576416015625,
+        "cluster_mean": 435.9854736328125,
+        "global_mean": 162.52781677246094
+      },
+      {
+        "name": "f_438: degree of certainty",
+        "sae_idx": 438,
+        "diff": 258.60321044921875,
+        "cluster_mean": 324.3336486816406,
+        "global_mean": 65.73042297363281
+      },
+      {
+        "name": "f_2792: is a",
+        "sae_idx": 2792,
+        "diff": 245.3180389404297,
+        "cluster_mean": 387.9662780761719,
+        "global_mean": 142.6482391357422
+      },
+      {
+        "name": "f_171: negative emotions or events",
+        "sae_idx": 171,
+        "diff": 244.988037109375,
+        "cluster_mean": 1573.6378173828125,
+        "global_mean": 1328.6497802734375
+      },
+      {
+        "name": "f_4528: future states or conditions",
+        "sae_idx": 4528,
+        "diff": 235.65252685546875,
+        "cluster_mean": 337.9468688964844,
+        "global_mean": 102.2943344116211
+      },
+      {
+        "name": "f_1252: It takes or sounds like",
+        "sae_idx": 1252,
+        "diff": 235.17466735839844,
+        "cluster_mean": 268.3255920410156,
+        "global_mean": 33.15092849731445
+      },
+      {
+        "name": "f_11234: 's",
+        "sae_idx": 11234,
+        "diff": 220.79525756835938,
+        "cluster_mean": 396.8482971191406,
+        "global_mean": 176.05303955078125
+      }
+    ]
+  },
+  "1": {
+    "size_train": 4542,
+    "size_test": 1166,
+    "distinctive_features": [
+      {
+        "name": "f_457: this is or includes",
+        "sae_idx": 457,
+        "diff": 2411.84326171875,
+        "cluster_mean": 3192.54248046875,
+        "global_mean": 780.69921875
+      },
+      {
+        "name": "f_2174: specific context following 'this'",
+        "sae_idx": 2174,
+        "diff": 378.3551025390625,
+        "cluster_mean": 533.4412841796875,
+        "global_mean": 155.086181640625
+      },
+      {
+        "name": "f_6155: this, ThisItem, ThisComponent, ThisPC, ThisWorkbook",
+        "sae_idx": 6155,
+        "diff": 330.08929443359375,
+        "cluster_mean": 463.3102722167969,
+        "global_mean": 133.22097778320312
+      },
+      {
+        "name": "f_9102: particular entity definition",
+        "sae_idx": 9102,
+        "diff": 321.1031494140625,
+        "cluster_mean": 468.58026123046875,
+        "global_mean": 147.47711181640625
+      },
+      {
+        "name": "f_5555: introducing specific content",
+        "sae_idx": 5555,
+        "diff": 296.6405334472656,
+        "cluster_mean": 596.5339965820312,
+        "global_mean": 299.8934631347656
+      },
+      {
+        "name": "f_161: the content of programs or scenarios",
+        "sae_idx": 161,
+        "diff": 250.779052734375,
+        "cluster_mean": 353.8814392089844,
+        "global_mean": 103.10237884521484
+      },
+      {
+        "name": "f_1943: demonstrative descriptions",
+        "sae_idx": 1943,
+        "diff": 248.54696655273438,
+        "cluster_mean": 361.4857482910156,
+        "global_mean": 112.93877410888672
+      },
+      {
+        "name": "f_13060: This is a",
+        "sae_idx": 13060,
+        "diff": 238.80772399902344,
+        "cluster_mean": 353.61083984375,
+        "global_mean": 114.80311584472656
+      },
+      {
+        "name": "f_2220: 'this'",
+        "sae_idx": 2220,
+        "diff": 216.34352111816406,
+        "cluster_mean": 405.9337463378906,
+        "global_mean": 189.59022521972656
+      },
+      {
+        "name": "f_14697: That sounds",
+        "sae_idx": 14697,
+        "diff": 213.66461181640625,
+        "cluster_mean": 261.9807434082031,
+        "global_mean": 48.316123962402344
+      },
+      {
+        "name": "f_12183: This information disclaimer",
+        "sae_idx": 12183,
+        "diff": 146.48818969726562,
+        "cluster_mean": 170.9581298828125,
+        "global_mean": 24.469947814941406
+      },
+      {
+        "name": "f_1163: quantifying time periods",
+        "sae_idx": 1163,
+        "diff": 138.58741760253906,
+        "cluster_mean": 238.1180419921875,
+        "global_mean": 99.53062438964844
+      },
+      {
+        "name": "f_13819: demonstrative pronouns + noun/explanation",
+        "sae_idx": 13819,
+        "diff": 133.66360473632812,
+        "cluster_mean": 180.26588439941406,
+        "global_mean": 46.60228729248047
+      },
+      {
+        "name": "f_1548: seems like",
+        "sae_idx": 1548,
+        "diff": 128.85845947265625,
+        "cluster_mean": 189.87339782714844,
+        "global_mean": 61.01494216918945
+      },
+      {
+        "name": "f_9600: years and time periods",
+        "sae_idx": 9600,
+        "diff": 126.32371520996094,
+        "cluster_mean": 156.28457641601562,
+        "global_mean": 29.960857391357422
+      },
+      {
+        "name": "f_1455",
+        "sae_idx": 1455,
+        "diff": 121.077392578125,
+        "cluster_mean": 286.6094055175781,
+        "global_mean": 165.53201293945312
+      },
+      {
+        "name": "f_2707: introduction of content (version)",
+        "sae_idx": 2707,
+        "diff": 111.50044250488281,
+        "cluster_mean": 136.847412109375,
+        "global_mean": 25.346969604492188
+      },
+      {
+        "name": "f_1115: describing people or animals",
+        "sae_idx": 1115,
+        "diff": 111.24676513671875,
+        "cluster_mean": 413.26922607421875,
+        "global_mean": 302.0224609375
+      },
+      {
+        "name": "f_777: describing or defining existence",
+        "sae_idx": 777,
+        "diff": 109.04470825195312,
+        "cluster_mean": 188.4744415283203,
+        "global_mean": 79.42973327636719
+      },
+      {
+        "name": "f_49: positive evaluations",
+        "sae_idx": 49,
+        "diff": 105.72671508789062,
+        "cluster_mean": 448.6471252441406,
+        "global_mean": 342.92041015625
+      }
+    ]
+  },
+  "2": {
+    "size_train": 2539,
+    "size_test": 545,
+    "distinctive_features": [
+      {
+        "name": "f_426: first names followed by surnames",
+        "sae_idx": 426,
+        "diff": 1445.029296875,
+        "cluster_mean": 1618.5457763671875,
+        "global_mean": 173.5164794921875
+      },
+      {
+        "name": "f_460: people's names",
+        "sae_idx": 460,
+        "diff": 1354.467529296875,
+        "cluster_mean": 1484.648193359375,
+        "global_mean": 130.18060302734375
+      },
+      {
+        "name": "f_503",
+        "sae_idx": 503,
+        "diff": 1101.51953125,
+        "cluster_mean": 1212.6630859375,
+        "global_mean": 111.1435317993164
+      },
+      {
+        "name": "f_201: Notable people's last names",
+        "sae_idx": 201,
+        "diff": 932.1727294921875,
+        "cluster_mean": 1037.3736572265625,
+        "global_mean": 105.20094299316406
+      },
+      {
+        "name": "f_243",
+        "sae_idx": 243,
+        "diff": 816.6901245117188,
+        "cluster_mean": 1392.329833984375,
+        "global_mean": 575.6397094726562
+      },
+      {
+        "name": "f_736: people's names",
+        "sae_idx": 736,
+        "diff": 708.13818359375,
+        "cluster_mean": 783.9476318359375,
+        "global_mean": 75.80941772460938
+      },
+      {
+        "name": "f_521: names followed by last names",
+        "sae_idx": 521,
+        "diff": 666.0029907226562,
+        "cluster_mean": 745.4601440429688,
+        "global_mean": 79.45713806152344
+      },
+      {
+        "name": "f_839",
+        "sae_idx": 839,
+        "diff": 451.3870849609375,
+        "cluster_mean": 888.094970703125,
+        "global_mean": 436.7078857421875
+      },
+      {
+        "name": "f_250",
+        "sae_idx": 250,
+        "diff": 400.566162109375,
+        "cluster_mean": 1710.982177734375,
+        "global_mean": 1310.416015625
+      },
+      {
+        "name": "f_14: names of people, places, or things",
+        "sae_idx": 14,
+        "diff": 391.8869934082031,
+        "cluster_mean": 450.1036682128906,
+        "global_mean": 58.21666717529297
+      },
+      {
+        "name": "f_576: his and possessives",
+        "sae_idx": 576,
+        "diff": 376.35986328125,
+        "cluster_mean": 479.31024169921875,
+        "global_mean": 102.95037841796875
+      },
+      {
+        "name": "f_102: determiners followed by specific nouns",
+        "sae_idx": 102,
+        "diff": 324.3151550292969,
+        "cluster_mean": 397.1344909667969,
+        "global_mean": 72.81934356689453
+      },
+      {
+        "name": "f_11433: names of people",
+        "sae_idx": 11433,
+        "diff": 308.3053283691406,
+        "cluster_mean": 335.75244140625,
+        "global_mean": 27.44711685180664
+      },
+      {
+        "name": "f_10638: names",
+        "sae_idx": 10638,
+        "diff": 304.54736328125,
+        "cluster_mean": 330.7940368652344,
+        "global_mean": 26.24666404724121
+      },
+      {
+        "name": "f_5677: The Trevor Project, names, names followed by entities",
+        "sae_idx": 5677,
+        "diff": 286.49798583984375,
+        "cluster_mean": 331.494140625,
+        "global_mean": 44.99617004394531
+      },
+      {
+        "name": "f_207: word beginnings forming names",
+        "sae_idx": 207,
+        "diff": 284.61419677734375,
+        "cluster_mean": 378.8974304199219,
+        "global_mean": 94.2832260131836
+      },
+      {
+        "name": "f_15503: names of people and places",
+        "sae_idx": 15503,
+        "diff": 269.6481628417969,
+        "cluster_mean": 301.4485778808594,
+        "global_mean": 31.80042839050293
+      },
+      {
+        "name": "f_216",
+        "sae_idx": 216,
+        "diff": 263.1025085449219,
+        "cluster_mean": 396.0302734375,
+        "global_mean": 132.92776489257812
+      },
+      {
+        "name": "f_5223: celebrity and Hollywood figures",
+        "sae_idx": 5223,
+        "diff": 261.5893249511719,
+        "cluster_mean": 354.43377685546875,
+        "global_mean": 92.84444427490234
+      },
+      {
+        "name": "f_73: false",
+        "sae_idx": 73,
+        "diff": 256.5411376953125,
+        "cluster_mean": 727.8713989257812,
+        "global_mean": 471.33026123046875
+      }
+    ]
+  },
+  "3": {
+    "size_train": 6628,
+    "size_test": 1687,
+    "distinctive_features": [
+      {
+        "name": "f_425",
+        "sae_idx": 425,
+        "diff": 2361.97607421875,
+        "cluster_mean": 3423.935302734375,
+        "global_mean": 1061.959228515625
+      },
+      {
+        "name": "f_1979",
+        "sae_idx": 1979,
+        "diff": 502.65435791015625,
+        "cluster_mean": 699.3811645507812,
+        "global_mean": 196.72679138183594
+      },
+      {
+        "name": "f_1587: what questions",
+        "sae_idx": 1587,
+        "diff": 498.4791564941406,
+        "cluster_mean": 703.6261596679688,
+        "global_mean": 205.14700317382812
+      },
+      {
+        "name": "f_799: how to / how many",
+        "sae_idx": 799,
+        "diff": 411.5271911621094,
+        "cluster_mean": 706.0056762695312,
+        "global_mean": 294.4784851074219
+      },
+      {
+        "name": "f_83",
+        "sae_idx": 83,
+        "diff": 389.30804443359375,
+        "cluster_mean": 875.1015625,
+        "global_mean": 485.79351806640625
+      },
+      {
+        "name": "f_5825: questions starting with what",
+        "sae_idx": 5825,
+        "diff": 383.81378173828125,
+        "cluster_mean": 493.5014343261719,
+        "global_mean": 109.68763732910156
+      },
+      {
+        "name": "f_1039: explaining what things are or do",
+        "sae_idx": 1039,
+        "diff": 301.94085693359375,
+        "cluster_mean": 477.1155090332031,
+        "global_mean": 175.17465209960938
+      },
+      {
+        "name": "f_317: no matter / no significant",
+        "sae_idx": 317,
+        "diff": 282.131103515625,
+        "cluster_mean": 474.2114562988281,
+        "global_mean": 192.0803680419922
+      },
+      {
+        "name": "f_182: how it works",
+        "sae_idx": 182,
+        "diff": 257.3441162109375,
+        "cluster_mean": 461.44720458984375,
+        "global_mean": 204.10308837890625
+      },
+      {
+        "name": "f_1093: questions auxiliary verbs",
+        "sae_idx": 1093,
+        "diff": 255.71205139160156,
+        "cluster_mean": 422.93829345703125,
+        "global_mean": 167.2262420654297
+      },
+      {
+        "name": "f_1497: question mark",
+        "sae_idx": 1497,
+        "diff": 210.46775817871094,
+        "cluster_mean": 366.0079040527344,
+        "global_mean": 155.54014587402344
+      },
+      {
+        "name": "f_3027: question auxiliary verbs",
+        "sae_idx": 3027,
+        "diff": 206.7054901123047,
+        "cluster_mean": 303.1105041503906,
+        "global_mean": 96.40501403808594
+      },
+      {
+        "name": "f_892: Likely causing this",
+        "sae_idx": 892,
+        "diff": 201.88223266601562,
+        "cluster_mean": 382.77801513671875,
+        "global_mean": 180.89578247070312
+      },
+      {
+        "name": "f_613: clarifying question",
+        "sae_idx": 613,
+        "diff": 195.8354034423828,
+        "cluster_mean": 450.03350830078125,
+        "global_mean": 254.19810485839844
+      },
+      {
+        "name": "f_107: dialog starters",
+        "sae_idx": 107,
+        "diff": 174.2203369140625,
+        "cluster_mean": 2221.14697265625,
+        "global_mean": 2046.9266357421875
+      },
+      {
+        "name": "f_1899: is the",
+        "sae_idx": 1899,
+        "diff": 172.60000610351562,
+        "cluster_mean": 252.3286895751953,
+        "global_mean": 79.72868347167969
+      },
+      {
+        "name": "f_454",
+        "sae_idx": 454,
+        "diff": 165.521728515625,
+        "cluster_mean": 1669.226318359375,
+        "global_mean": 1503.70458984375
+      },
+      {
+        "name": "f_286",
+        "sae_idx": 286,
+        "diff": 164.86343383789062,
+        "cluster_mean": 515.1903686523438,
+        "global_mean": 350.3269348144531
+      },
+      {
+        "name": "f_110: when followed by a condition",
+        "sae_idx": 110,
+        "diff": 164.31179809570312,
+        "cluster_mean": 578.4360961914062,
+        "global_mean": 414.1242980957031
+      },
+      {
+        "name": "f_1634: why it is explained",
+        "sae_idx": 1634,
+        "diff": 158.00279235839844,
+        "cluster_mean": 303.7030334472656,
+        "global_mean": 145.7002410888672
+      }
+    ]
+  },
+  "4": {
+    "size_train": 3838,
+    "size_test": 1076,
+    "distinctive_features": [
+      {
+        "name": "f_247",
+        "sae_idx": 247,
+        "diff": 2488.616455078125,
+        "cluster_mean": 3036.610107421875,
+        "global_mean": 547.9935913085938
+      },
+      {
+        "name": "f_537: if something is possible",
+        "sae_idx": 537,
+        "diff": 1084.350341796875,
+        "cluster_mean": 1539.788818359375,
+        "global_mean": 455.43841552734375
+      },
+      {
+        "name": "f_121: you can followed by action",
+        "sae_idx": 121,
+        "diff": 641.8756103515625,
+        "cluster_mean": 1034.5799560546875,
+        "global_mean": 392.7043151855469
+      },
+      {
+        "name": "f_29: you followed by action/state",
+        "sae_idx": 29,
+        "diff": 551.786376953125,
+        "cluster_mean": 689.0699462890625,
+        "global_mean": 137.2835693359375
+      },
+      {
+        "name": "f_264: would be",
+        "sae_idx": 264,
+        "diff": 509.8078308105469,
+        "cluster_mean": 941.4328002929688,
+        "global_mean": 431.6249694824219
+      },
+      {
+        "name": "f_110: when followed by a condition",
+        "sae_idx": 110,
+        "diff": 477.3092956542969,
+        "cluster_mean": 891.43359375,
+        "global_mean": 414.1242980957031
+      },
+      {
+        "name": "f_11325: hypothetical, conditional situations",
+        "sae_idx": 11325,
+        "diff": 390.680419921875,
+        "cluster_mean": 441.8515625,
+        "global_mean": 51.171146392822266
+      },
+      {
+        "name": "f_928: you are / you can / i will",
+        "sae_idx": 928,
+        "diff": 357.7797546386719,
+        "cluster_mean": 866.55126953125,
+        "global_mean": 508.7715148925781
+      },
+      {
+        "name": "f_296",
+        "sae_idx": 296,
+        "diff": 349.5330810546875,
+        "cluster_mean": 861.5783081054688,
+        "global_mean": 512.0452270507812
+      },
+      {
+        "name": "f_92",
+        "sae_idx": 92,
+        "diff": 312.2918701171875,
+        "cluster_mean": 1997.451171875,
+        "global_mean": 1685.1593017578125
+      },
+      {
+        "name": "f_14898: if i could or were",
+        "sae_idx": 14898,
+        "diff": 294.5679626464844,
+        "cluster_mean": 347.0797424316406,
+        "global_mean": 52.51178741455078
+      },
+      {
+        "name": "f_2151: introducing cause or condition",
+        "sae_idx": 2151,
+        "diff": 261.5067443847656,
+        "cluster_mean": 312.5124206542969,
+        "global_mean": 51.00567626953125
+      },
+      {
+        "name": "f_10393: control flow keywords",
+        "sae_idx": 10393,
+        "diff": 253.22879028320312,
+        "cluster_mean": 286.3566589355469,
+        "global_mean": 33.12787628173828
+      },
+      {
+        "name": "f_520: code snippets following backticks",
+        "sae_idx": 520,
+        "diff": 251.45523071289062,
+        "cluster_mean": 287.96221923828125,
+        "global_mean": 36.506980895996094
+      },
+      {
+        "name": "f_2601: addressing you and others",
+        "sae_idx": 2601,
+        "diff": 233.57635498046875,
+        "cluster_mean": 369.97412109375,
+        "global_mean": 136.39776611328125
+      },
+      {
+        "name": "f_1171",
+        "sae_idx": 1171,
+        "diff": 231.927490234375,
+        "cluster_mean": 475.3890075683594,
+        "global_mean": 243.46151733398438
+      },
+      {
+        "name": "f_14077: difference between two concepts",
+        "sae_idx": 14077,
+        "diff": 226.21725463867188,
+        "cluster_mean": 467.0826721191406,
+        "global_mean": 240.86541748046875
+      },
+      {
+        "name": "f_162",
+        "sae_idx": 162,
+        "diff": 223.24945068359375,
+        "cluster_mean": 740.1342163085938,
+        "global_mean": 516.884765625
+      },
+      {
+        "name": "f_12537: I say, when I, I was",
+        "sae_idx": 12537,
+        "diff": 222.72860717773438,
+        "cluster_mean": 281.67047119140625,
+        "global_mean": 58.941856384277344
+      },
+      {
+        "name": "f_14188: corresponding appropriately",
+        "sae_idx": 14188,
+        "diff": 210.6295166015625,
+        "cluster_mean": 245.67286682128906,
+        "global_mean": 35.0433464050293
+      }
+    ]
+  },
+  "5": {
+    "size_train": 4572,
+    "size_test": 1128,
+    "distinctive_features": [
+      {
+        "name": "f_120",
+        "sae_idx": 120,
+        "diff": 1308.8455810546875,
+        "cluster_mean": 1598.9622802734375,
+        "global_mean": 290.1166687011719
+      },
+      {
+        "name": "f_511: geographical names and languages",
+        "sae_idx": 511,
+        "diff": 1206.3326416015625,
+        "cluster_mean": 1450.6824951171875,
+        "global_mean": 244.34982299804688
+      },
+      {
+        "name": "f_552: digits and numerical expressions",
+        "sae_idx": 552,
+        "diff": 889.9047241210938,
+        "cluster_mean": 1102.739013671875,
+        "global_mean": 212.8342742919922
+      },
+      {
+        "name": "f_439: several ways",
+        "sae_idx": 439,
+        "diff": 842.407958984375,
+        "cluster_mean": 1188.9788818359375,
+        "global_mean": 346.5708923339844
+      },
+      {
+        "name": "f_309: twenty story buildings",
+        "sae_idx": 309,
+        "diff": 796.1073608398438,
+        "cluster_mean": 993.85595703125,
+        "global_mean": 197.7486114501953
+      },
+      {
+        "name": "f_177: numbers and quantities",
+        "sae_idx": 177,
+        "diff": 750.412841796875,
+        "cluster_mean": 888.7900390625,
+        "global_mean": 138.37716674804688
+      },
+      {
+        "name": "f_420: ordinal number",
+        "sae_idx": 420,
+        "diff": 656.7213134765625,
+        "cluster_mean": 806.0474243164062,
+        "global_mean": 149.3260955810547
+      },
+      {
+        "name": "f_22: units of measurement",
+        "sae_idx": 22,
+        "diff": 619.4110107421875,
+        "cluster_mean": 739.0370483398438,
+        "global_mean": 119.62602996826172
+      },
+      {
+        "name": "f_819: time units before temporal markers",
+        "sae_idx": 819,
+        "diff": 615.1785888671875,
+        "cluster_mean": 771.4764404296875,
+        "global_mean": 156.29783630371094
+      },
+      {
+        "name": "f_1458: numbers followed by words",
+        "sae_idx": 1458,
+        "diff": 587.970947265625,
+        "cluster_mean": 733.953857421875,
+        "global_mean": 145.98294067382812
+      },
+      {
+        "name": "f_1752: units followed by context",
+        "sae_idx": 1752,
+        "diff": 499.68841552734375,
+        "cluster_mean": 618.763427734375,
+        "global_mean": 119.07502746582031
+      },
+      {
+        "name": "f_506",
+        "sae_idx": 506,
+        "diff": 485.0277099609375,
+        "cluster_mean": 1905.3189697265625,
+        "global_mean": 1420.291259765625
+      },
+      {
+        "name": "f_191: for a duration",
+        "sae_idx": 191,
+        "diff": 473.36700439453125,
+        "cluster_mean": 616.5244750976562,
+        "global_mean": 143.15745544433594
+      },
+      {
+        "name": "f_0: millions, thousands, billions",
+        "sae_idx": 0,
+        "diff": 415.38140869140625,
+        "cluster_mean": 501.99114990234375,
+        "global_mean": 86.6097412109375
+      },
+      {
+        "name": "f_1970: 3d, 4chan, 9gag",
+        "sae_idx": 1970,
+        "diff": 385.5591125488281,
+        "cluster_mean": 477.0182800292969,
+        "global_mean": 91.45917510986328
+      },
+      {
+        "name": "f_1117: 4 year old",
+        "sae_idx": 1117,
+        "diff": 329.57080078125,
+        "cluster_mean": 397.3884582519531,
+        "global_mean": 67.81767272949219
+      },
+      {
+        "name": "f_4199: number followed by year old",
+        "sae_idx": 4199,
+        "diff": 323.8965759277344,
+        "cluster_mean": 382.32647705078125,
+        "global_mean": 58.42989730834961
+      },
+      {
+        "name": "f_229",
+        "sae_idx": 229,
+        "diff": 323.13787841796875,
+        "cluster_mean": 1293.5205078125,
+        "global_mean": 970.3826293945312
+      },
+      {
+        "name": "f_14302: numbers and quantities",
+        "sae_idx": 14302,
+        "diff": 314.6029052734375,
+        "cluster_mean": 386.07293701171875,
+        "global_mean": 71.47003936767578
+      },
+      {
+        "name": "f_3221: numbers followed by units or punctuation",
+        "sae_idx": 3221,
+        "diff": 313.53973388671875,
+        "cluster_mean": 389.5765380859375,
+        "global_mean": 76.03681945800781
+      }
+    ]
+  },
+  "6": {
+    "size_train": 5028,
+    "size_test": 1288,
+    "distinctive_features": [
+      {
+        "name": "f_133: a dialogue",
+        "sae_idx": 133,
+        "diff": 1727.2928466796875,
+        "cluster_mean": 2375.91943359375,
+        "global_mean": 648.6265869140625
+      },
+      {
+        "name": "f_261",
+        "sae_idx": 261,
+        "diff": 835.3182373046875,
+        "cluster_mean": 1229.9283447265625,
+        "global_mean": 394.6100769042969
+      },
+      {
+        "name": "f_2400: hypothetical scenarios",
+        "sae_idx": 2400,
+        "diff": 764.1966552734375,
+        "cluster_mean": 1247.0792236328125,
+        "global_mean": 482.8825988769531
+      },
+      {
+        "name": "f_12139: questions and technical topics",
+        "sae_idx": 12139,
+        "diff": 743.8643798828125,
+        "cluster_mean": 1169.4921875,
+        "global_mean": 425.6278076171875
+      },
+      {
+        "name": "f_686: starts with a",
+        "sae_idx": 686,
+        "diff": 661.1124267578125,
+        "cluster_mean": 847.0560913085938,
+        "global_mean": 185.94369506835938
+      },
+      {
+        "name": "f_14687: answer choice 'A' followed by punctuation",
+        "sae_idx": 14687,
+        "diff": 597.8351440429688,
+        "cluster_mean": 722.9835205078125,
+        "global_mean": 125.14839935302734
+      },
+      {
+        "name": "f_353",
+        "sae_idx": 353,
+        "diff": 400.994140625,
+        "cluster_mean": 730.322998046875,
+        "global_mean": 329.328857421875
+      },
+      {
+        "name": "f_399",
+        "sae_idx": 399,
+        "diff": 400.54248046875,
+        "cluster_mean": 1033.2891845703125,
+        "global_mean": 632.7467041015625
+      },
+      {
+        "name": "f_225",
+        "sae_idx": 225,
+        "diff": 361.8042907714844,
+        "cluster_mean": 576.388427734375,
+        "global_mean": 214.58413696289062
+      },
+      {
+        "name": "f_14077: difference between two concepts",
+        "sae_idx": 14077,
+        "diff": 304.3814697265625,
+        "cluster_mean": 545.2468872070312,
+        "global_mean": 240.86541748046875
+      },
+      {
+        "name": "f_283: a new",
+        "sae_idx": 283,
+        "diff": 300.6683349609375,
+        "cluster_mean": 1660.80126953125,
+        "global_mean": 1360.1329345703125
+      },
+      {
+        "name": "f_131",
+        "sae_idx": 131,
+        "diff": 256.4188232421875,
+        "cluster_mean": 633.3723754882812,
+        "global_mean": 376.95355224609375
+      },
+      {
+        "name": "f_400: an followed by a word",
+        "sae_idx": 400,
+        "diff": 249.47369384765625,
+        "cluster_mean": 442.91131591796875,
+        "global_mean": 193.4376220703125
+      },
+      {
+        "name": "f_419",
+        "sae_idx": 419,
+        "diff": 248.98211669921875,
+        "cluster_mean": 501.7381286621094,
+        "global_mean": 252.75601196289062
+      },
+      {
+        "name": "f_199: relative clauses for people",
+        "sae_idx": 199,
+        "diff": 245.99481201171875,
+        "cluster_mean": 960.0769653320312,
+        "global_mean": 714.0821533203125
+      },
+      {
+        "name": "f_727",
+        "sae_idx": 727,
+        "diff": 227.02523803710938,
+        "cluster_mean": 475.47784423828125,
+        "global_mean": 248.45260620117188
+      },
+      {
+        "name": "f_2892: instructions or problem context",
+        "sae_idx": 2892,
+        "diff": 211.75267028808594,
+        "cluster_mean": 443.86083984375,
+        "global_mean": 232.10816955566406
+      },
+      {
+        "name": "f_2633: descriptions of people",
+        "sae_idx": 2633,
+        "diff": 208.64251708984375,
+        "cluster_mean": 369.1827697753906,
+        "global_mean": 160.54025268554688
+      },
+      {
+        "name": "f_4965: followed by nouns",
+        "sae_idx": 4965,
+        "diff": 197.165283203125,
+        "cluster_mean": 258.39166259765625,
+        "global_mean": 61.226383209228516
+      },
+      {
+        "name": "f_1115: describing people or animals",
+        "sae_idx": 1115,
+        "diff": 197.0220947265625,
+        "cluster_mean": 499.0445556640625,
+        "global_mean": 302.0224609375
+      }
+    ]
+  },
+  "7": {
+    "size_train": 3386,
+    "size_test": 890,
+    "distinctive_features": [
+      {
+        "name": "f_325: here followed by is or are",
+        "sae_idx": 325,
+        "diff": 1949.069091796875,
+        "cluster_mean": 2223.62451171875,
+        "global_mean": 274.5554504394531
+      },
+      {
+        "name": "f_495: no or strong presence",
+        "sae_idx": 495,
+        "diff": 1081.4625244140625,
+        "cluster_mean": 1223.5802001953125,
+        "global_mean": 142.11766052246094
+      },
+      {
+        "name": "f_506",
+        "sae_idx": 506,
+        "diff": 550.39111328125,
+        "cluster_mean": 1970.682373046875,
+        "global_mean": 1420.291259765625
+      },
+      {
+        "name": "f_537: if something is possible",
+        "sae_idx": 537,
+        "diff": 484.41375732421875,
+        "cluster_mean": 939.8521728515625,
+        "global_mean": 455.43841552734375
+      },
+      {
+        "name": "f_1168: start of explanation or list",
+        "sae_idx": 1168,
+        "diff": 428.3361511230469,
+        "cluster_mean": 502.2701721191406,
+        "global_mean": 73.93401336669922
+      },
+      {
+        "name": "f_816: breakdown of some",
+        "sae_idx": 816,
+        "diff": 400.8337097167969,
+        "cluster_mean": 460.12860107421875,
+        "global_mean": 59.294891357421875
+      },
+      {
+        "name": "f_14518: there is",
+        "sae_idx": 14518,
+        "diff": 373.0505065917969,
+        "cluster_mean": 432.7242431640625,
+        "global_mean": 59.673744201660156
+      },
+      {
+        "name": "f_4580: absence of single answer",
+        "sae_idx": 4580,
+        "diff": 363.5277404785156,
+        "cluster_mean": 411.449462890625,
+        "global_mean": 47.92172622680664
+      },
+      {
+        "name": "f_86: difficulties and support",
+        "sae_idx": 86,
+        "diff": 350.75567626953125,
+        "cluster_mean": 980.2681274414062,
+        "global_mean": 629.512451171875
+      },
+      {
+        "name": "f_2792: is a",
+        "sae_idx": 2792,
+        "diff": 341.1165771484375,
+        "cluster_mean": 483.76483154296875,
+        "global_mean": 142.6482391357422
+      },
+      {
+        "name": "f_496",
+        "sae_idx": 496,
+        "diff": 338.12774658203125,
+        "cluster_mean": 478.8724365234375,
+        "global_mean": 140.7446746826172
+      },
+      {
+        "name": "f_11234: 's",
+        "sae_idx": 11234,
+        "diff": 334.20733642578125,
+        "cluster_mean": 510.2603759765625,
+        "global_mean": 176.05303955078125
+      },
+      {
+        "name": "f_390",
+        "sae_idx": 390,
+        "diff": 319.2763366699219,
+        "cluster_mean": 473.4845275878906,
+        "global_mean": 154.20819091796875
+      },
+      {
+        "name": "f_490: detailed explanation",
+        "sae_idx": 490,
+        "diff": 309.42413330078125,
+        "cluster_mean": 528.664306640625,
+        "global_mean": 219.2401580810547
+      },
+      {
+        "name": "f_194",
+        "sae_idx": 194,
+        "diff": 282.4468994140625,
+        "cluster_mean": 1049.983154296875,
+        "global_mean": 767.5362548828125
+      },
+      {
+        "name": "f_250",
+        "sae_idx": 250,
+        "diff": 267.6773681640625,
+        "cluster_mean": 1578.0933837890625,
+        "global_mean": 1310.416015625
+      },
+      {
+        "name": "f_13060: This is a",
+        "sae_idx": 13060,
+        "diff": 254.63157653808594,
+        "cluster_mean": 369.4346923828125,
+        "global_mean": 114.80311584472656
+      },
+      {
+        "name": "f_499",
+        "sae_idx": 499,
+        "diff": 252.31996154785156,
+        "cluster_mean": 414.5771484375,
+        "global_mean": 162.25718688964844
+      },
+      {
+        "name": "f_118",
+        "sae_idx": 118,
+        "diff": 233.965576171875,
+        "cluster_mean": 969.1896362304688,
+        "global_mean": 735.2240600585938
+      },
+      {
+        "name": "f_421: now let's continue analysis",
+        "sae_idx": 421,
+        "diff": 190.4242706298828,
+        "cluster_mean": 354.7901916503906,
+        "global_mean": 164.3659210205078
+      }
+    ]
+  },
+  "8": {
+    "size_train": 4957,
+    "size_test": 1230,
+    "distinctive_features": [
+      {
+        "name": "f_34: the specific noun",
+        "sae_idx": 34,
+        "diff": 539.1644897460938,
+        "cluster_mean": 708.4976806640625,
+        "global_mean": 169.33319091796875
+      },
+      {
+        "name": "f_3: the key idea",
+        "sae_idx": 3,
+        "diff": 526.0015258789062,
+        "cluster_mean": 864.2294921875,
+        "global_mean": 338.22796630859375
+      },
+      {
+        "name": "f_399",
+        "sae_idx": 399,
+        "diff": 487.6336669921875,
+        "cluster_mean": 1120.38037109375,
+        "global_mean": 632.7467041015625
+      },
+      {
+        "name": "f_137: the and noun",
+        "sae_idx": 137,
+        "diff": 275.2626953125,
+        "cluster_mean": 416.7421875,
+        "global_mean": 141.47947692871094
+      },
+      {
+        "name": "f_7017: the followed by a request",
+        "sae_idx": 7017,
+        "diff": 258.2714538574219,
+        "cluster_mean": 354.8700256347656,
+        "global_mean": 96.59857940673828
+      },
+      {
+        "name": "f_2892: instructions or problem context",
+        "sae_idx": 2892,
+        "diff": 239.8279266357422,
+        "cluster_mean": 471.93609619140625,
+        "global_mean": 232.10816955566406
+      },
+      {
+        "name": "f_98: more or most [degree/quality]",
+        "sae_idx": 98,
+        "diff": 224.09498596191406,
+        "cluster_mean": 425.3898010253906,
+        "global_mean": 201.29481506347656
+      },
+      {
+        "name": "f_463",
+        "sae_idx": 463,
+        "diff": 206.90011596679688,
+        "cluster_mean": 463.15179443359375,
+        "global_mean": 256.2516784667969
+      },
+      {
+        "name": "f_346",
+        "sae_idx": 346,
+        "diff": 199.76336669921875,
+        "cluster_mean": 984.378662109375,
+        "global_mean": 784.6152954101562
+      },
+      {
+        "name": "f_16: what constitutes or describes",
+        "sae_idx": 16,
+        "diff": 187.03182983398438,
+        "cluster_mean": 426.01300048828125,
+        "global_mean": 238.98117065429688
+      },
+      {
+        "name": "f_105",
+        "sae_idx": 105,
+        "diff": 176.5390625,
+        "cluster_mean": 432.017578125,
+        "global_mean": 255.478515625
+      },
+      {
+        "name": "f_1153: Roman Empire, intelligence discipline",
+        "sae_idx": 1153,
+        "diff": 174.94432067871094,
+        "cluster_mean": 404.5300598144531,
+        "global_mean": 229.5857391357422
+      },
+      {
+        "name": "f_169",
+        "sae_idx": 169,
+        "diff": 173.3839111328125,
+        "cluster_mean": 1641.430419921875,
+        "global_mean": 1468.0465087890625
+      },
+      {
+        "name": "f_12139: questions and technical topics",
+        "sae_idx": 12139,
+        "diff": 172.02655029296875,
+        "cluster_mean": 597.6543579101562,
+        "global_mean": 425.6278076171875
+      },
+      {
+        "name": "f_167: \"the\" followed by a key concept",
+        "sae_idx": 167,
+        "diff": 167.5060272216797,
+        "cluster_mean": 219.43280029296875,
+        "global_mean": 51.92677307128906
+      },
+      {
+        "name": "f_14458: titles and websites",
+        "sae_idx": 14458,
+        "diff": 162.22645568847656,
+        "cluster_mean": 324.3790283203125,
+        "global_mean": 162.15257263183594
+      },
+      {
+        "name": "f_225",
+        "sae_idx": 225,
+        "diff": 160.83773803710938,
+        "cluster_mean": 375.421875,
+        "global_mean": 214.58413696289062
+      },
+      {
+        "name": "f_14742: the answer",
+        "sae_idx": 14742,
+        "diff": 159.1685333251953,
+        "cluster_mean": 207.0597686767578,
+        "global_mean": 47.891231536865234
+      },
+      {
+        "name": "f_526: names and specific entities",
+        "sae_idx": 526,
+        "diff": 156.03646850585938,
+        "cluster_mean": 644.6522827148438,
+        "global_mean": 488.6158142089844
+      },
+      {
+        "name": "f_302",
+        "sae_idx": 302,
+        "diff": 152.04913330078125,
+        "cluster_mean": 604.4345703125,
+        "global_mean": 452.38543701171875
+      }
+    ]
+  },
+  "9": {
+    "size_train": 6968,
+    "size_test": 1809,
+    "distinctive_features": [
+      {
+        "name": "f_379: pronoun followed by a verb",
+        "sae_idx": 379,
+        "diff": 521.0985107421875,
+        "cluster_mean": 863.84521484375,
+        "global_mean": 342.7467041015625
+      },
+      {
+        "name": "f_928: you are / you can / i will",
+        "sae_idx": 928,
+        "diff": 379.1904602050781,
+        "cluster_mean": 887.9619750976562,
+        "global_mean": 508.7715148925781
+      },
+      {
+        "name": "f_391: i am a / i'm a",
+        "sae_idx": 391,
+        "diff": 374.36114501953125,
+        "cluster_mean": 790.2357788085938,
+        "global_mean": 415.8746337890625
+      },
+      {
+        "name": "f_506",
+        "sae_idx": 506,
+        "diff": 367.1455078125,
+        "cluster_mean": 1787.436767578125,
+        "global_mean": 1420.291259765625
+      },
+      {
+        "name": "f_171: negative emotions or events",
+        "sae_idx": 171,
+        "diff": 361.1397705078125,
+        "cluster_mean": 1689.78955078125,
+        "global_mean": 1328.6497802734375
+      },
+      {
+        "name": "f_92",
+        "sae_idx": 92,
+        "diff": 326.9525146484375,
+        "cluster_mean": 2012.11181640625,
+        "global_mean": 1685.1593017578125
+      },
+      {
+        "name": "f_250",
+        "sae_idx": 250,
+        "diff": 319.9288330078125,
+        "cluster_mean": 1630.3448486328125,
+        "global_mean": 1310.416015625
+      },
+      {
+        "name": "f_461",
+        "sae_idx": 461,
+        "diff": 317.2203369140625,
+        "cluster_mean": 758.1619262695312,
+        "global_mean": 440.94158935546875
+      },
+      {
+        "name": "f_360: personal emotional struggels",
+        "sae_idx": 360,
+        "diff": 221.0850830078125,
+        "cluster_mean": 631.1828002929688,
+        "global_mean": 410.09771728515625
+      },
+      {
+        "name": "f_386: Don't / let's",
+        "sae_idx": 386,
+        "diff": 213.6257781982422,
+        "cluster_mean": 435.9074401855469,
+        "global_mean": 222.2816619873047
+      },
+      {
+        "name": "f_533: thinking and saying",
+        "sae_idx": 533,
+        "diff": 213.14456176757812,
+        "cluster_mean": 513.8177490234375,
+        "global_mean": 300.6731872558594
+      },
+      {
+        "name": "f_229",
+        "sae_idx": 229,
+        "diff": 202.68511962890625,
+        "cluster_mean": 1173.0677490234375,
+        "global_mean": 970.3826293945312
+      },
+      {
+        "name": "f_276: do you have/want",
+        "sae_idx": 276,
+        "diff": 197.9368896484375,
+        "cluster_mean": 473.8778991699219,
+        "global_mean": 275.9410095214844
+      },
+      {
+        "name": "f_258",
+        "sae_idx": 258,
+        "diff": 185.76422119140625,
+        "cluster_mean": 972.5320434570312,
+        "global_mean": 786.767822265625
+      },
+      {
+        "name": "f_383",
+        "sae_idx": 383,
+        "diff": 185.175537109375,
+        "cluster_mean": 1312.5758056640625,
+        "global_mean": 1127.4002685546875
+      },
+      {
+        "name": "f_11313: He followed by common words",
+        "sae_idx": 11313,
+        "diff": 180.11642456054688,
+        "cluster_mean": 284.6164245605469,
+        "global_mean": 104.50000762939453
+      },
+      {
+        "name": "f_224",
+        "sae_idx": 224,
+        "diff": 175.734130859375,
+        "cluster_mean": 1311.32373046875,
+        "global_mean": 1135.589599609375
+      },
+      {
+        "name": "f_162",
+        "sae_idx": 162,
+        "diff": 164.74542236328125,
+        "cluster_mean": 681.6301879882812,
+        "global_mean": 516.884765625
+      },
+      {
+        "name": "f_170: contrast and qualification",
+        "sae_idx": 170,
+        "diff": 161.967529296875,
+        "cluster_mean": 391.5050354003906,
+        "global_mean": 229.53750610351562
+      },
+      {
+        "name": "f_123: be aware",
+        "sae_idx": 123,
+        "diff": 159.95697021484375,
+        "cluster_mean": 469.4297180175781,
+        "global_mean": 309.4727478027344
+      }
+    ]
+  }
+}

@@ -1,0 +1,246 @@
+
+==========================================================================================
+Cluster 0  (3199 train + 813 test samples)
+==========================================================================================
+  [+1425.4501]  (cluster=1717.1583, global=291.7082)  f_352: it's contractions
+  [+1235.8733]  (cluster=1457.9451, global=222.0718)  f_155: It's important/crucial/not
+  [+572.6790]  (cluster=1992.9702, global=1420.2913)  f_506
+  [+568.8177]  (cluster=756.8788, global=188.0611)  f_1306: it is or it's statements
+  [+506.3271]  (cluster=587.8478, global=81.5208)  f_14715: days of the week
+  [+476.0572]  (cluster=995.0887, global=519.0315)  f_208: it's good
+  [+452.6823]  (cluster=925.5002, global=472.8180)  f_319
+  [+412.7062]  (cluster=531.3649, global=118.6587)  f_731: it's possible or impossible
+  [+353.9995]  (cluster=1664.4155, global=1310.4160)  f_250
+  [+344.9162]  (cluster=574.4537, global=229.5375)  f_170: contrast and qualification
+  [+322.3699]  (cluster=2007.5292, global=1685.1593)  f_92
+  [+289.9471]  (cluster=730.8887, global=440.9416)  f_461
+  [+274.8636]  (cluster=904.3761, global=629.5125)  f_86: difficulties and support
+  [+273.4576]  (cluster=435.9855, global=162.5278)  f_230
+  [+258.6032]  (cluster=324.3336, global=65.7304)  f_438: degree of certainty
+  [+245.3180]  (cluster=387.9663, global=142.6482)  f_2792: is a
+  [+244.9880]  (cluster=1573.6378, global=1328.6498)  f_171: negative emotions or events
+  [+235.6525]  (cluster=337.9469, global=102.2943)  f_4528: future states or conditions
+  [+235.1747]  (cluster=268.3256, global=33.1509)  f_1252: It takes or sounds like
+  [+220.7953]  (cluster=396.8483, global=176.0530)  f_11234: 's
+
+==========================================================================================
+Cluster 1  (4542 train + 1166 test samples)
+==========================================================================================
+  [+2411.8433]  (cluster=3192.5425, global=780.6992)  f_457: this is or includes
+  [+378.3551]  (cluster=533.4413, global=155.0862)  f_2174: specific context following 'this'
+  [+330.0893]  (cluster=463.3103, global=133.2210)  f_6155: this, ThisItem, ThisComponent, ThisPC, ThisWorkbook
+  [+321.1031]  (cluster=468.5803, global=147.4771)  f_9102: particular entity definition
+  [+296.6405]  (cluster=596.5340, global=299.8935)  f_5555: introducing specific content
+  [+250.7791]  (cluster=353.8814, global=103.1024)  f_161: the content of programs or scenarios
+  [+248.5470]  (cluster=361.4857, global=112.9388)  f_1943: demonstrative descriptions
+  [+238.8077]  (cluster=353.6108, global=114.8031)  f_13060: This is a
+  [+216.3435]  (cluster=405.9337, global=189.5902)  f_2220: 'this'
+  [+213.6646]  (cluster=261.9807, global=48.3161)  f_14697: That sounds
+  [+146.4882]  (cluster=170.9581, global=24.4699)  f_12183: This information disclaimer
+  [+138.5874]  (cluster=238.1180, global=99.5306)  f_1163: quantifying time periods
+  [+133.6636]  (cluster=180.2659, global=46.6023)  f_13819: demonstrative pronouns + noun/explanation
+  [+128.8585]  (cluster=189.8734, global=61.0149)  f_1548: seems like
+  [+126.3237]  (cluster=156.2846, global=29.9609)  f_9600: years and time periods
+  [+121.0774]  (cluster=286.6094, global=165.5320)  f_1455
+  [+111.5004]  (cluster=136.8474, global=25.3470)  f_2707: introduction of content (version)
+  [+111.2468]  (cluster=413.2692, global=302.0225)  f_1115: describing people or animals
+  [+109.0447]  (cluster=188.4744, global=79.4297)  f_777: describing or defining existence
+  [+105.7267]  (cluster=448.6471, global=342.9204)  f_49: positive evaluations
+
+==========================================================================================
+Cluster 2  (2539 train + 545 test samples)
+==========================================================================================
+  [+1445.0293]  (cluster=1618.5458, global=173.5165)  f_426: first names followed by surnames
+  [+1354.4675]  (cluster=1484.6482, global=130.1806)  f_460: people's names
+  [+1101.5195]  (cluster=1212.6631, global=111.1435)  f_503
+  [+932.1727]  (cluster=1037.3737, global=105.2009)  f_201: Notable people's last names
+  [+816.6901]  (cluster=1392.3298, global=575.6397)  f_243
+  [+708.1382]  (cluster=783.9476, global=75.8094)  f_736: people's names
+  [+666.0030]  (cluster=745.4601, global=79.4571)  f_521: names followed by last names
+  [+451.3871]  (cluster=888.0950, global=436.7079)  f_839
+  [+400.5662]  (cluster=1710.9822, global=1310.4160)  f_250
+  [+391.8870]  (cluster=450.1037, global=58.2167)  f_14: names of people, places, or things
+  [+376.3599]  (cluster=479.3102, global=102.9504)  f_576: his and possessives
+  [+324.3152]  (cluster=397.1345, global=72.8193)  f_102: determiners followed by specific nouns
+  [+308.3053]  (cluster=335.7524, global=27.4471)  f_11433: names of people
+  [+304.5474]  (cluster=330.7940, global=26.2467)  f_10638: names
+  [+286.4980]  (cluster=331.4941, global=44.9962)  f_5677: The Trevor Project, names, names followed by entities
+  [+284.6142]  (cluster=378.8974, global=94.2832)  f_207: word beginnings forming names
+  [+269.6482]  (cluster=301.4486, global=31.8004)  f_15503: names of people and places
+  [+263.1025]  (cluster=396.0303, global=132.9278)  f_216
+  [+261.5893]  (cluster=354.4338, global=92.8444)  f_5223: celebrity and Hollywood figures
+  [+256.5411]  (cluster=727.8714, global=471.3303)  f_73: false
+
+==========================================================================================
+Cluster 3  (6628 train + 1687 test samples)
+==========================================================================================
+  [+2361.9761]  (cluster=3423.9353, global=1061.9592)  f_425
+  [+502.6544]  (cluster=699.3812, global=196.7268)  f_1979
+  [+498.4792]  (cluster=703.6262, global=205.1470)  f_1587: what questions
+  [+411.5272]  (cluster=706.0057, global=294.4785)  f_799: how to / how many
+  [+389.3080]  (cluster=875.1016, global=485.7935)  f_83
+  [+383.8138]  (cluster=493.5014, global=109.6876)  f_5825: questions starting with what
+  [+301.9409]  (cluster=477.1155, global=175.1747)  f_1039: explaining what things are or do
+  [+282.1311]  (cluster=474.2115, global=192.0804)  f_317: no matter / no significant
+  [+257.3441]  (cluster=461.4472, global=204.1031)  f_182: how it works
+  [+255.7121]  (cluster=422.9383, global=167.2262)  f_1093: questions auxiliary verbs
+  [+210.4678]  (cluster=366.0079, global=155.5401)  f_1497: question mark
+  [+206.7055]  (cluster=303.1105, global=96.4050)  f_3027: question auxiliary verbs
+  [+201.8822]  (cluster=382.7780, global=180.8958)  f_892: Likely causing this
+  [+195.8354]  (cluster=450.0335, global=254.1981)  f_613: clarifying question
+  [+174.2203]  (cluster=2221.1470, global=2046.9266)  f_107: dialog starters
+  [+172.6000]  (cluster=252.3287, global=79.7287)  f_1899: is the
+  [+165.5217]  (cluster=1669.2263, global=1503.7046)  f_454
+  [+164.8634]  (cluster=515.1904, global=350.3269)  f_286
+  [+164.3118]  (cluster=578.4361, global=414.1243)  f_110: when followed by a condition
+  [+158.0028]  (cluster=303.7030, global=145.7002)  f_1634: why it is explained
+
+==========================================================================================
+Cluster 4  (3838 train + 1076 test samples)
+==========================================================================================
+  [+2488.6165]  (cluster=3036.6101, global=547.9936)  f_247
+  [+1084.3503]  (cluster=1539.7888, global=455.4384)  f_537: if something is possible
+  [+641.8756]  (cluster=1034.5800, global=392.7043)  f_121: you can followed by action
+  [+551.7864]  (cluster=689.0699, global=137.2836)  f_29: you followed by action/state
+  [+509.8078]  (cluster=941.4328, global=431.6250)  f_264: would be
+  [+477.3093]  (cluster=891.4336, global=414.1243)  f_110: when followed by a condition
+  [+390.6804]  (cluster=441.8516, global=51.1711)  f_11325: hypothetical, conditional situations
+  [+357.7798]  (cluster=866.5513, global=508.7715)  f_928: you are / you can / i will
+  [+349.5331]  (cluster=861.5783, global=512.0452)  f_296
+  [+312.2919]  (cluster=1997.4512, global=1685.1593)  f_92
+  [+294.5680]  (cluster=347.0797, global=52.5118)  f_14898: if i could or were
+  [+261.5067]  (cluster=312.5124, global=51.0057)  f_2151: introducing cause or condition
+  [+253.2288]  (cluster=286.3567, global=33.1279)  f_10393: control flow keywords
+  [+251.4552]  (cluster=287.9622, global=36.5070)  f_520: code snippets following backticks
+  [+233.5764]  (cluster=369.9741, global=136.3978)  f_2601: addressing you and others
+  [+231.9275]  (cluster=475.3890, global=243.4615)  f_1171
+  [+226.2173]  (cluster=467.0827, global=240.8654)  f_14077: difference between two concepts
+  [+223.2495]  (cluster=740.1342, global=516.8848)  f_162
+  [+222.7286]  (cluster=281.6705, global=58.9419)  f_12537: I say, when I, I was
+  [+210.6295]  (cluster=245.6729, global=35.0433)  f_14188: corresponding appropriately
+
+==========================================================================================
+Cluster 5  (4572 train + 1128 test samples)
+==========================================================================================
+  [+1308.8456]  (cluster=1598.9623, global=290.1167)  f_120
+  [+1206.3326]  (cluster=1450.6825, global=244.3498)  f_511: geographical names and languages
+  [+889.9047]  (cluster=1102.7390, global=212.8343)  f_552: digits and numerical expressions
+  [+842.4080]  (cluster=1188.9789, global=346.5709)  f_439: several ways
+  [+796.1074]  (cluster=993.8560, global=197.7486)  f_309: twenty story buildings
+  [+750.4128]  (cluster=888.7900, global=138.3772)  f_177: numbers and quantities
+  [+656.7213]  (cluster=806.0474, global=149.3261)  f_420: ordinal number
+  [+619.4110]  (cluster=739.0370, global=119.6260)  f_22: units of measurement
+  [+615.1786]  (cluster=771.4764, global=156.2978)  f_819: time units before temporal markers
+  [+587.9709]  (cluster=733.9539, global=145.9829)  f_1458: numbers followed by words
+  [+499.6884]  (cluster=618.7634, global=119.0750)  f_1752: units followed by context
+  [+485.0277]  (cluster=1905.3190, global=1420.2913)  f_506
+  [+473.3670]  (cluster=616.5245, global=143.1575)  f_191: for a duration
+  [+415.3814]  (cluster=501.9911, global=86.6097)  f_0: millions, thousands, billions
+  [+385.5591]  (cluster=477.0183, global=91.4592)  f_1970: 3d, 4chan, 9gag
+  [+329.5708]  (cluster=397.3885, global=67.8177)  f_1117: 4 year old
+  [+323.8966]  (cluster=382.3265, global=58.4299)  f_4199: number followed by year old
+  [+323.1379]  (cluster=1293.5205, global=970.3826)  f_229
+  [+314.6029]  (cluster=386.0729, global=71.4700)  f_14302: numbers and quantities
+  [+313.5397]  (cluster=389.5765, global=76.0368)  f_3221: numbers followed by units or punctuation
+
+==========================================================================================
+Cluster 6  (5028 train + 1288 test samples)
+==========================================================================================
+  [+1727.2928]  (cluster=2375.9194, global=648.6266)  f_133: a dialogue
+  [+835.3182]  (cluster=1229.9283, global=394.6101)  f_261
+  [+764.1967]  (cluster=1247.0792, global=482.8826)  f_2400: hypothetical scenarios
+  [+743.8644]  (cluster=1169.4922, global=425.6278)  f_12139: questions and technical topics
+  [+661.1124]  (cluster=847.0561, global=185.9437)  f_686: starts with a
+  [+597.8351]  (cluster=722.9835, global=125.1484)  f_14687: answer choice 'A' followed by punctuation
+  [+400.9941]  (cluster=730.3230, global=329.3289)  f_353
+  [+400.5425]  (cluster=1033.2892, global=632.7467)  f_399
+  [+361.8043]  (cluster=576.3884, global=214.5841)  f_225
+  [+304.3815]  (cluster=545.2469, global=240.8654)  f_14077: difference between two concepts
+  [+300.6683]  (cluster=1660.8013, global=1360.1329)  f_283: a new
+  [+256.4188]  (cluster=633.3724, global=376.9536)  f_131
+  [+249.4737]  (cluster=442.9113, global=193.4376)  f_400: an followed by a word
+  [+248.9821]  (cluster=501.7381, global=252.7560)  f_419
+  [+245.9948]  (cluster=960.0770, global=714.0822)  f_199: relative clauses for people
+  [+227.0252]  (cluster=475.4778, global=248.4526)  f_727
+  [+211.7527]  (cluster=443.8608, global=232.1082)  f_2892: instructions or problem context
+  [+208.6425]  (cluster=369.1828, global=160.5403)  f_2633: descriptions of people
+  [+197.1653]  (cluster=258.3917, global=61.2264)  f_4965: followed by nouns
+  [+197.0221]  (cluster=499.0446, global=302.0225)  f_1115: describing people or animals
+
+==========================================================================================
+Cluster 7  (3386 train + 890 test samples)
+==========================================================================================
+  [+1949.0691]  (cluster=2223.6245, global=274.5555)  f_325: here followed by is or are
+  [+1081.4625]  (cluster=1223.5802, global=142.1177)  f_495: no or strong presence
+  [+550.3911]  (cluster=1970.6824, global=1420.2913)  f_506
+  [+484.4138]  (cluster=939.8522, global=455.4384)  f_537: if something is possible
+  [+428.3362]  (cluster=502.2702, global=73.9340)  f_1168: start of explanation or list
+  [+400.8337]  (cluster=460.1286, global=59.2949)  f_816: breakdown of some
+  [+373.0505]  (cluster=432.7242, global=59.6737)  f_14518: there is
+  [+363.5277]  (cluster=411.4495, global=47.9217)  f_4580: absence of single answer
+  [+350.7557]  (cluster=980.2681, global=629.5125)  f_86: difficulties and support
+  [+341.1166]  (cluster=483.7648, global=142.6482)  f_2792: is a
+  [+338.1277]  (cluster=478.8724, global=140.7447)  f_496
+  [+334.2073]  (cluster=510.2604, global=176.0530)  f_11234: 's
+  [+319.2763]  (cluster=473.4845, global=154.2082)  f_390
+  [+309.4241]  (cluster=528.6643, global=219.2402)  f_490: detailed explanation
+  [+282.4469]  (cluster=1049.9832, global=767.5363)  f_194
+  [+267.6774]  (cluster=1578.0934, global=1310.4160)  f_250
+  [+254.6316]  (cluster=369.4347, global=114.8031)  f_13060: This is a
+  [+252.3200]  (cluster=414.5771, global=162.2572)  f_499
+  [+233.9656]  (cluster=969.1896, global=735.2241)  f_118
+  [+190.4243]  (cluster=354.7902, global=164.3659)  f_421: now let's continue analysis
+
+==========================================================================================
+Cluster 8  (4957 train + 1230 test samples)
+==========================================================================================
+  [+539.1645]  (cluster=708.4977, global=169.3332)  f_34: the specific noun
+  [+526.0015]  (cluster=864.2295, global=338.2280)  f_3: the key idea
+  [+487.6337]  (cluster=1120.3804, global=632.7467)  f_399
+  [+275.2627]  (cluster=416.7422, global=141.4795)  f_137: the and noun
+  [+258.2715]  (cluster=354.8700, global=96.5986)  f_7017: the followed by a request
+  [+239.8279]  (cluster=471.9361, global=232.1082)  f_2892: instructions or problem context
+  [+224.0950]  (cluster=425.3898, global=201.2948)  f_98: more or most [degree/quality]
+  [+206.9001]  (cluster=463.1518, global=256.2517)  f_463
+  [+199.7634]  (cluster=984.3787, global=784.6153)  f_346
+  [+187.0318]  (cluster=426.0130, global=238.9812)  f_16: what constitutes or describes
+  [+176.5391]  (cluster=432.0176, global=255.4785)  f_105
+  [+174.9443]  (cluster=404.5301, global=229.5857)  f_1153: Roman Empire, intelligence discipline
+  [+173.3839]  (cluster=1641.4304, global=1468.0465)  f_169
+  [+172.0266]  (cluster=597.6544, global=425.6278)  f_12139: questions and technical topics
+  [+167.5060]  (cluster=219.4328, global=51.9268)  f_167: "the" followed by a key concept
+  [+162.2265]  (cluster=324.3790, global=162.1526)  f_14458: titles and websites
+  [+160.8377]  (cluster=375.4219, global=214.5841)  f_225
+  [+159.1685]  (cluster=207.0598, global=47.8912)  f_14742: the answer
+  [+156.0365]  (cluster=644.6523, global=488.6158)  f_526: names and specific entities
+  [+152.0491]  (cluster=604.4346, global=452.3854)  f_302
+
+==========================================================================================
+Cluster 9  (6968 train + 1809 test samples)
+==========================================================================================
+  [+521.0985]  (cluster=863.8452, global=342.7467)  f_379: pronoun followed by a verb
+  [+379.1905]  (cluster=887.9620, global=508.7715)  f_928: you are / you can / i will
+  [+374.3611]  (cluster=790.2358, global=415.8746)  f_391: i am a / i'm a
+  [+367.1455]  (cluster=1787.4368, global=1420.2913)  f_506
+  [+361.1398]  (cluster=1689.7896, global=1328.6498)  f_171: negative emotions or events
+  [+326.9525]  (cluster=2012.1118, global=1685.1593)  f_92
+  [+319.9288]  (cluster=1630.3448, global=1310.4160)  f_250
+  [+317.2203]  (cluster=758.1619, global=440.9416)  f_461
+  [+221.0851]  (cluster=631.1828, global=410.0977)  f_360: personal emotional struggels
+  [+213.6258]  (cluster=435.9074, global=222.2817)  f_386: Don't / let's
+  [+213.1446]  (cluster=513.8177, global=300.6732)  f_533: thinking and saying
+  [+202.6851]  (cluster=1173.0677, global=970.3826)  f_229
+  [+197.9369]  (cluster=473.8779, global=275.9410)  f_276: do you have/want
+  [+185.7642]  (cluster=972.5320, global=786.7678)  f_258
+  [+185.1755]  (cluster=1312.5758, global=1127.4003)  f_383
+  [+180.1164]  (cluster=284.6164, global=104.5000)  f_11313: He followed by common words
+  [+175.7341]  (cluster=1311.3237, global=1135.5896)  f_224
+  [+164.7454]  (cluster=681.6302, global=516.8848)  f_162
+  [+161.9675]  (cluster=391.5050, global=229.5375)  f_170: contrast and qualification
+  [+159.9570]  (cluster=469.4297, global=309.4727)  f_123: be aware
+
+
+cluster 0: 'it is'
+cluster 2: names
+cluster 3: questions
+cluster 5: numbers
