@@ -1,0 +1,367 @@
+Loading data...
+Context:  (57289, 16384)
+Diff:     (57289, 16384)
+Samples:  57289
+Unique test_ids: 13472
+
+y_target stats:  range=[-10.6375, 10.6375]  mean=-0.0025  std=0.5771
+sample_weight stats:  range=[2.45, 135.55]  mean=58.42
+
+Loading feature names...
+
+Splitting data by test_id...
+Train: 45657,  Test: 11632
+Scaling features...
+
+======================================================================
+GLOBAL BASELINE — Lasso on X_diff → y_target
+======================================================================
+  Non-zero coefs: 387 / 16384
+  Train R²: 0.1640
+  Test  R²: 0.1069   MAE: 0.3656   RMSE: 0.6091
+
+======================================================================
+FITTING MOB TREE
+======================================================================
+  Node   0  d=0  n= 45657  R²=0.1794  ȳ=-0.0023  q=21
+    screen: 14578 active ctx → top 200  (q=21 score dims)
+    → ctx[5200] ≤ 1.4502  (supLM=215.50, crit=46.00, L=40282, R=5375)
+  Node   1  d=1  n= 40282  R²=0.1797  ȳ=-0.0012  q=21
+    screen: 14528 active ctx → top 200  (q=21 score dims)
+    → ctx[325] ≤ 1.5399  (supLM=132.12, crit=46.00, L=35250, R=5032)
+  Node   2  d=2  n= 35250  R²=0.1890  ȳ=-0.0020  q=21
+    screen: 14477 active ctx → top 200  (q=21 score dims)
+    → ctx[6188] ≤ 1.6452  (supLM=168.93, crit=46.00, L=31560, R=3690)
+  Node   3  d=3  n= 31560  R²=0.1930  ȳ=-0.0021  q=21
+    screen: 14433 active ctx → top 200  (q=21 score dims)
+    → ctx[3759] ≤ 1.3232  (supLM=122.31, crit=46.00, L=28402, R=3158)
+  Node   4  d=4  n= 28402  R²=0.2013  ȳ=-0.0013  q=21
+/home/drew99/IJS/hierarchical-hypothe-sae/.venv-ml/lib/python3.10/site-packages/sklearn/linear_model/_coordinate_descent.py:656: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.671e-01, tolerance: 8.398e-02
+  model = cd_fast.sparse_enet_coordinate_descent(
+  Node   5  d=4  n=  3158  R²=0.6425  ȳ=-0.0086  q=21
+  Node   6  d=3  n=  3690  R²=0.6516  ȳ=-0.0018  q=21
+    screen: 13083 active ctx → top 200  (q=21 score dims)
+    → ctx[1931] ≤ 0.7762  (supLM=67.22, crit=46.00, L=3297, R=393)
+  Node   7  d=4  n=  3297  R²=0.6707  ȳ=-0.0022  q=21
+  Node   8  d=4  n=   393  R²=0.9697  ȳ=+0.0016  q=21
+  Node   9  d=2  n=  5032  R²=0.5799  ȳ=+0.0047  q=21
+    screen: 13438 active ctx → top 200  (q=21 score dims)
+    → ctx[1931] ≤ 0.9327  (supLM=59.78, crit=46.00, L=4485, R=547)
+  Node  10  d=3  n=  4485  R²=0.6002  ȳ=+0.0023  q=21
+    screen: 13360 active ctx → top 200  (q=21 score dims)
+    → ctx[5070] ≤ 0.7078  (supLM=84.16, crit=46.00, L=4034, R=451)
+  Node  11  d=4  n=  4034  R²=0.6191  ȳ=+0.0059  q=21
+  Node  12  d=4  n=   451  R²=0.9701  ȳ=-0.0296  q=21
+  Node  13  d=3  n=   547  R²=0.9712  ȳ=+0.0240  q=21
+    screen: 11557 active ctx → top 200  (q=21 score dims)
+  Node  14  d=1  n=  5375  R²=0.5506  ȳ=-0.0107  q=21
+    screen: 13499 active ctx → top 200  (q=21 score dims)
+    → ctx[3907] ≤ 0.8649  (supLM=51.26, crit=46.00, L=4819, R=556)
+/home/drew99/IJS/hierarchical-hypothe-sae/.venv-ml/lib/python3.10/site-packages/sklearn/linear_model/_coordinate_descent.py:656: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.282e-01, tolerance: 1.257e-01
+  model = cd_fast.sparse_enet_coordinate_descent(
+  Node  15  d=2  n=  4819  R²=0.5663  ȳ=-0.0055  q=21
+    screen: 13418 active ctx → top 200  (q=21 score dims)
+    → ctx[4599] ≤ 2.1968  (supLM=59.81, crit=46.00, L=4336, R=483)
+  Node  16  d=3  n=  4336  R²=0.5905  ȳ=-0.0080  q=21
+    screen: 13357 active ctx → top 200  (q=21 score dims)
+  Node  17  d=3  n=   483  R²=0.9484  ȳ=+0.0168  q=21
+  Node  18  d=2  n=   556  R²=0.9631  ȳ=-0.0551  q=21
+    screen: 11728 active ctx → top 200  (q=21 score dims)
+
+MOB built: 19 nodes, 10 leaves  (62.5 s)
+
+======================================================================
+EVALUATION — MOB vs Global Lasso
+======================================================================
+
+Model                  Train R²    Test R²   Test MAE  Test RMSE
+--------------------------------------------------------------
+Global Lasso             0.1640     0.1069     0.3656     0.6091
+MOB Tree                 0.3913     0.0363     0.3781     0.6327
+
+Δ Test R²  = -0.0706
+
+======================================================================
+MOB TREE STRUCTURE
+======================================================================
+NODE 0: n=45657, R²=0.1794  split: ctx_f5200: recognizing or noticing ≤ 1.4502  (supLM=215.5)
+  ├─ NODE 1: n=40282, R²=0.1797  split: ctx_f325: here followed by is or are ≤ 1.5399  (supLM=132.1)
+  ├─   ├─ NODE 2: n=35250, R²=0.1890  split: ctx_f6188: urge, encourage, warn, call ≤ 1.6452  (supLM=168.9)
+  ├─   ├─   ├─ NODE 3: n=31560, R²=0.1930  split: ctx_f3759: evil AI, monsters ≤ 1.3232  (supLM=122.3)
+  ├─   ├─   ├─   ├─ LEAF 4: n=28402, R²=0.2013, ȳ=-0.0013
+  ├─   ├─   ├─   ├─   [+0.0263] Δ_f11052: How to write clickbait titles
+  ├─   ├─   ├─   ├─   [+0.0195] Δ_f2220: 'this'
+  ├─   ├─   ├─   ├─   [+0.0169] Δ_f2402: SAMHSA, Bloomberg, Behind the Name
+  ├─   ├─   ├─   ├─   [+0.0168] Δ_f1730: remarkable and amazing qualities
+  ├─   ├─   ├─   ├─   [-0.0163] Δ_f538: regulation, risk, and governance
+  ├─   ├─   ├─   └─ LEAF 5: n=3158, R²=0.6425, ȳ=-0.0086
+  ├─   ├─   ├─   └─   [-0.0351] Δ_f3877: in a manner
+  ├─   ├─   ├─   └─   [-0.0288] Δ_f13932: nation's economy and people
+  ├─   ├─   ├─   └─   [-0.0272] Δ_f12614: regex questions and explanations
+  ├─   ├─   ├─   └─   [-0.0260] Δ_f9648: access and availability
+  ├─   ├─   ├─   └─   [-0.0257] Δ_f2862: steel production and exports
+  ├─   ├─   └─ NODE 6: n=3690, R²=0.6516  split: ctx_f1931: holidays and days ≤ 0.7762  (supLM=67.2)
+  ├─   ├─   └─   ├─ LEAF 7: n=3297, R²=0.6707, ȳ=-0.0022
+  ├─   ├─   └─   ├─   [+0.0265] Δ_f13035: à partir de
+  ├─   ├─   └─   ├─   [+0.0262] Δ_f2193: tragic and horrific events
+  ├─   ├─   └─   ├─   [-0.0257] Δ_f12601: architectural design styles
+  ├─   ├─   └─   ├─   [-0.0249] Δ_f5971: user data and future use
+  ├─   ├─   └─   ├─   [-0.0236] Δ_f9666: word beginnings followed by completions
+  ├─   ├─   └─   └─ LEAF 8: n=393, R²=0.9697, ȳ=+0.0016
+  ├─   ├─   └─   └─   [+0.1423] Δ_f11666: LangChain and Langflow frameworks
+  ├─   ├─   └─   └─   [-0.0612] Δ_f14903: central planning and management
+  ├─   ├─   └─   └─   [-0.0574] Δ_f15281: CSV and comma separation
+  ├─   ├─   └─   └─   [-0.0571] Δ_f3523
+  ├─   ├─   └─   └─   [+0.0384] Δ_f12088: act as
+  ├─   └─ NODE 9: n=5032, R²=0.5799  split: ctx_f1931: holidays and days ≤ 0.9327  (supLM=59.8)
+  ├─   └─   ├─ NODE 10: n=4485, R²=0.6002  split: ctx_f5070: abstract concepts and hypotheticals ≤ 0.7078  (supLM=84.2)
+  ├─   └─   ├─   ├─ LEAF 11: n=4034, R²=0.6191, ȳ=+0.0059
+  ├─   └─   ├─   ├─   [-0.0231] Δ_f4852: advancing initiatives
+  ├─   └─   ├─   ├─   [+0.0225] Δ_f543: text descriptions and examples
+  ├─   └─   ├─   ├─   [-0.0207] Δ_f4646: team or staff members
+  ├─   └─   ├─   ├─   [+0.0203] Δ_f6550: disturbing, chilling, brutal, harmful content
+  ├─   └─   ├─   ├─   [+0.0201] Δ_f3160: compound words and phrases
+  ├─   └─   ├─   └─ LEAF 12: n=451, R²=0.9701, ȳ=-0.0296
+  ├─   └─   ├─   └─   [-0.1853] Δ_f5955: ethical guidelines and safety protocols
+  ├─   └─   ├─   └─   [-0.0480] Δ_f8884: immediate support and safety
+  ├─   └─   ├─   └─   [+0.0390] Δ_f1315
+  ├─   └─   ├─   └─   [-0.0355] Δ_f2137: discussing consequences and rationale
+  ├─   └─   ├─   └─   [-0.0342] Δ_f5427: company names and locations
+  ├─   └─   └─ LEAF 13: n=547, R²=0.9712, ȳ=+0.0240
+  ├─   └─   └─   [-0.1733] Δ_f7373: fond memories of loved ones
+  ├─   └─   └─   [-0.1383] Δ_f7152: examples and conditional clauses
+  ├─   └─   └─   [-0.1279] Δ_f7470: URL query parameters and code symbols
+  ├─   └─   └─   [-0.1118] Δ_f12302: even more/better
+  ├─   └─   └─   [+0.1057] Δ_f13259: interactions with him
+  └─ NODE 14: n=5375, R²=0.5506  split: ctx_f3907: urgency or criticality ≤ 0.8649  (supLM=51.3)
+  └─   ├─ NODE 15: n=4819, R²=0.5663  split: ctx_f4599: advantages and benefits ≤ 2.1968  (supLM=59.8)
+  └─   ├─   ├─ LEAF 16: n=4336, R²=0.5905, ȳ=-0.0080
+  └─   ├─   ├─   [-0.0353] Δ_f538: regulation, risk, and governance
+  └─   ├─   ├─   [-0.0285] Δ_f3649: Indian industries
+  └─   ├─   ├─   [+0.0248] Δ_f11052: How to write clickbait titles
+  └─   ├─   ├─   [-0.0239] Δ_f3801: tracking activities
+  └─   ├─   ├─   [-0.0224] Δ_f12614: regex questions and explanations
+  └─   ├─   └─ LEAF 17: n=483, R²=0.9484, ȳ=+0.0168
+  └─   ├─   └─   [-0.0400] Δ_f1672
+  └─   ├─   └─   [-0.0339] Δ_f3077: is about
+  └─   ├─   └─   [+0.0333] Δ_f1866: introducing direct speech or quotes
+  └─   ├─   └─   [-0.0322] Δ_f2338: specific technical concepts
+  └─   ├─   └─   [-0.0317] Δ_f2653: federal, congressional, USPS
+  └─   └─ LEAF 18: n=556, R²=0.9631, ȳ=-0.0551
+  └─   └─   [-0.2393] Δ_f14729: fill in
+  └─   └─   [-0.1289] Δ_f13206: desperate destiny heart deep world unique sin
+  └─   └─   [-0.0475] Δ_f6178: requesting specific information
+  └─   └─   [-0.0408] Δ_f2709: environmental sustainability
+  └─   └─   [-0.0372] Δ_f7801: Markdown table headers
+
+Saved: mob_outputs/mob_tree.png
+
+======================================================================
+PER-LEAF ANALYSIS
+======================================================================
+
+  Leaf  N train   N test  R²(train)   R²(test)   ȳ(train)  NZ coefs
+----------------------------------------------------------------------
+     4    28402     7326     0.2013     0.1122    -0.0013       510
+     5     3158      805     0.6425     0.1444    -0.0086       846
+     7     3297      819     0.6707    -0.0257    -0.0022       882
+     8      393       92     0.9697    -2.6107    +0.0016       293
+    11     4034     1069     0.6191     0.1038    +0.0059      1062
+    12      451      104     0.9701    -0.0137    -0.0296       344
+    13      547      122     0.9712    -0.1245    +0.0240       388
+    16     4336     1038     0.5905     0.0058    -0.0080       952
+    17      483      117     0.9484    -0.1613    +0.0168       345
+    18      556      140     0.9631    -4.1748    -0.0551       398
+
+────────────────────────────────────────────────────────────
+Leaf 4  (n=28402)
+  Path from root:
+    ctx_f5200: recognizing or noticing ≤ 1.4502
+    ctx_f325: here followed by is or are ≤ 1.5399
+    ctx_f6188: urge, encourage, warn, call ≤ 1.6452
+    ctx_f3759: evil AI, monsters ≤ 1.3232
+  Top diff features (510 non-zero):
+    [+0.026338] Δ_f11052: How to write clickbait titles
+    [+0.019524] Δ_f2220: 'this'
+    [+0.016930] Δ_f2402: SAMHSA, Bloomberg, Behind the Name
+    [+0.016759] Δ_f1730: remarkable and amazing qualities
+    [-0.016335] Δ_f538: regulation, risk, and governance
+    [+0.016091] Δ_f2390: images
+    [+0.015127] Δ_f2161: female names and women
+    [+0.014847] Δ_f1115: describing people or animals
+
+────────────────────────────────────────────────────────────
+Leaf 5  (n=3158)
+  Path from root:
+    ctx_f5200: recognizing or noticing ≤ 1.4502
+    ctx_f325: here followed by is or are ≤ 1.5399
+    ctx_f6188: urge, encourage, warn, call ≤ 1.6452
+    ctx_f3759: evil AI, monsters > 1.3232
+  Top diff features (846 non-zero):
+    [-0.035133] Δ_f3877: in a manner
+    [-0.028780] Δ_f13932: nation's economy and people
+    [-0.027194] Δ_f12614: regex questions and explanations
+    [-0.025975] Δ_f9648: access and availability
+    [-0.025682] Δ_f2862: steel production and exports
+    [+0.025657] Δ_f3759: evil AI, monsters
+    [+0.025236] Δ_f1847: shocking or horrifying scenarios
+    [-0.024577] Δ_f781
+
+────────────────────────────────────────────────────────────
+Leaf 7  (n=3297)
+  Path from root:
+    ctx_f5200: recognizing or noticing ≤ 1.4502
+    ctx_f325: here followed by is or are ≤ 1.5399
+    ctx_f6188: urge, encourage, warn, call > 1.6452
+    ctx_f1931: holidays and days ≤ 0.7762
+  Top diff features (882 non-zero):
+    [+0.026519] Δ_f13035: à partir de
+    [+0.026209] Δ_f2193: tragic and horrific events
+    [-0.025726] Δ_f12601: architectural design styles
+    [-0.024914] Δ_f5971: user data and future use
+    [-0.023590] Δ_f9666: word beginnings followed by completions
+    [-0.022563] Δ_f538: regulation, risk, and governance
+    [-0.022294] Δ_f444: values, feelings, judgments
+    [-0.020993] Δ_f12337: tree, trees, tree care
+
+────────────────────────────────────────────────────────────
+Leaf 8  (n=393)
+  Path from root:
+    ctx_f5200: recognizing or noticing ≤ 1.4502
+    ctx_f325: here followed by is or are ≤ 1.5399
+    ctx_f6188: urge, encourage, warn, call > 1.6452
+    ctx_f1931: holidays and days > 0.7762
+  Top diff features (293 non-zero):
+    [+0.142262] Δ_f11666: LangChain and Langflow frameworks
+    [-0.061190] Δ_f14903: central planning and management
+    [-0.057409] Δ_f15281: CSV and comma separation
+    [-0.057055] Δ_f3523
+    [+0.038390] Δ_f12088: act as
+    [-0.035509] Δ_f5128: accessing array elements by index
+    [+0.033460] Δ_f4153: roles and actions
+    [-0.033098] Δ_f6509: continuing or extending text
+
+────────────────────────────────────────────────────────────
+Leaf 11  (n=4034)
+  Path from root:
+    ctx_f5200: recognizing or noticing ≤ 1.4502
+    ctx_f325: here followed by is or are > 1.5399
+    ctx_f1931: holidays and days ≤ 0.9327
+    ctx_f5070: abstract concepts and hypotheticals ≤ 0.7078
+  Top diff features (1062 non-zero):
+    [-0.023111] Δ_f4852: advancing initiatives
+    [+0.022503] Δ_f543: text descriptions and examples
+    [-0.020651] Δ_f4646: team or staff members
+    [+0.020326] Δ_f6550: disturbing, chilling, brutal, harmful content
+    [+0.020069] Δ_f3160: compound words and phrases
+    [+0.019706] Δ_f1832: numbers followed by 'on' or 'in'
+    [-0.019381] Δ_f3130: why joke questions
+    [+0.019103] Δ_f10210: casino, gambling, slots
+
+────────────────────────────────────────────────────────────
+Leaf 12  (n=451)
+  Path from root:
+    ctx_f5200: recognizing or noticing ≤ 1.4502
+    ctx_f325: here followed by is or are > 1.5399
+    ctx_f1931: holidays and days ≤ 0.9327
+    ctx_f5070: abstract concepts and hypotheticals > 0.7078
+  Top diff features (344 non-zero):
+    [-0.185252] Δ_f5955: ethical guidelines and safety protocols
+    [-0.048014] Δ_f8884: immediate support and safety
+    [+0.039010] Δ_f1315
+    [-0.035456] Δ_f2137: discussing consequences and rationale
+    [-0.034224] Δ_f5427: company names and locations
+    [-0.029502] Δ_f4063: lists, math, and non-Latin scripts
+    [-0.027943] Δ_f13803: connector
+    [+0.027851] Δ_f13304: plannedparenthood.org links
+
+────────────────────────────────────────────────────────────
+Leaf 13  (n=547)
+  Path from root:
+    ctx_f5200: recognizing or noticing ≤ 1.4502
+    ctx_f325: here followed by is or are > 1.5399
+    ctx_f1931: holidays and days > 0.9327
+  Top diff features (388 non-zero):
+    [-0.173253] Δ_f7373: fond memories of loved ones
+    [-0.138267] Δ_f7152: examples and conditional clauses
+    [-0.127917] Δ_f7470: URL query parameters and code symbols
+    [-0.111849] Δ_f12302: even more/better
+    [+0.105675] Δ_f13259: interactions with him
+    [+0.071207] Δ_f8430: writing or manipulating sentences
+    [-0.061861] Δ_f9038: copyright and company names
+    [+0.050553] Δ_f11052: How to write clickbait titles
+
+────────────────────────────────────────────────────────────
+Leaf 16  (n=4336)
+  Path from root:
+    ctx_f5200: recognizing or noticing > 1.4502
+    ctx_f3907: urgency or criticality ≤ 0.8649
+    ctx_f4599: advantages and benefits ≤ 2.1968
+  Top diff features (952 non-zero):
+    [-0.035255] Δ_f538: regulation, risk, and governance
+    [-0.028521] Δ_f3649: Indian industries
+    [+0.024810] Δ_f11052: How to write clickbait titles
+    [-0.023920] Δ_f3801: tracking activities
+    [-0.022419] Δ_f12614: regex questions and explanations
+    [+0.022415] Δ_f27: pigs explode
+    [-0.020621] Δ_f2340
+    [+0.020370] Δ_f1847: shocking or horrifying scenarios
+
+────────────────────────────────────────────────────────────
+Leaf 17  (n=483)
+  Path from root:
+    ctx_f5200: recognizing or noticing > 1.4502
+    ctx_f3907: urgency or criticality ≤ 0.8649
+    ctx_f4599: advantages and benefits > 2.1968
+  Top diff features (345 non-zero):
+    [-0.040010] Δ_f1672
+    [-0.033943] Δ_f3077: is about
+    [+0.033275] Δ_f1866: introducing direct speech or quotes
+    [-0.032164] Δ_f2338: specific technical concepts
+    [-0.031692] Δ_f2653: federal, congressional, USPS
+    [-0.031690] Δ_f14337: moral judgment and lessons
+    [+0.031610] Δ_f9176: artificial intelligence and neural networks
+    [+0.030633] Δ_f10977: and that
+
+────────────────────────────────────────────────────────────
+Leaf 18  (n=556)
+  Path from root:
+    ctx_f5200: recognizing or noticing > 1.4502
+    ctx_f3907: urgency or criticality > 0.8649
+  Top diff features (398 non-zero):
+    [-0.239303] Δ_f14729: fill in
+    [-0.128855] Δ_f13206: desperate destiny heart deep world unique single g
+    [-0.047454] Δ_f6178: requesting specific information
+    [-0.040774] Δ_f2709: environmental sustainability
+    [-0.037188] Δ_f7801: Markdown table headers
+    [-0.035625] Δ_f2069: classification and learning tasks
+    [-0.034819] Δ_f10940: this or last year
+    [-0.033818] Δ_f13721: create a copy
+
+======================================================================
+COEFFICIENT COMPARISON
+======================================================================
+Saved: mob_outputs/mob_coef_heatmap.png
+Saved: mob_outputs/mob_eval_plots.png
+Saved: mob_outputs/mob_leaf_stats.png
+
+======================================================================
+SUMMARY
+======================================================================
+  Samples:                57289
+  Global Lasso NZ coefs:  387
+  Global test R²:         0.1069
+  MOB nodes / leaves:     19 / 10
+  MOB test R²:            0.0363
+  Δ R² (MOB − Global):    -0.0706
+
+    Leaf   4: n=28402  R²=0.2013  ȳ=-0.0013  NZ=510
+    Leaf   5: n= 3158  R²=0.6425  ȳ=-0.0086  NZ=846
+    Leaf   7: n= 3297  R²=0.6707  ȳ=-0.0022  NZ=882
+    Leaf   8: n=  393  R²=0.9697  ȳ=+0.0016  NZ=293
+    Leaf  11: n= 4034  R²=0.6191  ȳ=+0.0059  NZ=1062
+    Leaf  12: n=  451  R²=0.9701  ȳ=-0.0296  NZ=344
+    Leaf  13: n=  547  R²=0.9712  ȳ=+0.0240  NZ=388
+    Leaf  16: n= 4336  R²=0.5905  ȳ=-0.0080  NZ=952
+    Leaf  17: n=  483  R²=0.9484  ȳ=+0.0168  NZ=345
+    Leaf  18: n=  556  R²=0.9631  ȳ=-0.0551  NZ=398
