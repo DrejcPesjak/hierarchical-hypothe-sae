@@ -1,0 +1,13 @@
+{
+  "accuracy": 0.5883768913342503,
+  "weighted_accuracy": 0.6440008945024406,
+  "f1": 0.43590951932139493,
+  "auc_roc": 0.7613575045881642,
+  "n_rules": 52,
+  "n_linear": 443,
+  "n_nonzero_terms": 495,
+  "n_train": 45657,
+  "n_test": 11632,
+  "n_features_selected": 467,
+  "xgb_bin_feat_file": "tree_outputs/feature_importances_xgb_bin.txt"
+}

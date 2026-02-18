@@ -1,0 +1,501 @@
+RuleFit-Bin Results  (467 XGBoost-bin features: 126 ctx + 341 diff)
+Accuracy: 0.5884  |  Weighted Acc: 0.6440  |  F1: 0.4359  |  AUC: 0.7614
+Non-zero terms: 495  (52 rules, 443 linear terms)
+
+Rank  Type           Coef   Importance   Support  Rule
+------------------------------------------------------------------------------------------------------------------------
+1     linear      +0.1378       0.0759     1.000  diff_2220_'this'
+2     linear      +0.1078       0.0698     1.000  diff_11052_How to write clickbait titles
+3     linear      +0.1130       0.0684     1.000  diff_1730_remarkable and amazing qualities
+4     linear      +0.1020       0.0671     1.000  diff_433
+5     linear      -0.1153       0.0611     1.000  diff_9410_subtitles
+6     linear      +0.1168       0.0607     1.000  diff_1531_discovery and revelation
+7     linear      +0.1093       0.0593     1.000  diff_2223_past actions or events
+8     linear      +0.1008       0.0569     1.000  diff_1847_shocking or horrifying scenarios
+9     linear      +0.0793       0.0562     1.000  diff_604_harmful unethical behavior
+10    linear      +0.0916       0.0560     1.000  diff_1170_math and trick questions
+11    linear      +0.0934       0.0545     1.000  diff_2203_stereotypes about gender roles
+12    linear      +0.1482       0.0533     1.000  diff_11979_sexual and explicit themes
+13    linear      +0.0907       0.0525     1.000  diff_5439_offensive content
+14    linear      -0.0742       0.0523     1.000  diff_70
+15    linear      +0.1025       0.0522     1.000  diff_2161_female names and women
+16    linear      -0.1031       0.0510     1.000  diff_507
+17    linear      -0.1020       0.0506     1.000  diff_12614_regex questions and explanations
+18    linear      -0.1037       0.0491     1.000  diff_675_subject line greetings
+19    linear      -0.1008       0.0484     1.000  ctx_3430_possessive pronouns and associated concepts
+20    linear      -0.1182       0.0476     1.000  diff_2517_Rukarara River, cerebrex
+21    linear      -0.0871       0.0473     1.000  diff_3844_genre and theme descriptions
+22    linear      -0.0843       0.0465     1.000  diff_538_regulation, risk, and governance
+23    linear      +0.1643       0.0463     1.000  diff_2007_numerical time durations
+24    linear      -0.1316       0.0462     1.000  diff_6294_selfless efforts and contributions
+25    linear      +0.0601       0.0461     1.000  diff_49_positive evaluations
+26    linear      -0.0703       0.0456     1.000  diff_444_values, feelings, judgments
+27    linear      +0.0702       0.0453     1.000  diff_627
+28    linear      -0.0819       0.0451     1.000  diff_1923
+29    linear      +0.0659       0.0447     1.000  diff_1398
+30    linear      +0.1336       0.0447     1.000  diff_6843_introduced person or concept
+31    linear      +0.0872       0.0444     1.000  diff_1216_exile and punishment
+32    linear      -0.0643       0.0444     1.000  diff_594_Doubleday history
+33    linear      +0.0849       0.0440     1.000  diff_486_superlatives - most, best
+34    linear      +0.1414       0.0432     1.000  diff_16115_top n lists
+35    linear      -0.0606       0.0417     1.000  diff_459
+36    linear      -0.0807       0.0416     1.000  diff_929_describing states or qualities
+37    linear      -0.0802       0.0413     1.000  diff_11566_analogy
+38    linear      +0.1594       0.0412     1.000  diff_9012_time durations and speed
+39    linear      -0.0672       0.0403     1.000  diff_1386
+40    linear      +0.0686       0.0401     1.000  diff_2497
+41    linear      -0.0565       0.0401     1.000  diff_1097_related terms and names
+42    linear      +0.0611       0.0398     1.000  diff_560_file extensions
+43    linear      +0.0687       0.0396     1.000  diff_543_text descriptions and examples
+44    linear      +0.0696       0.0396     1.000  diff_984_contemptuous questions and statements
+45    linear      +0.0974       0.0394     1.000  diff_3759_evil AI, monsters
+46    linear      -0.0817       0.0391     1.000  diff_1489_pld
+47    linear      +0.0669       0.0381     1.000  diff_2193_tragic and horrific events
+48    rule        -0.1441       0.0374     0.073  diff_5200_recognizing or noticing <= -0.5
+49    linear      +0.0917       0.0368     1.000  diff_8807_how to respond
+50    linear      +0.0783       0.0367     1.000  diff_1060_Majesty, Highness, Excellency, Holiness
+51    linear      +0.0687       0.0365     1.000  diff_42_physical gestures and actions
+52    linear      +0.0667       0.0365     1.000  diff_2062_counting or listing items/entities
+53    linear      -0.0480       0.0364     1.000  diff_1_analyzing and processing information
+54    linear      -0.0896       0.0363     1.000  diff_1199_indicating an example or illustration
+55    linear      +0.0721       0.0359     1.000  diff_2390_images
+56    rule        -0.1329       0.0359     0.079  diff_1249 <= 0.5 and diff_8754_concise, efficient, appealing, versatile, quieter <= -0.5 and diff_16006_DO NOT <= 0.5
+57    linear      +0.0864       0.0355     1.000  diff_1526_I think, I want, you look
+58    linear      -0.0765       0.0355     1.000  diff_1006_machine learning
+59    linear      -0.0967       0.0354     1.000  diff_6317_hope, optimism, and hopelessness
+60    linear      +0.0710       0.0353     1.000  diff_1070_seeing and observing
+61    linear      -0.0538       0.0353     1.000  diff_258
+62    linear      +0.0677       0.0347     1.000  diff_3142_asking about who
+63    linear      -0.0714       0.0345     1.000  diff_2281_solving and alleviating
+64    linear      -0.0676       0.0343     1.000  diff_404
+65    linear      +0.0856       0.0342     1.000  diff_10871_boy or girl
+66    linear      -0.0521       0.0342     1.000  diff_606
+67    linear      -0.0528       0.0341     1.000  diff_1229_enjoyment and pleasure
+68    linear      +0.1084       0.0340     1.000  diff_10826_lack of knowledge and understanding
+69    linear      -0.0586       0.0340     1.000  diff_742_news publications and blog posts
+70    linear      +0.0549       0.0338     1.000  diff_8878_things or anything
+71    linear      -0.0531       0.0337     1.000  diff_1804
+72    linear      -0.0652       0.0337     1.000  diff_160_quickly rose through ranks
+73    linear      +0.0486       0.0337     1.000  diff_2892_instructions or problem context
+74    linear      +0.0447       0.0334     1.000  diff_2400_hypothetical scenarios
+75    linear      +0.0756       0.0334     1.000  diff_5609_bigotry, prejudice, and abuse
+76    linear      +0.1242       0.0333     1.000  diff_7346_grab attention / appeal to senses
+77    linear      -0.0404       0.0333     1.000  diff_1033_conversational prompts
+78    linear      +0.0763       0.0332     1.000  diff_819_time units before temporal markers
+79    linear      -0.0543       0.0331     1.000  diff_391_i am a / i'm a
+80    linear      +0.0754       0.0328     1.000  diff_1865
+81    linear      +0.0728       0.0327     1.000  ctx_923
+82    linear      +0.0480       0.0326     1.000  diff_1293
+83    linear      -0.0697       0.0325     1.000  diff_1321_support and encouragement
+84    linear      +0.0589       0.0324     1.000  diff_224
+85    linear      -0.0505       0.0318     1.000  diff_7926_specific noun phrases
+86    linear      +0.0506       0.0317     1.000  diff_1115_describing people or animals
+87    linear      +0.0631       0.0316     1.000  ctx_296
+88    linear      +0.0780       0.0315     1.000  diff_11774_negative medical outcomes
+89    linear      +0.0496       0.0314     1.000  diff_166_struggle for human connection
+90    linear      +0.0374       0.0313     1.000  diff_351
+91    linear      -0.0447       0.0312     1.000  diff_726_foreign language text
+92    linear      -0.0582       0.0308     1.000  diff_7_programming methodologies and techniques
+93    linear      -0.0530       0.0307     1.000  diff_61
+94    linear      +0.0511       0.0305     1.000  diff_3083_in format or style
+95    linear      -0.0457       0.0304     1.000  diff_296
+96    linear      +0.0558       0.0304     1.000  diff_1065_potential damage and dangers
+97    linear      +0.0577       0.0304     1.000  diff_390
+98    linear      +0.0513       0.0300     1.000  diff_1032_scenes and vehicles
+99    linear      +0.0600       0.0300     1.000  ctx_510
+100   linear      -0.0391       0.0299     1.000  diff_305
+101   linear      -0.0624       0.0299     1.000  diff_1077_causing motivation or action
+102   linear      -0.0470       0.0299     1.000  diff_1412
+103   linear      +0.0572       0.0298     1.000  diff_2695_compelling and crucial appeal
+104   linear      +0.0434       0.0296     1.000  diff_510
+105   linear      -0.0465       0.0293     1.000  diff_9666_word beginnings followed by completions
+106   linear      +0.0593       0.0291     1.000  diff_1212
+107   linear      -0.0595       0.0289     1.000  diff_7105_awareness and education
+108   linear      +0.0577       0.0287     1.000  ctx_2982_a followed by specific nouns
+109   linear      -0.0714       0.0283     1.000  ctx_2062_counting or listing items/entities
+110   linear      -0.0890       0.0281     1.000  diff_2029_strategic initiatives
+111   linear      -0.0519       0.0281     1.000  diff_1623_everyone or everybody
+112   linear      +0.0505       0.0280     1.000  diff_4053_joke, humor, comedy
+113   linear      -0.0457       0.0278     1.000  diff_1769_ending with 'ed', 'ces', 'ivities'
+114   rule        +0.0676       0.0275     0.210  diff_11052_How to write clickbait titles > 0.5
+115   linear      -0.0470       0.0274     1.000  diff_1279
+116   linear      -0.0372       0.0274     1.000  diff_347
+117   linear      -0.0437       0.0274     1.000  diff_6521_specific queries about topics
+118   linear      -0.0688       0.0270     1.000  diff_139_error handling
+119   linear      +0.0431       0.0269     1.000  diff_693
+120   linear      +0.0730       0.0268     1.000  diff_11469_read the following
+121   linear      +0.0396       0.0262     1.000  diff_484_positive sentiment words
+122   linear      +0.0875       0.0262     1.000  diff_10013_immediate follow-up actions
+123   linear      +0.0425       0.0262     1.000  diff_613_clarifying question
+124   linear      -0.0434       0.0258     1.000  diff_615_like me to help
+125   linear      +0.0583       0.0258     1.000  diff_7369_male archetypes and masculinity
+126   linear      +0.0446       0.0256     1.000  diff_2987
+127   linear      +0.0346       0.0256     1.000  diff_184_asking about
+128   rule        +0.0965       0.0253     0.075  diff_903 > 0.5 and diff_1249 <= 0.5 and diff_8754_concise, efficient, appealing, versatile, quieter > -0.5 and ctx_923 <= 0.5
+129   rule        +0.0638       0.0250     0.190  diff_1966_unexpected things > 0.5
+130   linear      +0.0903       0.0247     1.000  diff_15004_never and related negations
+131   linear      +0.0400       0.0243     1.000  diff_1310_发热
+132   linear      +0.0468       0.0242     1.000  diff_3669_video content and analysis
+133   linear      -0.0355       0.0241     1.000  diff_1153_Roman Empire, intelligence discipline
+134   linear      +0.0379       0.0240     1.000  diff_7473_profanity and vulgarity
+135   linear      -0.0378       0.0240     1.000  diff_904
+136   linear      +0.0330       0.0239     1.000  diff_746
+137   linear      +0.0296       0.0239     1.000  diff_926_they
+138   linear      -0.0425       0.0238     1.000  diff_45_could you tell me
+139   linear      +0.0701       0.0238     1.000  diff_11957_crying and tears
+140   linear      +0.0533       0.0238     1.000  diff_3332_defining a professional role
+141   linear      +0.0386       0.0234     1.000  diff_3244_release date
+142   linear      -0.0382       0.0233     1.000  diff_1247_career
+143   linear      +0.0501       0.0232     1.000  ctx_76
+144   linear      -0.0459       0.0229     1.000  ctx_12139_questions and technical topics
+145   linear      +0.0428       0.0228     1.000  diff_6155_this, ThisItem, ThisComponent, ThisPC, ThisWorkbook
+146   linear      -0.0376       0.0228     1.000  diff_1790_warriors conquering empires and heroes
+147   linear      +0.0395       0.0227     1.000  diff_2633_descriptions of people
+148   linear      +0.0450       0.0224     1.000  ctx_319
+149   linear      -0.0312       0.0222     1.000  diff_1834
+150   linear      -0.0312       0.0221     1.000  diff_1455
+151   linear      +0.0337       0.0221     1.000  diff_668
+152   linear      +0.0309       0.0220     1.000  diff_1076_the
+153   linear      -0.0412       0.0219     1.000  diff_2047_adding the ingredients
+154   rule        -0.0510       0.0218     0.242  diff_1213_intense negative emotions <= -0.5
+155   linear      -0.0424       0.0218     1.000  diff_1475_food and names
+156   linear      +0.0547       0.0217     1.000  diff_4094_his/him relationships
+157   linear      +0.0300       0.0216     1.000  diff_548_asking what or how
+158   linear      +0.0614       0.0216     1.000  diff_6550_disturbing, chilling, brutal, harmful content
+159   linear      +0.0433       0.0216     1.000  ctx_500
+160   linear      -0.0429       0.0214     1.000  ctx_746
+161   linear      +0.0488       0.0213     1.000  ctx_634_individuals or organizations
+162   linear      +0.0443       0.0213     1.000  diff_959_attackers and intruders
+163   linear      -0.0549       0.0212     1.000  ctx_370_all about
+164   linear      +0.0291       0.0212     1.000  diff_468
+165   linear      +0.0346       0.0212     1.000  diff_969
+166   linear      +0.0317       0.0212     1.000  diff_14077_difference between two concepts
+167   linear      -0.0372       0.0211     1.000  diff_1497_question mark
+168   linear      +0.0586       0.0207     1.000  diff_9620_ever, all time
+169   linear      -0.0584       0.0207     1.000  ctx_1196
+170   linear      +0.0518       0.0207     1.000  diff_13312_describing and representation
+171   linear      -0.0314       0.0207     1.000  diff_10038_cadavers, Byetta, Lain
+172   linear      -0.0503       0.0206     1.000  diff_4852_advancing initiatives
+173   linear      +0.0238       0.0206     1.000  diff_69_prefixes for words
+174   linear      -0.0267       0.0205     1.000  diff_331
+175   rule        -0.0620       0.0204     0.123  diff_12614_regex questions and explanations > 0.5
+176   linear      -0.0372       0.0203     1.000  diff_647
+177   linear      -0.0406       0.0202     1.000  diff_1453
+178   linear      +0.0506       0.0198     1.000  diff_4089_past events or situations
+179   linear      +0.0304       0.0198     1.000  diff_696_expressing concerns or frustration
+180   linear      +0.0357       0.0198     1.000  diff_1180_pioneer or leader
+181   linear      +0.0228       0.0195     1.000  diff_2516
+182   linear      +0.0221       0.0194     1.000  diff_416
+183   linear      -0.0360       0.0194     1.000  diff_897
+184   linear      -0.0299       0.0193     1.000  diff_5458_code with lists
+185   linear      -0.0248       0.0193     1.000  diff_136_additional information
+186   linear      +0.0333       0.0192     1.000  diff_892_Likely causing this
+187   linear      +0.0254       0.0191     1.000  diff_159
+188   linear      +0.0319       0.0191     1.000  diff_4917_rain in
+189   linear      -0.0288       0.0191     1.000  diff_563_defines states or conditions
+190   linear      +0.0412       0.0189     1.000  ctx_1730_remarkable and amazing qualities
+191   linear      -0.0475       0.0188     1.000  ctx_29_you followed by action/state
+192   linear      +0.0501       0.0187     1.000  diff_5713_grammatical mistakes and errors
+193   linear      +0.0488       0.0185     1.000  ctx_14718_that countsthat hasthat makesthat identifiesthat introduce
+194   linear      -0.0370       0.0185     1.000  ctx_848_initializes, calculates
+195   linear      -0.0368       0.0184     1.000  ctx_652_words of quantity
+196   linear      -0.0334       0.0182     1.000  diff_436
+197   linear      -0.0306       0.0182     1.000  diff_2012
+198   linear      -0.0359       0.0181     1.000  diff_1863_cities and outlets
+199   linear      -0.0374       0.0179     1.000  ctx_320
+200   linear      +0.0321       0.0179     1.000  diff_605_past-tense narration
+201   linear      +0.0337       0.0178     1.000  diff_379_pronoun followed by a verb
+202   linear      -0.0443       0.0177     1.000  ctx_148
+203   linear      -0.0279       0.0175     1.000  diff_589_currently ongoing or proving
+204   rule        +0.1533       0.0175     0.013  diff_1249 <= 0.5 and diff_8754_concise, efficient, appealing, versatile, quieter <= -0.5 and diff_16006_DO NOT > 0.5
+205   linear      +0.0303       0.0173     1.000  diff_1430_information, then following subject
+206   linear      -0.0388       0.0172     1.000  diff_641_asking questions and seeking context
+207   linear      -0.0428       0.0172     1.000  ctx_542_methods and techniques
+208   linear      +0.0290       0.0172     1.000  diff_2411
+209   linear      -0.0299       0.0167     1.000  diff_1023
+210   linear      +0.0272       0.0167     1.000  diff_1966_unexpected things
+211   linear      -0.0418       0.0166     1.000  ctx_7612_governance and regulations
+212   linear      +0.0265       0.0166     1.000  diff_890
+213   linear      -0.0238       0.0163     1.000  diff_2936_spaceships, box, action, phone
+214   linear      -0.0283       0.0162     1.000  diff_976_bad character judgments
+215   linear      -0.0298       0.0160     1.000  diff_901
+216   linear      -0.0338       0.0159     1.000  ctx_2611_comparative descriptions
+217   linear      -0.0229       0.0159     1.000  diff_7052_biological sequences and accession numbers
+218   linear      +0.0533       0.0159     1.000  diff_2301_contest winner outcome
+219   linear      -0.0220       0.0159     1.000  diff_4127_your, you, our
+220   linear      +0.0330       0.0157     1.000  ctx_3148_casual conversational phrases
+221   linear      +0.0218       0.0157     1.000  diff_592_conversational starters
+222   linear      +0.0261       0.0154     1.000  diff_1195_una vez
+223   linear      -0.0182       0.0153     1.000  diff_243
+224   linear      +0.0174       0.0152     1.000  diff_283_a new
+225   linear      +0.0200       0.0151     1.000  diff_3148_casual conversational phrases
+226   linear      -0.0247       0.0150     1.000  diff_249
+227   linear      +0.0191       0.0149     1.000  diff_27_pigs explode
+228   rule        -0.0313       0.0149     0.652  diff_890 <= 0.5 and diff_1115_describing people or animals > -0.5
+229   linear      +0.0266       0.0148     1.000  diff_5748_asking what
+230   linear      -0.0228       0.0148     1.000  diff_10798_Chinese and numeric entities
+231   linear      +0.0246       0.0148     1.000  diff_650_shows up
+232   linear      -0.0306       0.0147     1.000  ctx_650_shows up
+233   linear      +0.0274       0.0144     1.000  diff_1874_will tell or disclose
+234   linear      +0.0318       0.0143     1.000  ctx_672_clearly stating intentions
+235   linear      -0.0235       0.0141     1.000  diff_2723_evaluating ways and outcomes
+236   linear      +0.0202       0.0139     1.000  diff_75_becomes / dissolves / spun / fails
+237   linear      +0.0343       0.0137     1.000  diff_1421
+238   linear      -0.0273       0.0136     1.000  ctx_1140_months and numbers
+239   linear      -0.0209       0.0136     1.000  diff_2009
+240   linear      +0.0468       0.0136     1.000  diff_12705_never
+241   linear      +0.0201       0.0136     1.000  diff_414_quantities and amounts
+242   linear      -0.0285       0.0135     1.000  ctx_1747_use of, feel:
+243   linear      -0.0278       0.0134     1.000  diff_6_money, budget, income, financial
+244   linear      +0.0186       0.0133     1.000  diff_728_consciousness
+245   linear      -0.0184       0.0132     1.000  diff_3499_numerical quantities and units
+246   linear      +0.0164       0.0131     1.000  diff_2025_i/we followed by want/are
+247   linear      +0.0257       0.0131     1.000  diff_6768_illegal acts and crimes
+248   linear      +0.0212       0.0130     1.000  diff_1389_past events
+249   linear      +0.0359       0.0130     1.000  diff_1809
+250   linear      +0.0270       0.0129     1.000  ctx_1726_flies feeding
+251   linear      +0.0216       0.0129     1.000  diff_4095_organizations and topics
+252   linear      -0.0260       0.0128     1.000  ctx_414_quantities and amounts
+253   linear      -0.0271       0.0128     1.000  diff_309_twenty story buildings
+254   rule        -0.0412       0.0128     0.109  diff_1455 <= 0.5 and diff_1497_question mark <= -0.5
+255   rule        -0.0569       0.0127     0.052  diff_1249 > 0.5 and diff_2400_hypothetical scenarios <= -0.5
+256   rule        -0.0253       0.0126     0.471  diff_490_detailed explanation <= 0.5 and diff_903 <= 0.5 and diff_1249 <= 0.5 and diff_8754_concise, efficient, appealing, versatile, quieter > -0.5
+257   linear      -0.0186       0.0126     1.000  diff_1936
+258   rule        -0.0392       0.0126     0.117  diff_538_regulation, risk, and governance > 0.5 and diff_1389_past events > -0.5
+259   rule        +0.0296       0.0126     0.235  diff_526_names and specific entities <= -0.5 and diff_1240 <= 0.5 and diff_1389_past events > -0.5
+260   linear      +0.0241       0.0126     1.000  diff_686_starts with a
+261   linear      +0.0200       0.0125     1.000  diff_286
+262   rule        +0.0289       0.0124     0.758  diff_1213_intense negative emotions > -0.5
+263   linear      -0.0256       0.0122     1.000  ctx_353
+264   linear      +0.0249       0.0122     1.000  ctx_726_foreign language text
+265   linear      -0.0249       0.0121     1.000  diff_46_prioritize conformity
+266   linear      +0.0250       0.0121     1.000  diff_145_time and periods
+267   linear      +0.0292       0.0120     1.000  ctx_1475_food and names
+268   linear      +0.0262       0.0118     1.000  diff_2654_results and output
+269   linear      +0.0246       0.0118     1.000  diff_1224_YouTube platform
+270   rule        +0.0647       0.0117     0.034  diff_2007_numerical time durations <= -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+271   linear      -0.0163       0.0117     1.000  diff_109
+272   rule        +0.0241       0.0116     0.628  diff_512_lists with explanations > -0.5
+273   linear      +0.0236       0.0115     1.000  ctx_1137
+274   rule        -0.0368       0.0115     0.109  diff_1497_question mark > -0.5 and diff_3142_asking about who > 0.5
+275   rule        -0.0311       0.0115     0.837  diff_2987 <= 0.5
+276   linear      +0.0155       0.0114     1.000  diff_724_of- Service
+277   linear      +0.0191       0.0114     1.000  diff_581_what records
+278   rule        +0.0241       0.0113     0.325  diff_305 <= 0.5 and diff_1279 <= 0.5 and diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything <= 0.5 and ctx_641_asking questions and seeking context <= 0.5
+279   linear      -0.0228       0.0112     1.000  ctx_261
+280   linear      +0.0250       0.0111     1.000  ctx_717
+281   rule        -0.0449       0.0111     0.065  diff_436 > -0.5 and diff_641_asking questions and seeking context > -0.5 and diff_951 > -0.5 and diff_1874_will tell or disclose > 0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+282   linear      -0.0209       0.0110     1.000  diff_16006_DO NOT
+283   linear      +0.0223       0.0109     1.000  diff_191_for a duration
+284   linear      -0.0241       0.0108     1.000  ctx_4807_end of sentence
+285   rule        -0.0223       0.0108     0.372  diff_512_lists with explanations <= -0.5
+286   linear      +0.0234       0.0107     1.000  ctx_892_Likely causing this
+287   rule        +0.0296       0.0107     0.155  diff_490_detailed explanation > 0.5 and diff_903 <= 0.5 and diff_1249 <= 0.5 and diff_8754_concise, efficient, appealing, versatile, quieter > -0.5
+288   linear      +0.0220       0.0107     1.000  ctx_696_expressing concerns or frustration
+289   linear      +0.0190       0.0106     1.000  diff_10387_amount of climate
+290   linear      -0.0216       0.0106     1.000  ctx_360_personal emotional struggels
+291   linear      +0.0189       0.0106     1.000  diff_110_when followed by a condition
+292   linear      +0.0134       0.0105     1.000  diff_208_it's good
+293   linear      -0.0168       0.0104     1.000  diff_9912_technical contexts and code
+294   linear      -0.0185       0.0103     1.000  diff_903
+295   linear      +0.0247       0.0102     1.000  ctx_6863_boundingVolume and bindingMode.OneWay
+296   rule        +0.0285       0.0102     0.151  diff_890 > 0.5 and diff_1115_describing people or animals > -0.5
+297   linear      -0.0163       0.0102     1.000  diff_55_packet capture, community calendars
+298   linear      +0.0198       0.0101     1.000  diff_2727_internet social media slang
+299   linear      -0.0192       0.0101     1.000  diff_2133_improvement or recovery
+300   rule        +0.0283       0.0101     0.149  diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything <= 0.5 and ctx_641_asking questions and seeking context > 0.5
+301   linear      -0.0218       0.0100     1.000  ctx_44_demonstratives followed by specific nouns
+302   linear      +0.0214       0.0099     1.000  diff_1177_characters and protagonists
+303   rule        -0.0306       0.0099     0.120  diff_4053_joke, humor, comedy <= -0.5 and diff_8878_things or anything <= 0.5
+304   linear      +0.0194       0.0095     1.000  diff_5940_languages processing modes
+305   linear      +0.0197       0.0095     1.000  diff_822
+306   rule        -0.0191       0.0094     0.578  diff_746 > -0.5 and diff_1213_intense negative emotions > -0.5
+307   linear      +0.0248       0.0094     1.000  diff_2675_referring to she her
+308   linear      -0.0110       0.0094     1.000  diff_86_difficulties and support
+309   linear      +0.0246       0.0094     1.000  ctx_1548_seems like
+310   linear      -0.0163       0.0093     1.000  diff_518_causative element or basis
+311   linear      +0.0213       0.0093     1.000  ctx_2756_state or completion
+312   linear      -0.0181       0.0092     1.000  diff_1236
+313   linear      -0.0129       0.0091     1.000  diff_1604_adjectives describing content type
+314   linear      +0.0182       0.0091     1.000  ctx_399
+315   rule        +0.0270       0.0091     0.129  diff_305 > 0.5 and diff_1279 <= 0.5 and diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything <= 0.5 and ctx_641_asking questions and seeking context <= 0.5
+316   linear      -0.0184       0.0091     1.000  diff_41_acknowledges questions and starts answering
+317   linear      -0.0161       0.0090     1.000  diff_5164_systems, modes, steps, speed
+318   linear      -0.0116       0.0089     1.000  diff_40
+319   linear      +0.0187       0.0088     1.000  ctx_1125_and continuation
+320   linear      +0.0198       0.0088     1.000  ctx_87_check for events
+321   linear      -0.0190       0.0088     1.000  diff_14289_list items or bullet points
+322   rule        -0.0432       0.0087     0.042  diff_12705_never <= -0.5
+323   linear      -0.0109       0.0085     1.000  diff_223
+324   linear      -0.0112       0.0083     1.000  diff_360_personal emotional struggels
+325   linear      +0.0158       0.0083     1.000  diff_53_technical terms
+326   linear      -0.0142       0.0083     1.000  diff_214_years in different languages
+327   linear      -0.0125       0.0082     1.000  diff_1631_pronouns followed by verbs
+328   linear      -0.0179       0.0082     1.000  ctx_2161_female names and women
+329   linear      -0.0116       0.0081     1.000  diff_2145_list items
+330   linear      -0.0166       0.0080     1.000  ctx_499
+331   linear      +0.0127       0.0080     1.000  diff_150
+332   linear      +0.0160       0.0080     1.000  diff_26_etc. and other languages
+333   linear      +0.0165       0.0079     1.000  diff_120
+334   linear      +0.0169       0.0079     1.000  ctx_231
+335   linear      +0.0184       0.0079     1.000  diff_1970_3d, 4chan, 9gag
+336   linear      +0.0165       0.0078     1.000  diff_8754_concise, efficient, appealing, versatile, quieter
+337   rule        -0.0157       0.0078     0.448  diff_223 <= 0.5 and diff_234 <= 0.5 and diff_2892_instructions or problem context > -0.5
+338   linear      -0.0161       0.0076     1.000  ctx_439_several ways
+339   linear      +0.0123       0.0076     1.000  diff_4153_roles and actions
+340   linear      -0.0158       0.0076     1.000  ctx_1133
+341   linear      -0.0158       0.0075     1.000  ctx_37_subjective experience and personal attributes
+342   linear      +0.0081       0.0075     1.000  diff_506
+343   rule        -0.0214       0.0074     0.139  diff_1240 <= 0.5 and diff_1389_past events <= -0.5
+344   linear      -0.0128       0.0074     1.000  diff_8000_introduces it's explanations
+345   linear      +0.0111       0.0074     1.000  diff_4276_full viewport, cluster sampling, quantitative CMR, main loop
+346   linear      +0.0109       0.0074     1.000  diff_951
+347   linear      -0.0179       0.0073     1.000  ctx_1751
+348   linear      -0.0085       0.0073     1.000  diff_512_lists with explanations
+349   rule        +0.0158       0.0072     0.698  diff_538_regulation, risk, and governance <= 0.5 and diff_1389_past events > -0.5
+350   linear      +0.0139       0.0071     1.000  diff_1280
+351   linear      +0.0085       0.0070     1.000  diff_73_false
+352   linear      +0.0122       0.0069     1.000  diff_750
+353   linear      -0.0077       0.0069     1.000  diff_250
+354   linear      +0.0109       0.0068     1.000  diff_3415_easy to learn
+355   linear      +0.0112       0.0067     1.000  diff_242
+356   linear      +0.0131       0.0066     1.000  ctx_11052_How to write clickbait titles
+357   linear      -0.0160       0.0065     1.000  ctx_2633_descriptions of people
+358   rule        -0.0165       0.0065     0.191  diff_8878_things or anything > 0.5
+359   linear      -0.0109       0.0065     1.000  diff_439_several ways
+360   rule        +0.0197       0.0064     0.877  diff_12614_regex questions and explanations <= 0.5
+361   linear      -0.0133       0.0063     1.000  ctx_2223_past actions or events
+362   linear      +0.0140       0.0063     1.000  ctx_5438_intensifiers with qualities
+363   linear      +0.0101       0.0062     1.000  diff_789
+364   linear      -0.0144       0.0062     1.000  ctx_518_causative element or basis
+365   linear      -0.0124       0.0062     1.000  ctx_724_of- Service
+366   linear      +0.0072       0.0061     1.000  diff_526_names and specific entities
+367   linear      +0.0102       0.0061     1.000  diff_353
+368   rule        -0.0154       0.0061     0.191  diff_223 > 0.5 and diff_234 <= 0.5 and diff_2892_instructions or problem context > -0.5
+369   linear      +0.0094       0.0060     1.000  diff_1878_mathematical calculations
+370   linear      -0.0140       0.0059     1.000  ctx_377
+371   linear      +0.0128       0.0059     1.000  diff_1183_titles and names of people
+372   rule        -0.0119       0.0059     0.404  diff_526_names and specific entities > -0.5 and diff_1240 <= 0.5 and diff_1389_past events > -0.5
+373   linear      +0.0097       0.0058     1.000  diff_295_understand you
+374   linear      -0.0141       0.0057     1.000  ctx_10362_man descriptions
+375   linear      -0.0092       0.0056     1.000  diff_2489
+376   linear      +0.0133       0.0056     1.000  ctx_4366_80
+377   linear      +0.0150       0.0055     1.000  ctx_739_countries or places
+378   linear      +0.0075       0.0054     1.000  diff_490_detailed explanation
+379   linear      -0.0066       0.0054     1.000  diff_4807_end of sentence
+380   linear      +0.0115       0.0053     1.000  ctx_223
+381   linear      +0.0074       0.0053     1.000  diff_450
+382   linear      -0.0085       0.0053     1.000  diff_302
+383   linear      +0.0081       0.0052     1.000  diff_92
+384   linear      +0.0074       0.0050     1.000  diff_656_list of items
+385   linear      +0.0101       0.0050     1.000  ctx_1213_intense negative emotions
+386   linear      -0.0114       0.0049     1.000  ctx_244_confined within the
+387   linear      +0.0099       0.0049     1.000  diff_89_first, each, last item
+388   linear      +0.0067       0.0049     1.000  diff_138_Prefixes followed by specific words
+389   linear      +0.0082       0.0048     1.000  diff_2077_descriptive adjectives followed by clauses
+390   linear      -0.0105       0.0048     1.000  ctx_766
+391   linear      +0.0081       0.0048     1.000  diff_1249
+392   linear      +0.0075       0.0048     1.000  diff_419
+393   linear      +0.0064       0.0048     1.000  diff_848_initializes, calculates
+394   rule        +0.0162       0.0048     0.097  diff_436 > -0.5 and diff_604_harmful unethical behavior > 0.5 and diff_641_asking questions and seeking context > -0.5 and diff_951 > -0.5 and diff_1874_will tell or disclose <= 0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+395   rule        +0.0126       0.0047     0.168  diff_234 > 0.5
+396   linear      -0.0093       0.0046     1.000  ctx_425
+397   linear      +0.0096       0.0046     1.000  ctx_1678_locations and descriptions
+398   linear      -0.0093       0.0045     1.000  ctx_391_i am a / i'm a
+399   linear      -0.0110       0.0045     1.000  ctx_631_to be
+400   linear      -0.0096       0.0044     1.000  ctx_2396_of using
+401   linear      +0.0097       0.0044     1.000  ctx_56_change or effect
+402   linear      +0.0056       0.0044     1.000  diff_10737_phrases like "by step"
+403   linear      -0.0100       0.0043     1.000  ctx_904
+404   linear      +0.0093       0.0042     1.000  ctx_1899_is the
+405   rule        +0.0093       0.0041     0.743  diff_1170_math and trick questions > -0.5 and diff_1970_3d, 4chan, 9gag > -0.5
+406   linear      -0.0081       0.0040     1.000  ctx_794_don't be boring, messy code
+407   linear      +0.0084       0.0040     1.000  ctx_110_when followed by a condition
+408   linear      +0.0048       0.0040     1.000  diff_83
+409   linear      -0.0080       0.0040     1.000  ctx_10737_phrases like "by step"
+410   linear      +0.0088       0.0039     1.000  ctx_1160_following prepositions
+411   linear      +0.0063       0.0039     1.000  diff_3338_number followed by plus
+412   linear      -0.0085       0.0039     1.000  diff_6929_anger and related emotions
+413   linear      -0.0053       0.0039     1.000  diff_1171
+414   linear      +0.0089       0.0039     1.000  ctx_14204_easy to use/understand/read
+415   linear      -0.0082       0.0039     1.000  ctx_6524_starts questions
+416   linear      -0.0077       0.0038     1.000  ctx_240
+417   rule        +0.0109       0.0037     0.865  diff_1531_discovery and revelation > -0.5
+418   rule        +0.0082       0.0036     0.265  diff_83 > 0.5 and diff_1497_question mark > -0.5 and diff_3142_asking about who <= 0.5
+419   linear      -0.0125       0.0036     1.000  ctx_11979_sexual and explicit themes
+420   linear      -0.0056       0.0036     1.000  diff_4366_80
+421   linear      +0.0048       0.0035     1.000  diff_928_you are / you can / i will
+422   linear      -0.0071       0.0034     1.000  ctx_1878_mathematical calculations
+423   linear      +0.0071       0.0034     1.000  diff_2315_you probably use
+424   linear      -0.0047       0.0034     1.000  diff_1781
+425   linear      +0.0080       0.0033     1.000  ctx_1113_book titles and stories
+426   linear      -0.0067       0.0032     1.000  ctx_465
+427   linear      -0.0043       0.0031     1.000  diff_162
+428   linear      +0.0061       0.0030     1.000  ctx_606
+429   linear      -0.0038       0.0030     1.000  diff_1315
+430   linear      -0.0067       0.0029     1.000  ctx_5_list items and punctuation
+431   linear      -0.0067       0.0029     1.000  ctx_30_specific word pairs
+432   rule        -0.0106       0.0028     0.077  diff_641_asking questions and seeking context <= -0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+433   linear      +0.0052       0.0028     1.000  diff_894_past time references
+434   linear      +0.0057       0.0028     1.000  ctx_2346_filling blanks or correcting sentences
+435   linear      +0.0063       0.0027     1.000  ctx_143_overall system complexities
+436   rule        -0.0071       0.0027     0.180  diff_444_values, feelings, judgments <= -0.5 and diff_1531_discovery and revelation <= 0.5
+437   linear      +0.0042       0.0027     1.000  diff_717
+438   linear      -0.0060       0.0027     1.000  ctx_1275
+439   linear      +0.0057       0.0027     1.000  ctx_2003
+440   rule        +0.0057       0.0027     0.324  diff_436 > -0.5 and diff_604_harmful unethical behavior <= 0.5 and diff_641_asking questions and seeking context > -0.5 and diff_951 > -0.5 and diff_1874_will tell or disclose <= 0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+441   linear      -0.0039       0.0026     1.000  diff_2919_introducing specific nouns
+442   rule        +0.0076       0.0026     0.135  diff_3669_video content and analysis > 0.5
+443   linear      +0.0079       0.0026     1.000  diff_1227_professional presentations and conferences
+444   linear      -0.0050       0.0025     1.000  ctx_838_tokyo, help, start
+445   linear      +0.0057       0.0025     1.000  ctx_12070_female identity and womanhood
+446   rule        -0.0069       0.0025     0.850  diff_538_regulation, risk, and governance <= 0.5
+447   linear      -0.0062       0.0024     1.000  diff_469_year onward
+448   linear      +0.0049       0.0024     1.000  ctx_433
+449   linear      -0.0048       0.0023     1.000  diff_2135_areas for improvement or concern
+450   linear      +0.0047       0.0023     1.000  ctx_184_asking about
+451   linear      +0.0054       0.0023     1.000  diff_10362_man descriptions
+452   linear      +0.0033       0.0023     1.000  diff_12139_questions and technical topics
+453   linear      -0.0069       0.0022     1.000  ctx_22_units of measurement
+454   linear      +0.0043       0.0021     1.000  ctx_1342_ignoring you
+455   linear      -0.0034       0.0021     1.000  diff_1214
+456   linear      +0.0053       0.0021     1.000  ctx_155_It's important/crucial/not
+457   linear      -0.0023       0.0021     1.000  diff_171_negative emotions or events
+458   linear      +0.0036       0.0021     1.000  diff_1725
+459   rule        -0.0071       0.0021     0.092  diff_1970_3d, 4chan, 9gag <= -0.5
+460   rule        +0.0055       0.0020     0.150  diff_538_regulation, risk, and governance > 0.5
+461   linear      +0.0041       0.0019     1.000  ctx_1966_unexpected things
+462   linear      +0.0037       0.0018     1.000  ctx_1068_technical terms and concepts
+463   linear      -0.0048       0.0018     1.000  diff_3676_incredible, astounding, unparalleled descriptions
+464   rule        +0.0066       0.0017     0.927  diff_5200_recognizing or noticing > -0.5
+465   rule        +0.0046       0.0017     0.163  diff_2987 > 0.5
+466   linear      +0.0036       0.0017     1.000  ctx_16357_Paste Special, ride is, Taste is
+467   linear      -0.0034       0.0017     1.000  ctx_73_false
+468   linear      -0.0026       0.0016     1.000  diff_2982_a followed by specific nouns
+469   linear      +0.0035       0.0016     1.000  ctx_264_would be
+470   linear      -0.0033       0.0016     1.000  ctx_444_values, feelings, judgments
+471   linear      -0.0021       0.0016     1.000  diff_345
+472   linear      -0.0025       0.0016     1.000  diff_1494
+473   rule        +0.0038       0.0015     0.193  diff_234 <= 0.5 and diff_2892_instructions or problem context <= -0.5
+474   linear      -0.0017       0.0015     1.000  diff_229
+475   rule        -0.0044       0.0015     0.127  diff_11566_analogy <= -0.5 and diff_12705_never > -0.5
+476   linear      -0.0031       0.0013     1.000  ctx_1653_how things work
+477   linear      +0.0018       0.0012     1.000  diff_652_words of quantity
+478   linear      -0.0018       0.0011     1.000  diff_6863_boundingVolume and bindingMode.OneWay
+479   linear      +0.0017       0.0011     1.000  diff_1176_load balancer
+480   linear      -0.0022       0.0010     1.000  ctx_379_pronoun followed by a verb
+481   linear      +0.0013       0.0010     1.000  diff_760
+482   linear      +0.0019       0.0010     1.000  ctx_1076_the
+483   linear      -0.0023       0.0009     1.000  ctx_1285_Accelerated, Generative, Elaborately
+484   linear      +0.0015       0.0009     1.000  diff_261
+485   linear      +0.0019       0.0008     1.000  ctx_5040_won't work or do
+486   linear      -0.0016       0.0007     1.000  ctx_347
+487   linear      +0.0010       0.0007     1.000  diff_399
+488   linear      -0.0008       0.0007     1.000  diff_181
+489   linear      +0.0012       0.0006     1.000  ctx_728_consciousness
+490   linear      -0.0011       0.0004     1.000  ctx_1024_positive qualities and capabilities
+491   linear      +0.0008       0.0003     1.000  diff_3092_seeing and noticing
+492   linear      +0.0005       0.0002     1.000  ctx_1093_questions auxiliary verbs
+493   linear      -0.0003       0.0001     1.000  ctx_1119_made people or individuals
+494   linear      +0.0002       0.0001     1.000  diff_773
+495   linear      -0.0003       0.0001     1.000  ctx_472

@@ -1,0 +1,788 @@
+RuleFit-Bin Results  (467 XGBoost-bin features: 126 ctx + 341 diff)
+Accuracy: 0.5843  |  Weighted Acc: 0.6402  |  F1: 0.4357  |  AUC: 0.7578
+Non-zero terms: 782  (315 rules, 467 linear terms)
+
+Rank  Type           Coef   Importance   Support  Rule
+------------------------------------------------------------------------------------------------------------------------
+1     linear      +0.1599       0.1002     1.000  diff_1115_describing people or animals
+2     rule        +0.2295       0.0848     0.163  diff_1631_pronouns followed by verbs > -0.5 and diff_11052_How to write clickbait titles > 0.5
+3     linear      +0.1405       0.0773     1.000  diff_2220_'this'
+4     rule        -0.1595       0.0709     0.271  diff_926_they <= -0.5 and diff_4053_joke, humor, comedy <= 0.5
+5     linear      +0.1156       0.0700     1.000  diff_1730_remarkable and amazing qualities
+6     linear      -0.1014       0.0691     1.000  diff_12139_questions and technical topics
+7     linear      +0.1049       0.0690     1.000  diff_433_problem, issue
+8     rule        -0.1560       0.0659     0.233  diff_12139_questions and technical topics <= -0.5
+9     linear      +0.1192       0.0647     1.000  diff_2223_past actions or events
+10    linear      -0.1118       0.0592     1.000  diff_9410_subtitles
+11    rule        -0.1519       0.0590     0.185  diff_1389_past events <= -0.5
+12    linear      +0.1018       0.0575     1.000  diff_1847_shocking or horrifying scenarios
+13    rule        +0.1531       0.0567     0.164  diff_543_text descriptions and examples > 0.5
+14    linear      +0.0800       0.0567     1.000  diff_604_harmful unethical behavior
+15    linear      +0.0958       0.0559     1.000  diff_2203_stereotypes about gender roles
+16    linear      +0.1535       0.0552     1.000  diff_11979_sexual and explicit themes
+17    linear      -0.1074       0.0533     1.000  diff_12614_questions and explanations
+18    linear      -0.0753       0.0531     1.000  diff_70
+19    linear      +0.1037       0.0528     1.000  diff_2161_female names and women
+20    rule        -0.1424       0.0517     0.156  diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything <= -0.5
+21    linear      +0.1978       0.0512     1.000  diff_9012_time durations and speed
+22    linear      -0.1035       0.0512     1.000  diff_507_is/are
+23    linear      -0.1058       0.0508     1.000  ctx_3430_possessive pronouns and associated concepts
+24    rule        +0.1406       0.0507     0.154  diff_538_regulation, risk, and governance <= -0.5
+25    linear      -0.1597       0.0505     1.000  diff_2029_strategic initiatives
+26    linear      -0.0772       0.0501     1.000  diff_444_values, feelings, judgments
+27    linear      +0.0866       0.0493     1.000  diff_984_contemptuous questions and statements
+28    linear      -0.0888       0.0482     1.000  diff_3844_genre and theme descriptions
+29    linear      -0.1014       0.0481     1.000  diff_675_subject line greetings
+30    rule        +0.1065       0.0479     0.281  diff_2400_hypothetical scenarios > 0.5
+31    linear      +0.0736       0.0475     1.000  diff_627
+32    rule        +0.1071       0.0471     0.263  diff_746 <= -0.5
+33    linear      -0.0849       0.0468     1.000  diff_1923
+34    linear      -0.1322       0.0464     1.000  diff_6294_selfless efforts and contributions
+35    rule        -0.1429       0.0459     0.117  diff_538_regulation, risk, and governance > 0.5 and diff_1389_past events > -0.5
+36    linear      -0.0890       0.0458     1.000  diff_11566_analogy
+37    linear      -0.0663       0.0457     1.000  diff_594_Doubleday history
+38    rule        -0.1447       0.0456     0.112  diff_1531_discovery and revelation > 0.5 and diff_11052_How to write clickbait titles > -0.5
+39    linear      +0.0593       0.0455     1.000  diff_49_positive evaluations
+40    rule        -0.1417       0.0454     0.116  diff_379_pronoun followed by a verb <= -0.5 and diff_1531_discovery and revelation <= 0.5 and diff_7346_grab attention / appeal to senses > -0.5
+41    linear      +0.0791       0.0451     1.000  diff_2193_tragic and horrific events
+42    linear      +0.0887       0.0451     1.000  diff_1216_exile and punishment
+43    linear      +0.0865       0.0448     1.000  diff_486_superlatives - most, best
+44    rule        -0.1407       0.0448     0.115  diff_959_attackers and intruders <= -0.5
+45    linear      +0.0657       0.0445     1.000  diff_1398
+46    linear      +0.1458       0.0445     1.000  diff_16115_top n lists
+47    rule        +0.2110       0.0444     0.046  diff_1631_pronouns followed by verbs <= -0.5 and diff_11052_How to write clickbait titles > 0.5
+48    linear      +0.1163       0.0443     1.000  diff_5200_recognizing or noticing
+49    rule        +0.1125       0.0441     0.190  diff_1966_unexpected things > 0.5
+50    rule        -0.1927       0.0438     0.055  diff_6843_introduced person or concept <= -0.5 and diff_12705_never <= 0.5
+51    rule        +0.1626       0.0427     0.075  diff_903 > 0.5 and diff_1249_incidents / disasters <= 0.5 and diff_8754_effortless efficiency > -0.5 and ctx_923_words starting with L <= 0.5
+52    linear      -0.0828       0.0427     1.000  diff_929_describing states or qualities
+53    linear      -0.0620       0.0426     1.000  diff_459
+54    rule        +0.1244       0.0425     0.135  diff_1531_discovery and revelation > 0.5
+55    linear      -0.0699       0.0424     1.000  diff_249
+56    linear      -0.0689       0.0424     1.000  diff_1389_past events
+57    linear      +0.1488       0.0420     1.000  diff_2007_numerical time durations
+58    linear      -0.0876       0.0420     1.000  diff_1489_pld
+59    linear      +0.1027       0.0415     1.000  diff_3759_evil AI, monsters
+60    rule        -0.1040       0.0413     0.197  diff_1115_describing people or animals > 0.5
+61    rule        +0.1711       0.0411     0.062  diff_416 <= -0.5 and diff_484_positive sentiment words > -0.5 and diff_2009 > 0.5
+62    linear      +0.0555       0.0410     1.000  diff_184_asking about
+63    linear      +0.0625       0.0408     1.000  diff_560_file extensions
+64    linear      +0.0671       0.0407     1.000  diff_3244_release date
+65    rule        -0.0812       0.0406     0.496  diff_53_technical terms <= 0.5 and diff_926_they > -0.5 and diff_4053_joke, humor, comedy <= 0.5
+66    linear      +0.1106       0.0406     1.000  diff_11469_read the following
+67    rule        -0.1551       0.0404     0.073  diff_10871_boy or girl <= -0.5 and diff_11469_read the following <= 0.5
+68    linear      +0.0804       0.0401     1.000  diff_2390_images
+69    linear      -0.0890       0.0400     1.000  ctx_5438_intensifiers with qualities
+70    linear      +0.0637       0.0397     1.000  diff_693
+71    linear      -0.0659       0.0395     1.000  diff_1386
+72    linear      -0.0976       0.0393     1.000  diff_2517_Rukarara River, cerebrex
+73    linear      -0.0551       0.0391     1.000  diff_1097_related terms and names
+74    linear      +0.0762       0.0391     1.000  diff_3142_asking about who
+75    linear      +0.0970       0.0389     1.000  diff_8807_how to respond
+76    linear      -0.0507       0.0385     1.000  diff_1_analyzing and processing information
+77    linear      +0.0820       0.0384     1.000  diff_1060_Majesty, Highness, Excellency, Holiness
+78    rule        +0.1043       0.0381     0.158  diff_686_starts with a <= 0.5 and diff_8878_things or anything <= -0.5
+79    linear      +0.0714       0.0379     1.000  diff_42_physical gestures and actions
+80    rule        -0.1082       0.0378     0.142  diff_45_could you tell me > 0.5 and diff_6843_introduced person or concept > -0.5 and diff_12705_never <= 0.5
+81    linear      -0.0925       0.0375     1.000  diff_1199_indicating an example or illustration
+82    linear      -0.0809       0.0375     1.000  diff_1006_machine learning
+83    linear      -0.0647       0.0375     1.000  diff_61
+84    linear      -0.0735       0.0373     1.000  diff_404
+85    linear      +0.0671       0.0367     1.000  diff_2062_counting or listing items/entities
+86    rule        -0.1123       0.0367     0.121  diff_543_text descriptions and examples <= -0.5 and diff_563_defines states or conditions > -0.5
+87    rule        +0.0866       0.0367     0.234  ctx_5438_intensifiers with qualities > 0.5 and diff_984_contemptuous questions and statements > -0.5
+88    linear      -0.0550       0.0366     1.000  diff_296
+89    linear      +0.0596       0.0364     1.000  diff_1170_quizzes and puzzles
+90    linear      +0.0732       0.0363     1.000  ctx_2982_a followed by specific nouns
+91    linear      +0.0699       0.0363     1.000  diff_1531_discovery and revelation
+92    linear      -0.0549       0.0358     1.000  diff_2009
+93    linear      -0.0974       0.0357     1.000  diff_6317_hope, optimism, and hopelessness
+94    linear      +0.0715       0.0355     1.000  diff_1070_seeing and observing
+95    linear      -0.0559       0.0355     1.000  diff_1804
+96    linear      -0.0731       0.0354     1.000  diff_2281_solving and alleviating
+97    linear      -0.0537       0.0353     1.000  diff_606
+98    linear      +0.0808       0.0351     1.000  diff_819_time units before temporal markers
+99    linear      +0.0554       0.0350     1.000  diff_166_struggle for human connection
+100   rule        -0.0993       0.0349     0.144  diff_249 <= -0.5 and diff_4153_roles and actions > -0.5
+101   linear      +0.0847       0.0348     1.000  diff_1526_when I/you/they
+102   linear      -0.0672       0.0347     1.000  diff_160_quickly rose through ranks
+103   linear      +0.1107       0.0347     1.000  diff_10826_lack of knowledge and understanding
+104   linear      -0.0596       0.0345     1.000  diff_742_news publications and blog posts
+105   linear      +0.0624       0.0344     1.000  diff_224
+106   rule        +0.0911       0.0343     0.172  diff_2497 > 0.5
+107   linear      -0.0417       0.0343     1.000  diff_1033_conversational prompts
+108   linear      +0.0494       0.0342     1.000  diff_2892_instructions or problem context
+109   linear      -0.0528       0.0341     1.000  diff_1229_enjoyment and pleasure
+110   linear      +0.0652       0.0340     1.000  diff_2695_compelling and crucial appeal
+111   linear      +0.0496       0.0337     1.000  diff_1293
+112   linear      +0.0676       0.0337     1.000  ctx_510
+113   linear      +0.0402       0.0336     1.000  diff_351
+114   linear      +0.0760       0.0336     1.000  diff_5609_bigotry, prejudice, and abuse
+115   linear      +0.0747       0.0336     1.000  ctx_923_words starting with L
+116   linear      -0.0506       0.0332     1.000  diff_258
+117   rule        -0.0854       0.0330     0.183  diff_3244_release date > 0.5
+118   linear      -0.0430       0.0329     1.000  diff_305
+119   linear      -0.0622       0.0329     1.000  diff_7_programming methodologies and techniques
+120   linear      -0.0471       0.0329     1.000  diff_726_foreign language text
+121   rule        +0.0896       0.0327     0.159  diff_746 > -0.5 and diff_1213_intense negative emotions <= -0.5
+122   linear      +0.0597       0.0325     1.000  diff_1065_potential damage and dangers
+123   linear      -0.0676       0.0324     1.000  diff_1077_causing motivation or action
+124   linear      +0.0447       0.0324     1.000  diff_746
+125   linear      -0.0510       0.0321     1.000  diff_7926_specific noun phrases
+126   linear      +0.0738       0.0321     1.000  diff_1865
+127   rule        -0.0886       0.0316     0.150  diff_75_becomes / dissolves / spun / fails <= -0.5 and diff_286 <= 0.5 and diff_3244_release date <= 0.5
+128   linear      +0.0628       0.0314     1.000  ctx_296
+129   linear      +0.0596       0.0314     1.000  diff_390
+130   rule        +0.0928       0.0313     0.131  diff_605_past-tense narration > 0.5 and diff_9410_subtitles > -0.5
+131   linear      +0.0356       0.0313     1.000  diff_416
+132   rule        +0.0627       0.0309     0.578  diff_746 > -0.5 and diff_1213_intense negative emotions > -0.5
+133   rule        +0.1147       0.0309     0.079  diff_543_text descriptions and examples <= 0.5 and diff_1032_scenes and vehicles > -0.5 and diff_2987 > 0.5 and diff_12139_questions and technical topics > -0.5
+134   linear      +0.0447       0.0305     1.000  diff_510
+135   linear      +0.0505       0.0302     1.000  diff_3083_in format or style
+136   linear      -0.0620       0.0301     1.000  diff_7105_awareness and education
+137   linear      -0.0467       0.0297     1.000  diff_1412
+138   linear      -0.0403       0.0296     1.000  diff_347
+139   linear      -0.0469       0.0295     1.000  diff_9666_word beginnings followed by completions
+140   linear      +0.0599       0.0294     1.000  diff_1212
+141   linear      -0.0557       0.0293     1.000  diff_16006_DO NOT
+142   rule        +0.0920       0.0293     0.114  diff_61 > 0.5 and diff_538_regulation, risk, and governance <= 0.5 and diff_11052_How to write clickbait titles <= 0.5
+143   rule        +0.1323       0.0291     0.051  diff_2029_strategic initiatives > 0.5
+144   rule        +0.0771       0.0291     0.171  diff_484_positive sentiment words > 0.5 and diff_2633_descriptions of people > -0.5
+145   linear      -0.0458       0.0287     1.000  diff_6521_specific queries about topics
+146   linear      -0.0529       0.0286     1.000  diff_1623_everyone or everybody
+147   rule        +0.0862       0.0286     0.126  diff_959_attackers and intruders > -0.5 and diff_16006_DO NOT > 0.5
+148   linear      -0.0468       0.0284     1.000  diff_1769_ending with 'ed', 'ces', 'ivities'
+149   rule        -0.0660       0.0283     0.242  diff_1213_intense negative emotions > 0.5
+150   linear      -0.0713       0.0283     1.000  ctx_2062_counting or listing items/entities
+151   rule        -0.1082       0.0281     0.073  diff_5200_recognizing or noticing > 0.5
+152   linear      +0.0560       0.0279     1.000  ctx_500
+153   linear      +0.1028       0.0276     1.000  diff_7346_grab attention / appeal to senses
+154   rule        -0.0731       0.0275     0.171  diff_2497 <= -0.5
+155   rule        +0.1165       0.0271     0.057  diff_391_i am a / i'm a <= 0.5 and diff_634_individuals or organizations <= -0.5 and diff_693 <= -0.5
+156   linear      +0.0418       0.0271     1.000  diff_11052_How to write clickbait titles
+157   linear      -0.0683       0.0269     1.000  diff_139_error handling
+158   linear      +0.0435       0.0268     1.000  diff_613_clarifying question
+159   rule        -0.0537       0.0267     0.444  ctx_5438_intensifiers with qualities <= 0.5 and diff_984_contemptuous questions and statements > -0.5 and diff_1280 <= 0.5 and ctx_739_countries or places <= 0.5
+160   linear      +0.0483       0.0266     1.000  diff_538_regulation, risk, and governance
+161   linear      +0.0889       0.0266     1.000  diff_10013_immediate follow-up actions
+162   rule        -0.0778       0.0266     0.135  diff_1531_discovery and revelation <= -0.5
+163   rule        +0.0744       0.0266     0.850  diff_538_regulation, risk, and governance <= 0.5
+164   rule        -0.0856       0.0266     0.108  diff_538_regulation, risk, and governance > 0.5 and diff_1497_question mark > -0.5 and diff_1874_will tell or disclose <= 0.5
+165   linear      +0.0570       0.0265     1.000  ctx_76
+166   rule        +0.0657       0.0263     0.200  diff_223 <= -0.5 and diff_249 > -0.5 and diff_4153_roles and actions > -0.5
+167   linear      +0.0377       0.0263     1.000  diff_1213_intense negative emotions
+168   linear      -0.0438       0.0260     1.000  diff_615_like me to help
+169   linear      -0.0556       0.0259     1.000  diff_1321_support and encouragement
+170   linear      -0.0363       0.0257     1.000  diff_1455
+171   rule        -0.0950       0.0257     0.079  diff_1249_incidents / disasters <= 0.5 and diff_8754_effortless efficiency <= -0.5 and diff_16006_DO NOT <= 0.5
+172   linear      -0.0404       0.0256     1.000  diff_904
+173   linear      +0.0631       0.0254     1.000  diff_11774_negative medical outcomes
+174   linear      -0.0371       0.0252     1.000  diff_1153_Roman Empire, intelligence discipline
+175   rule        -0.0723       0.0250     0.139  diff_1497_question mark > 0.5 and diff_3669_video content and analysis > -0.5
+176   linear      -0.0410       0.0250     1.000  diff_391_i am a / i'm a
+177   linear      +0.0910       0.0249     1.000  diff_15004_never and related negations
+178   linear      +0.0733       0.0249     1.000  diff_11957_crying and tears
+179   rule        +0.0534       0.0248     0.317  ctx_162 <= 0.5 and diff_903 > -0.5 and diff_1280 > -0.5
+180   rule        -0.1074       0.0248     0.057  diff_75_becomes / dissolves / spun / fails <= -0.5 and diff_416 <= -0.5 and diff_484_positive sentiment words > -0.5 and diff_2009 <= 0.5
+181   linear      +0.0559       0.0247     1.000  diff_7369_male archetypes and masculinity
+182   rule        -0.0538       0.0247     0.698  diff_538_regulation, risk, and governance <= 0.5 and diff_1389_past events > -0.5
+183   linear      +0.0390       0.0247     1.000  diff_7473_profanity and vulgarity
+184   linear      -0.0346       0.0245     1.000  diff_1834
+185   linear      +0.0839       0.0244     1.000  diff_12705_never
+186   linear      -0.0399       0.0243     1.000  diff_1247_career
+187   linear      +0.0333       0.0243     1.000  diff_468
+188   rule        -0.0674       0.0241     0.151  diff_4053_joke, humor, comedy <= -0.5
+189   linear      +0.0481       0.0240     1.000  ctx_319
+190   rule        +0.0483       0.0239     0.433  diff_61 <= 0.5 and diff_490_detailed explanation > -0.5 and diff_538_regulation, risk, and governance <= 0.5 and diff_11052_How to write clickbait titles <= 0.5
+191   rule        -0.0679       0.0239     0.145  diff_543_text descriptions and examples <= 0.5 and diff_1279 > 0.5
+192   linear      +0.0446       0.0238     1.000  diff_6155_this, ThisItem, ThisComponent, ThisPC, ThisWorkbook
+193   linear      +0.0334       0.0237     1.000  diff_1076_the
+194   rule        +0.0663       0.0237     0.150  diff_538_regulation, risk, and governance > 0.5
+195   linear      -0.0668       0.0237     1.000  ctx_1196
+196   rule        +0.1621       0.0236     0.022  diff_951 <= -0.5 and diff_1236 <= -0.5 and diff_1531_discovery and revelation <= 0.5 and diff_11052_How to write clickbait titles > -0.5
+197   rule        +0.2057       0.0235     0.013  diff_1249_incidents / disasters <= 0.5 and diff_8754_effortless efficiency <= -0.5 and diff_16006_DO NOT > 0.5
+198   linear      -0.0456       0.0235     1.000  diff_1475_food and names
+199   rule        +0.1012       0.0235     0.057  diff_145_time and periods > 0.5 and diff_951 > -0.5 and diff_1531_discovery and revelation <= 0.5 and diff_11052_How to write clickbait titles > -0.5
+200   linear      -0.0441       0.0234     1.000  diff_2047_adding the ingredients
+201   rule        +0.0652       0.0234     0.151  diff_890 > 0.5 and diff_1115_describing people or animals > -0.5
+202   rule        +0.0469       0.0234     0.463  diff_543_text descriptions and examples > -0.5 and diff_892_Likely causing this > -0.5 and diff_901 > -0.5 and ctx_377 <= 0.5
+203   linear      -0.0419       0.0234     1.000  diff_903
+204   linear      -0.0385       0.0233     1.000  diff_1790_warriors conquering empires and heroes
+205   linear      +0.0404       0.0232     1.000  diff_2987
+206   linear      +0.0345       0.0230     1.000  diff_14077_difference between two concepts
+207   linear      +0.0318       0.0229     1.000  diff_548_asking what or how
+208   linear      -0.0393       0.0227     1.000  diff_543_text descriptions and examples
+209   linear      +0.0643       0.0226     1.000  diff_6550_disturbing, chilling, brutal, harmful content
+210   rule        +0.0650       0.0226     0.141  diff_61 <= 0.5 and diff_490_detailed explanation <= -0.5 and diff_538_regulation, risk, and governance <= 0.5 and diff_11052_How to write clickbait titles <= 0.5
+211   linear      +0.0563       0.0225     1.000  diff_13312_describing and representation
+212   rule        -0.1669       0.0224     0.018  diff_605_past-tense narration <= -0.5 and diff_2315_you probably use > 0.5
+213   linear      +0.0564       0.0224     1.000  diff_4094_his/him relationships
+214   linear      +0.0402       0.0223     1.000  diff_1180_pioneer or leader
+215   rule        -0.0461       0.0223     0.372  diff_512_lists with explanations <= -0.5
+216   linear      -0.0500       0.0222     1.000  diff_641_asking questions and seeking context
+217   linear      +0.0360       0.0221     1.000  diff_969
+218   linear      -0.0570       0.0220     1.000  ctx_370_all about
+219   linear      +0.0335       0.0219     1.000  diff_668
+220   rule        -0.0443       0.0217     0.404  diff_526_names and specific entities > -0.5 and diff_1240 <= 0.5 and diff_1389_past events > -0.5
+221   rule        -0.0451       0.0216     0.644  diff_890 <= 0.5 and diff_1531_discovery and revelation <= 0.5 and diff_11774_negative medical outcomes > -0.5
+222   linear      -0.0403       0.0216     1.000  diff_901
+223   linear      +0.0417       0.0215     1.000  diff_3669_video content and analysis
+224   linear      -0.0433       0.0215     1.000  diff_1453
+225   rule        -0.0532       0.0214     0.204  diff_1176_load balancer > 0.5
+226   rule        -0.0846       0.0213     0.068  diff_11469_read the following > 0.5
+227   rule        +0.2547       0.0212     0.007  diff_2007_numerical time durations > 0.5 and diff_2633_descriptions of people <= -0.5
+228   linear      +0.0321       0.0212     1.000  diff_484_positive sentiment words
+229   linear      +0.0282       0.0212     1.000  diff_159
+230   linear      +0.0462       0.0212     1.000  ctx_1730_remarkable and amazing qualities
+231   linear      +0.0346       0.0211     1.000  diff_1310_发热
+232   linear      -0.0383       0.0209     1.000  diff_647
+233   linear      +0.0244       0.0209     1.000  diff_2516
+234   linear      -0.0419       0.0209     1.000  ctx_746
+235   linear      -0.0373       0.0209     1.000  diff_605_past-tense narration
+236   linear      +0.0435       0.0208     1.000  diff_1224_YouTube platform
+237   rule        +0.0809       0.0208     0.071  diff_5439_offensive content > -0.5 and diff_10362_man descriptions <= -0.5
+238   linear      +0.0346       0.0208     1.000  diff_4917_rain in
+239   linear      -0.0313       0.0207     1.000  diff_10038_cadavers, Byetta, Lain
+240   linear      +0.0443       0.0207     1.000  ctx_379_pronoun followed by a verb
+241   linear      +0.0363       0.0206     1.000  diff_1497_question mark
+242   linear      -0.0500       0.0205     1.000  diff_4852_advancing initiatives
+243   linear      +0.0579       0.0205     1.000  diff_9620_ever, all time
+244   rule        +0.0602       0.0204     0.133  diff_543_text descriptions and examples <= 0.5 and diff_1115_describing people or animals > 0.5 and diff_1279 <= 0.5
+245   linear      +0.0235       0.0204     1.000  diff_69_prefixes for words
+246   rule        -0.0587       0.0203     0.139  diff_1240 <= 0.5 and diff_1389_past events <= -0.5
+247   linear      +0.0518       0.0203     1.000  diff_4089_past events or situations
+248   linear      -0.0404       0.0202     1.000  ctx_652_words of quantity
+249   rule        -0.0744       0.0202     0.080  diff_11774_negative medical outcomes <= -0.5
+250   linear      +0.0451       0.0201     1.000  diff_3332_defining a professional role
+251   linear      -0.0418       0.0200     1.000  ctx_320
+252   linear      -0.0256       0.0200     1.000  diff_136_additional information
+253   linear      -0.0370       0.0199     1.000  diff_897
+254   linear      -0.0306       0.0198     1.000  diff_5458_code with lists
+255   rule        +0.0400       0.0198     0.436  diff_145_time and periods <= 0.5 and diff_951 > -0.5 and diff_1531_discovery and revelation <= 0.5 and diff_3676_incredible, astounding, unparalleled descriptions <= 0.5 and diff_11052_How to write clickbait titles > -0.5
+256   linear      -0.0417       0.0198     1.000  diff_309_twenty story buildings
+257   linear      -0.0359       0.0196     1.000  diff_436
+258   rule        -0.0944       0.0196     0.045  ctx_231 > 0.5 and diff_1176_load balancer <= 0.5 and diff_1966_unexpected things > 0.5
+259   linear      +0.0449       0.0196     1.000  ctx_634_individuals or organizations
+260   linear      +0.0271       0.0195     1.000  diff_592_conversational starters
+261   linear      +0.0520       0.0194     1.000  diff_5713_grammatical mistakes and errors
+262   rule        +0.0940       0.0194     0.044  diff_1212 <= 0.5 and diff_2497 <= 0.5 and diff_2517_Rukarara River, cerebrex <= -0.5 and diff_5439_offensive content > -0.5
+263   linear      +0.0336       0.0192     1.000  diff_1430_information, then following subject
+264   linear      +0.0573       0.0191     1.000  diff_6843_introduced person or concept
+265   linear      -0.0405       0.0191     1.000  ctx_2611_comparative descriptions
+266   linear      -0.0472       0.0190     1.000  ctx_542_methods and techniques
+267   linear      +0.0292       0.0190     1.000  diff_696_expressing concerns or frustration
+268   rule        +0.1112       0.0190     0.030  diff_484_positive sentiment words <= 0.5 and diff_526_names and specific entities > 0.5 and diff_750 <= -0.5 and diff_1170_quizzes and puzzles <= 0.5 and diff_1497_question mark > -0.5 and diff_2633_descriptions of people > -0.5 and diff_7346_grab attention / appeal to senses > -0.5
+269   linear      -0.0372       0.0187     1.000  diff_1863_cities and outlets
+270   rule        -0.0631       0.0186     0.096  ctx_5438_intensifiers with qualities <= 0.5 and diff_984_contemptuous questions and statements > -0.5 and ctx_739_countries or places > 0.5
+271   linear      -0.0468       0.0186     1.000  ctx_7612_governance and regulations
+272   linear      -0.0371       0.0185     1.000  ctx_848_initializes, calculates
+273   rule        -0.0463       0.0184     0.803  diff_1115_describing people or animals > -0.5
+274   linear      -0.0309       0.0184     1.000  diff_2012
+275   linear      +0.0371       0.0183     1.000  ctx_162
+276   rule        -0.0564       0.0183     0.120  diff_4053_joke, humor, comedy <= -0.5 and diff_8878_things or anything <= 0.5
+277   linear      -0.0459       0.0182     1.000  ctx_29_you followed by action/state
+278   linear      -0.0288       0.0181     1.000  diff_589_currently ongoing or proving
+279   rule        +0.0722       0.0179     0.066  ctx_5438_intensifiers with qualities <= 0.5 and diff_984_contemptuous questions and statements > -0.5 and diff_1280 > 0.5 and ctx_739_countries or places <= 0.5
+280   linear      +0.0373       0.0178     1.000  ctx_3148_casual conversational phrases
+281   linear      +0.0597       0.0178     1.000  diff_2301_contest winner outcome
+282   rule        +0.0553       0.0178     0.117  diff_484_positive sentiment words <= 0.5 and diff_1170_quizzes and puzzles > 0.5 and diff_2633_descriptions of people > -0.5
+283   rule        -0.1004       0.0177     0.032  diff_9012_time durations and speed > 0.5
+284   linear      -0.0259       0.0177     1.000  diff_2936_spaceships, box, action, phone
+285   rule        -0.1014       0.0176     0.031  diff_484_positive sentiment words <= -0.5 and diff_3669_video content and analysis <= -0.5
+286   rule        -0.0945       0.0175     0.036  diff_7346_grab attention / appeal to senses <= -0.5
+287   linear      -0.0291       0.0175     1.000  diff_2723_evaluating ways and outcomes
+288   rule        +0.0376       0.0173     0.693  diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything > -0.5
+289   linear      -0.0191       0.0172     1.000  diff_171_negative emotions or events
+290   linear      -0.0336       0.0172     1.000  diff_1280
+291   rule        -0.0349       0.0172     0.595  diff_1213_intense negative emotions <= 0.5 and diff_14077_difference between two concepts > -0.5
+292   rule        -0.0658       0.0171     0.073  diff_5200_recognizing or noticing <= -0.5
+293   linear      -0.0426       0.0171     1.000  ctx_148
+294   linear      -0.0305       0.0171     1.000  diff_1023
+295   rule        +0.0429       0.0171     0.197  diff_1115_describing people or animals <= -0.5
+296   rule        -0.0354       0.0170     0.364  diff_416 > -0.5 and diff_484_positive sentiment words > -0.5 and diff_1315 > -0.5
+297   linear      -0.0354       0.0170     1.000  ctx_650_shows up
+298   rule        -0.0431       0.0170     0.806  diff_1389_past events <= 0.5
+299   rule        +0.0450       0.0170     0.171  diff_1032_scenes and vehicles > 0.5
+300   rule        +0.1378       0.0170     0.015  diff_538_regulation, risk, and governance > 0.5 and diff_1497_question mark > -0.5 and diff_1874_will tell or disclose > 0.5
+301   rule        -0.0542       0.0169     0.109  diff_1497_question mark > -0.5 and diff_3142_asking about who > 0.5
+302   linear      +0.0282       0.0167     1.000  diff_2411
+303   linear      +0.0320       0.0167     1.000  diff_686_starts with a
+304   rule        -0.0461       0.0166     0.154  diff_171_negative emotions or events > -0.5 and diff_184_asking about > 0.5
+305   linear      +0.0220       0.0166     1.000  diff_3148_casual conversational phrases
+306   linear      -0.0290       0.0166     1.000  diff_976_bad character judgments
+307   rule        -0.0693       0.0166     0.061  diff_391_i am a / i'm a > 0.5 and diff_634_individuals or organizations <= -0.5
+308   rule        +0.1141       0.0163     0.021  diff_250 <= -0.5 and diff_399 <= -0.5 and diff_1032_scenes and vehicles <= -0.5
+309   linear      -0.0225       0.0162     1.000  diff_4127_your, you, our
+310   linear      +0.0186       0.0162     1.000  diff_283_a new
+311   linear      +0.0175       0.0162     1.000  diff_506
+312   linear      -0.0249       0.0161     1.000  diff_10798_Chinese and numeric entities
+313   linear      +0.0289       0.0161     1.000  diff_5748_asking what
+314   linear      +0.0279       0.0160     1.000  diff_2633_descriptions of people
+315   linear      +0.0342       0.0160     1.000  ctx_231
+316   rule        -0.0339       0.0160     0.334  diff_73_false <= -0.5
+317   rule        +0.0337       0.0159     0.665  diff_484_positive sentiment words <= 0.5 and diff_1065_potential damage and dangers > -0.5
+318   linear      +0.0250       0.0159     1.000  diff_1176_load balancer
+319   linear      -0.0228       0.0158     1.000  diff_7052_biological sequences and accession numbers
+320   rule        -0.0367       0.0157     0.242  diff_1213_intense negative emotions <= -0.5
+321   rule        -0.0723       0.0157     0.049  diff_399 <= -0.5 and diff_11052_How to write clickbait titles > 0.5
+322   rule        -0.0384       0.0156     0.210  diff_11052_How to write clickbait titles <= -0.5
+323   linear      +0.0411       0.0156     1.000  ctx_14718_that countsthat hasthat makesthat identifiesthat introduce
+324   linear      -0.0217       0.0156     1.000  diff_3499_numerical quantities and units
+325   rule        -0.0531       0.0155     0.094  diff_250 > -0.5 and diff_1032_scenes and vehicles <= -0.5
+326   rule        -0.0427       0.0154     0.155  diff_605_past-tense narration <= -0.5
+327   rule        +0.0424       0.0153     0.155  diff_490_detailed explanation > 0.5 and diff_903 <= 0.5 and diff_1249_incidents / disasters <= 0.5 and diff_8754_effortless efficiency > -0.5
+328   rule        +0.0388       0.0153     0.194  diff_1389_past events > 0.5
+329   linear      -0.0200       0.0153     1.000  diff_331
+330   rule        -0.0896       0.0153     0.030  diff_145_time and periods <= 0.5 and diff_951 > -0.5 and diff_1531_discovery and revelation <= 0.5 and diff_3676_incredible, astounding, unparalleled descriptions > 0.5 and diff_11052_How to write clickbait titles > -0.5
+331   linear      -0.0308       0.0152     1.000  ctx_414_quantities and amounts
+332   linear      +0.0252       0.0151     1.000  diff_650_shows up
+333   linear      +0.0256       0.0151     1.000  diff_1195_una vez
+334   rule        -0.0318       0.0150     0.664  diff_5439_offensive content <= 0.5 and diff_11052_How to write clickbait titles <= 0.5
+335   linear      -0.0208       0.0149     1.000  diff_109
+336   linear      -0.0297       0.0148     1.000  ctx_1140_months and numbers
+337   rule        +0.0299       0.0148     0.572  diff_506 <= 0.5
+338   rule        +0.0425       0.0148     0.140  diff_9410_subtitles <= -0.5
+339   linear      -0.0218       0.0147     1.000  diff_1936
+340   linear      +0.0260       0.0147     1.000  diff_750
+341   linear      +0.0183       0.0146     1.000  diff_2025_i/we followed by want/are
+342   rule        -0.0394       0.0146     0.165  diff_1170_quizzes and puzzles <= -0.5 and diff_1970_3d, 4chan, 9gag > -0.5
+343   linear      +0.0204       0.0145     1.000  diff_490_detailed explanation
+344   linear      +0.0316       0.0145     1.000  ctx_892_Likely causing this
+345   linear      +0.0319       0.0144     1.000  ctx_672_clearly stating intentions
+346   linear      +0.0349       0.0143     1.000  ctx_1475_food and names
+347   rule        +0.0453       0.0143     0.111  diff_1279 > 0.5 and diff_1966_unexpected things > -0.5 and diff_2695_compelling and crucial appeal <= 0.5
+348   rule        -0.0290       0.0142     0.408  diff_171_negative emotions or events <= -0.5
+349   linear      +0.0356       0.0142     1.000  diff_1421
+350   rule        -0.0391       0.0141     0.153  diff_890 > 0.5 and diff_1531_discovery and revelation <= 0.5 and diff_11774_negative medical outcomes > -0.5
+351   rule        -0.0429       0.0141     0.123  diff_12614_questions and explanations > 0.5
+352   rule        +0.0779       0.0141     0.034  diff_2007_numerical time durations <= -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+353   linear      -0.0292       0.0141     1.000  diff_6_money, budget, income, financial
+354   rule        -0.0383       0.0141     0.160  diff_1966_unexpected things <= -0.5 and diff_2695_compelling and crucial appeal <= 0.5
+355   linear      -0.0297       0.0141     1.000  ctx_1747_use of, feel:
+356   linear      +0.0179       0.0140     1.000  diff_27_pigs explode
+357   linear      +0.0235       0.0140     1.000  diff_4095_organizations and topics
+358   rule        -0.0415       0.0139     0.130  diff_2727_internet social media slang <= -0.5
+359   rule        +0.0943       0.0137     0.022  diff_45_could you tell me <= -0.5 and diff_1531_discovery and revelation > 0.5 and diff_11774_negative medical outcomes > -0.5
+360   linear      -0.0284       0.0137     1.000  ctx_1878_mathematical calculations
+361   rule        -0.0273       0.0136     0.454  diff_75_becomes / dissolves / spun / fails > -0.5 and diff_506 > -0.5
+362   rule        -0.0674       0.0135     0.042  diff_12705_never > 0.5
+363   linear      -0.0231       0.0135     1.000  diff_1279
+364   linear      +0.0198       0.0134     1.000  diff_414_quantities and amounts
+365   rule        +0.0607       0.0133     0.051  diff_1455 > 0.5 and diff_1497_question mark <= -0.5
+366   linear      +0.0369       0.0133     1.000  diff_1809
+367   linear      -0.0276       0.0133     1.000  diff_959_attackers and intruders
+368   linear      +0.0293       0.0132     1.000  diff_2654_results and output
+369   rule        -0.0342       0.0131     0.180  diff_444_values, feelings, judgments <= -0.5 and diff_1531_discovery and revelation <= 0.5
+370   rule        -0.0533       0.0131     0.065  diff_436 > -0.5 and diff_641_asking questions and seeking context > -0.5 and diff_951 > -0.5 and diff_1874_will tell or disclose > 0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+371   linear      -0.0152       0.0131     1.000  diff_512_lists with explanations
+372   linear      +0.0274       0.0131     1.000  ctx_1726_flies feeding
+373   linear      +0.0220       0.0131     1.000  diff_581_what records
+374   rule        +0.0306       0.0130     0.763  diff_5439_offensive content > -0.5 and diff_10362_man descriptions > -0.5
+375   linear      -0.0283       0.0130     1.000  ctx_2161_female names and women
+376   rule        -0.0288       0.0129     0.279  diff_2400_hypothetical scenarios <= -0.5
+377   linear      +0.0179       0.0127     1.000  diff_728_consciousness
+378   linear      +0.0172       0.0126     1.000  diff_724_of- Service
+379   rule        +0.0295       0.0125     0.767  diff_12139_questions and technical topics > -0.5
+380   linear      +0.0199       0.0124     1.000  diff_890
+381   linear      +0.0253       0.0124     1.000  ctx_726_foreign language text
+382   linear      -0.0186       0.0124     1.000  diff_563_defines states or conditions
+383   linear      +0.0266       0.0124     1.000  ctx_2003
+384   linear      -0.0175       0.0124     1.000  diff_1604_adjectives describing content type
+385   rule        -0.0510       0.0123     0.063  diff_484_positive sentiment words <= 0.5 and diff_604_harmful unethical behavior > -0.5 and diff_1170_quizzes and puzzles <= 0.5 and diff_1497_question mark <= -0.5 and diff_2633_descriptions of people > -0.5 and diff_7346_grab attention / appeal to senses > -0.5
+386   rule        -0.0340       0.0123     0.156  diff_4053_joke, humor, comedy > 0.5
+387   rule        +0.0329       0.0123     0.168  diff_234 > 0.5
+388   linear      +0.0250       0.0122     1.000  ctx_1137
+389   linear      -0.0249       0.0122     1.000  ctx_360_personal emotional struggels
+390   linear      -0.0248       0.0122     1.000  ctx_261
+391   rule        +0.0305       0.0121     0.198  diff_538_regulation, risk, and governance > -0.5 and diff_2892_instructions or problem context > 0.5
+392   linear      -0.0249       0.0121     1.000  diff_46_prioritize conformity
+393   rule        +0.0306       0.0121     0.193  diff_234 <= 0.5 and diff_2892_instructions or problem context <= -0.5
+394   linear      +0.0237       0.0121     1.000  diff_6768_illegal acts and crimes
+395   linear      +0.0275       0.0120     1.000  ctx_2756_state or completion
+396   linear      +0.0251       0.0120     1.000  diff_120
+397   linear      +0.0289       0.0120     1.000  ctx_6863_boundingVolume and bindingMode.OneWay
+398   rule        +0.0300       0.0120     0.199  diff_75_becomes / dissolves / spun / fails <= -0.5 and diff_538_regulation, risk, and governance <= 0.5
+399   linear      -0.0191       0.0119     1.000  diff_55_packet capture, community calendars
+400   rule        -0.0250       0.0119     0.654  diff_1115_describing people or animals > -0.5 and diff_8878_things or anything > -0.5
+401   rule        -0.0239       0.0118     0.573  diff_1115_describing people or animals > -0.5 and diff_1389_past events <= 0.5 and diff_1531_discovery and revelation <= 0.5
+402   linear      -0.0159       0.0118     1.000  diff_360_personal emotional struggels
+403   linear      +0.0151       0.0118     1.000  diff_223
+404   linear      +0.0273       0.0118     1.000  diff_1970_3d, 4chan, 9gag
+405   linear      -0.0157       0.0117     1.000  diff_2400_hypothetical scenarios
+406   rule        +0.0238       0.0117     0.593  diff_1279 <= 0.5 and diff_1966_unexpected things > -0.5 and diff_2695_compelling and crucial appeal <= 0.5
+407   linear      +0.0262       0.0117     1.000  ctx_717
+408   linear      +0.0168       0.0117     1.000  diff_75_becomes / dissolves / spun / fails
+409   linear      +0.0275       0.0116     1.000  diff_10362_man descriptions
+410   rule        -0.0496       0.0115     0.058  diff_250 <= -0.5 and diff_399 > -0.5 and diff_1032_scenes and vehicles <= -0.5
+411   rule        -0.0312       0.0115     0.163  diff_1213_intense negative emotions <= 0.5 and diff_14077_difference between two concepts <= -0.5
+412   rule        +0.0232       0.0115     0.428  diff_506 > 0.5
+413   linear      +0.0187       0.0115     1.000  diff_8878_things or anything
+414   rule        +0.0658       0.0114     0.031  diff_903 > 0.5 and diff_1249_incidents / disasters <= 0.5 and diff_8754_effortless efficiency > -0.5 and ctx_923_words starting with L > 0.5
+415   linear      -0.0199       0.0114     1.000  diff_518_causative element or basis
+416   linear      +0.0145       0.0114     1.000  diff_208_it's good
+417   rule        +0.0308       0.0113     0.162  diff_2007_numerical time durations <= 0.5 and diff_2633_descriptions of people <= -0.5
+418   linear      +0.0203       0.0113     1.000  diff_10387_amount of climate
+419   linear      +0.0231       0.0112     1.000  ctx_696_expressing concerns or frustration
+420   rule        -0.0298       0.0112     0.829  diff_1032_scenes and vehicles <= 0.5
+421   linear      +0.0227       0.0110     1.000  diff_191_for a duration
+422   rule        -0.0280       0.0110     0.191  diff_223 > 0.5 and diff_234 <= 0.5 and diff_2892_instructions or problem context > -0.5
+423   rule        +0.0222       0.0110     0.438  diff_171_negative emotions or events > -0.5 and diff_184_asking about <= 0.5
+424   linear      -0.0128       0.0110     1.000  diff_86_difficulties and support
+425   rule        -0.0293       0.0109     0.167  diff_5439_offensive content <= 0.5 and diff_11052_How to write clickbait titles > 0.5
+426   rule        +0.0293       0.0109     0.834  diff_5439_offensive content > -0.5
+427   linear      -0.0175       0.0109     1.000  diff_9912_technical contexts and code
+428   rule        +0.0251       0.0109     0.251  diff_490_detailed explanation <= -0.5
+429   linear      +0.0220       0.0108     1.000  diff_5940_languages processing modes
+430   linear      +0.0172       0.0108     1.000  diff_286
+431   linear      -0.0141       0.0108     1.000  diff_40
+432   linear      +0.0206       0.0108     1.000  diff_1874_will tell or disclose
+433   linear      -0.0225       0.0108     1.000  ctx_353
+434   linear      -0.0219       0.0108     1.000  diff_41_acknowledges questions and starts answering
+435   rule        +0.0303       0.0107     0.147  diff_296 > 0.5 and diff_605_past-tense narration <= 0.5 and diff_9410_subtitles > -0.5
+436   rule        -0.0302       0.0107     0.147  diff_286 > 0.5 and diff_3244_release date <= 0.5 and diff_7369_male archetypes and masculinity <= 0.5
+437   rule        +0.0613       0.0107     0.031  diff_75_becomes / dissolves / spun / fails <= -0.5 and diff_3669_video content and analysis <= -0.5
+438   linear      +0.0172       0.0106     1.000  diff_4153_roles and actions
+439   linear      -0.0237       0.0106     1.000  ctx_4807_end of sentence
+440   rule        -0.0314       0.0105     0.130  diff_1531_discovery and revelation > 0.5 and diff_7346_grab attention / appeal to senses > -0.5
+441   rule        +0.0315       0.0104     0.124  diff_1249_incidents / disasters > 0.5 and diff_2400_hypothetical scenarios > -0.5
+442   linear      -0.0197       0.0104     1.000  diff_2133_improvement or recovery
+443   linear      -0.0187       0.0104     1.000  diff_4053_joke, humor, comedy
+444   linear      -0.0215       0.0104     1.000  ctx_499
+445   linear      +0.0214       0.0103     1.000  diff_822
+446   linear      +0.0282       0.0103     1.000  ctx_739_countries or places
+447   rule        +0.0275       0.0103     0.169  diff_5439_offensive content > 0.5
+448   rule        +0.0309       0.0101     0.877  diff_12614_questions and explanations <= 0.5
+449   rule        +0.1285       0.0101     0.006  diff_984_contemptuous questions and statements <= -0.5 and diff_9012_time durations and speed > 0.5
+450   linear      +0.0221       0.0101     1.000  ctx_1966_unexpected things
+451   rule        +0.0321       0.0101     0.111  diff_30_specific word pairs <= 0.5 and diff_2223_past actions or events > -0.5 and diff_11052_How to write clickbait titles > 0.5
+452   linear      -0.0153       0.0101     1.000  diff_1631_pronouns followed by verbs
+453   linear      -0.0120       0.0100     1.000  diff_243
+454   linear      +0.0263       0.0100     1.000  diff_2675_referring to she her
+455   linear      +0.0180       0.0100     1.000  diff_110_when followed by a condition
+456   rule        +0.0338       0.0100     0.097  diff_436 > -0.5 and diff_604_harmful unethical behavior > 0.5 and diff_641_asking questions and seeking context > -0.5 and diff_951 > -0.5 and diff_1874_will tell or disclose <= 0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+457   linear      +0.0214       0.0099     1.000  diff_1177_characters and protagonists
+458   linear      +0.0208       0.0099     1.000  ctx_110_when followed by a condition
+459   linear      -0.0208       0.0099     1.000  ctx_37_subjective experience and personal attributes
+460   linear      +0.0199       0.0099     1.000  diff_26_etc. and other languages
+461   rule        +0.0279       0.0098     0.143  diff_30_specific word pairs > 0.5 and diff_490_detailed explanation > -0.5 and ctx_391_i am a / i'm a <= 0.5
+462   rule        +0.0245       0.0097     0.803  diff_1115_describing people or animals <= 0.5
+463   linear      +0.0217       0.0096     1.000  ctx_87_check for events
+464   rule        +0.0270       0.0096     0.150  diff_1234_direct, personal, necessity <= -0.5 and diff_2654_results and output <= 0.5
+465   linear      +0.0192       0.0096     1.000  ctx_12139_questions and technical topics
+466   rule        +0.0313       0.0095     0.102  diff_538_regulation, risk, and governance > 0.5 and diff_11052_How to write clickbait titles <= 0.5
+467   linear      +0.0192       0.0095     1.000  ctx_1213_intense negative emotions
+468   rule        -0.0321       0.0094     0.096  ctx_231 <= 0.5 and diff_1176_load balancer <= 0.5 and diff_1966_unexpected things > 0.5
+469   rule        +0.0190       0.0094     0.558  diff_543_text descriptions and examples <= 0.5 and diff_1115_describing people or animals <= 0.5 and diff_1279 <= 0.5
+470   linear      +0.0188       0.0094     1.000  ctx_11052_How to write clickbait titles
+471   linear      +0.0149       0.0093     1.000  diff_150
+472   linear      -0.0166       0.0093     1.000  diff_5164_systems, modes, steps, speed
+473   linear      +0.0195       0.0093     1.000  diff_8754_effortless efficiency
+474   rule        -0.0223       0.0093     0.221  diff_1240 > 0.5
+475   linear      -0.0171       0.0090     1.000  diff_379_pronoun followed by a verb
+476   linear      +0.0133       0.0090     1.000  diff_951
+477   rule        -0.0195       0.0090     0.306  diff_75_becomes / dissolves / spun / fails > -0.5 and diff_506 <= -0.5
+478   rule        +0.0188       0.0090     0.348  diff_243 <= -0.5
+479   linear      -0.0206       0.0089     1.000  ctx_518_causative element or basis
+480   rule        +0.0483       0.0089     0.035  diff_331 <= 0.5 and diff_490_detailed explanation <= 0.5 and diff_5200_recognizing or noticing <= -0.5
+481   linear      -0.0150       0.0088     1.000  diff_2497
+482   linear      +0.0103       0.0088     1.000  diff_526_names and specific entities
+483   linear      +0.0219       0.0088     1.000  ctx_155_It's important/crucial/not
+484   linear      -0.0150       0.0087     1.000  diff_214_years in different languages
+485   linear      -0.0176       0.0087     1.000  ctx_724_of- Service
+486   rule        +0.0317       0.0086     0.081  diff_30_specific word pairs > 0.5 and diff_490_detailed explanation > -0.5 and ctx_391_i am a / i'm a > 0.5 and diff_2727_internet social media slang <= 0.5
+487   rule        -0.0172       0.0086     0.473  diff_30_specific word pairs <= 0.5 and diff_2223_past actions or events > -0.5 and diff_11052_How to write clickbait titles <= 0.5
+488   linear      +0.0130       0.0086     1.000  diff_4276_full viewport, cluster sampling, quantitative CMR, main loop
+489   rule        +0.0243       0.0086     0.147  diff_1065_potential damage and dangers <= -0.5
+490   rule        -0.0246       0.0085     0.138  diff_16006_DO NOT > 0.5
+491   linear      -0.0184       0.0085     1.000  diff_14289_list items or bullet points
+492   rule        -0.0334       0.0085     0.069  diff_331 > 0.5 and diff_490_detailed explanation <= 0.5 and ctx_2003 > 0.5
+493   rule        -0.0245       0.0084     0.865  diff_1531_discovery and revelation > -0.5
+494   linear      +0.0209       0.0084     1.000  diff_10871_boy or girl
+495   rule        +0.0231       0.0083     0.154  diff_984_contemptuous questions and statements <= -0.5 and diff_9012_time durations and speed <= 0.5
+496   linear      -0.0180       0.0083     1.000  ctx_44_demonstratives followed by specific nouns
+497   linear      -0.0142       0.0082     1.000  diff_8000_introduces it's explanations
+498   rule        -0.0265       0.0082     0.109  diff_1321_support and encouragement > 0.5
+499   linear      -0.0200       0.0082     1.000  ctx_1751
+500   rule        -0.0230       0.0082     0.148  diff_331 > 0.5 and diff_490_detailed explanation <= 0.5 and ctx_2003 <= 0.5
+501   linear      -0.0101       0.0081     1.000  diff_926_they
+502   rule        -0.0305       0.0081     0.077  diff_641_asking questions and seeking context <= -0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+503   linear      +0.0162       0.0081     1.000  ctx_399
+504   linear      -0.0200       0.0080     1.000  ctx_10362_man descriptions
+505   rule        +0.0215       0.0080     0.168  diff_1725 > 0.5
+506   rule        +0.0217       0.0080     0.162  diff_75_becomes / dissolves / spun / fails <= -0.5 and diff_563_defines states or conditions > -0.5 and diff_3669_video content and analysis > -0.5
+507   linear      +0.0180       0.0080     1.000  ctx_12070_female identity and womanhood
+508   linear      +0.0207       0.0079     1.000  ctx_1548_seems like
+509   linear      +0.0164       0.0079     1.000  ctx_73_false
+510   rule        +0.0232       0.0079     0.133  diff_951 <= -0.5 and diff_1236 > -0.5 and diff_1531_discovery and revelation <= 0.5 and diff_11052_How to write clickbait titles > -0.5
+511   rule        -0.0201       0.0078     0.812  diff_1966_unexpected things > -0.5
+512   rule        +0.0246       0.0078     0.885  diff_2315_you probably use > -0.5
+513   linear      -0.0162       0.0077     1.000  ctx_439_several ways
+514   linear      +0.0128       0.0076     1.000  diff_1249_incidents / disasters
+515   rule        -0.0191       0.0076     0.803  diff_5439_offensive content <= 0.5 and diff_9012_time durations and speed <= 0.5
+516   linear      -0.0127       0.0076     1.000  diff_439_several ways
+517   linear      +0.0206       0.0076     1.000  diff_3676_incredible, astounding, unparalleled descriptions
+518   rule        +0.0158       0.0075     0.651  diff_75_becomes / dissolves / spun / fails > -0.5 and diff_538_regulation, risk, and governance <= 0.5
+519   linear      -0.0107       0.0075     1.000  diff_2145_list items
+520   rule        +0.0192       0.0075     0.188  diff_1966_unexpected things <= -0.5
+521   linear      -0.0163       0.0075     1.000  ctx_766
+522   rule        +0.0150       0.0074     0.582  diff_296 <= 0.5 and diff_605_past-tense narration <= 0.5 and diff_9410_subtitles > -0.5
+523   rule        -0.0188       0.0074     0.810  diff_1966_unexpected things <= 0.5
+524   rule        -0.0497       0.0073     0.022  diff_484_positive sentiment words <= 0.5 and diff_604_harmful unethical behavior <= -0.5 and diff_1170_quizzes and puzzles <= 0.5 and diff_1497_question mark <= -0.5 and diff_2633_descriptions of people > -0.5 and diff_7346_grab attention / appeal to senses > -0.5
+525   rule        +0.0232       0.0072     0.109  diff_1455 <= 0.5 and diff_1497_question mark <= -0.5
+526   rule        -0.0322       0.0072     0.052  diff_1249_incidents / disasters > 0.5 and diff_2400_hypothetical scenarios <= -0.5
+527   rule        +0.0265       0.0072     0.079  diff_1212 > 0.5 and diff_2497 <= 0.5 and diff_5439_offensive content > -0.5
+528   linear      +0.0119       0.0071     1.000  diff_242
+529   linear      -0.0114       0.0070     1.000  diff_302
+530   linear      +0.0115       0.0070     1.000  diff_789
+531   rule        +0.0150       0.0070     0.324  diff_436 > -0.5 and diff_604_harmful unethical behavior <= 0.5 and diff_641_asking questions and seeking context > -0.5 and diff_951 > -0.5 and diff_1874_will tell or disclose <= 0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+532   rule        -0.0142       0.0070     0.448  diff_223 <= 0.5 and diff_234 <= 0.5 and diff_2892_instructions or problem context > -0.5
+533   rule        +0.0255       0.0070     0.082  diff_538_regulation, risk, and governance <= 0.5 and diff_1224_YouTube platform <= -0.5 and diff_1497_question mark > -0.5
+534   rule        +0.0141       0.0070     0.455  diff_543_text descriptions and examples <= 0.5 and diff_1032_scenes and vehicles > -0.5 and diff_2987 <= 0.5 and diff_12139_questions and technical topics > -0.5
+535   rule        +0.0172       0.0070     0.790  diff_11052_How to write clickbait titles <= 0.5
+536   linear      +0.0115       0.0069     1.000  diff_353
+537   linear      +0.0165       0.0069     1.000  ctx_4366_80
+538   rule        -0.0187       0.0069     0.838  diff_2633_descriptions of people <= 0.5
+539   rule        -0.0239       0.0069     0.092  diff_1970_3d, 4chan, 9gag <= -0.5
+540   linear      -0.0113       0.0069     1.000  diff_2489
+541   linear      +0.0141       0.0068     1.000  ctx_1093_questions auxiliary verbs
+542   rule        -0.0155       0.0067     0.749  diff_490_detailed explanation > -0.5
+543   linear      +0.0145       0.0067     1.000  diff_1183_titles and names of people
+544   linear      +0.0115       0.0067     1.000  diff_1234_direct, personal, necessity
+545   rule        -0.0218       0.0067     0.104  diff_3092_seeing and noticing > 0.5
+546   linear      +0.0161       0.0067     1.000  ctx_641_asking questions and seeking context
+547   linear      +0.0154       0.0067     1.000  ctx_14204_easy to use/understand/read
+548   rule        +0.0387       0.0066     0.030  diff_686_starts with a > 0.5 and diff_8878_things or anything <= -0.5
+549   rule        -0.0179       0.0066     0.836  diff_2193_tragic and horrific events > -0.5
+550   rule        +0.0195       0.0066     0.132  diff_3669_video content and analysis <= -0.5
+551   rule        -0.0200       0.0066     0.124  diff_399 > -0.5 and diff_11052_How to write clickbait titles > 0.5 and diff_12139_questions and technical topics > -0.5
+552   linear      +0.0112       0.0066     1.000  diff_2077_descriptive adjectives followed by clauses
+553   rule        -0.0140       0.0065     0.685  diff_444_values, feelings, judgments > -0.5 and diff_1531_discovery and revelation <= 0.5
+554   rule        -0.0231       0.0065     0.086  diff_30_specific word pairs > 0.5 and diff_490_detailed explanation <= -0.5
+555   rule        -0.0182       0.0065     0.148  diff_2223_past actions or events > 0.5
+556   linear      -0.0080       0.0065     1.000  diff_4807_end of sentence
+557   linear      +0.0141       0.0065     1.000  ctx_56_change or effect
+558   linear      +0.0104       0.0064     1.000  diff_3415_easy to learn
+559   linear      +0.0136       0.0064     1.000  ctx_1125_and continuation
+560   linear      +0.0100       0.0064     1.000  diff_1878_mathematical calculations
+561   linear      -0.0127       0.0063     1.000  ctx_425
+562   linear      +0.0087       0.0063     1.000  diff_138_Prefixes followed by specific words
+563   rule        -0.0125       0.0063     0.524  ctx_14718_that countsthat hasthat makesthat identifiesthat introduce <= 0.5 and diff_538_regulation, risk, and governance <= 0.5 and diff_1224_YouTube platform > -0.5 and diff_1497_question mark > -0.5
+564   linear      +0.0107       0.0062     1.000  diff_5439_offensive content
+565   linear      +0.0139       0.0062     1.000  ctx_1899_is the
+566   rule        +0.0139       0.0062     0.729  diff_1497_question mark <= 0.5 and diff_3669_video content and analysis > -0.5
+567   rule        -0.0123       0.0061     0.490  diff_331 <= 0.5 and diff_490_detailed explanation <= 0.5 and diff_5200_recognizing or noticing > -0.5
+568   linear      -0.0148       0.0061     1.000  ctx_631_to be
+569   rule        -0.0165       0.0061     0.161  diff_75_becomes / dissolves / spun / fails > -0.5 and diff_416 <= -0.5 and diff_484_positive sentiment words > -0.5 and diff_2009 <= 0.5
+570   linear      -0.0140       0.0061     1.000  ctx_904
+571   linear      +0.0089       0.0061     1.000  diff_656_list of items
+572   linear      -0.0139       0.0061     1.000  ctx_244_confined within the
+573   linear      +0.0072       0.0060     1.000  diff_83
+574   rule        +0.0177       0.0060     0.130  diff_436 > -0.5 and diff_641_asking questions and seeking context > -0.5 and diff_951 <= -0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+575   linear      -0.0119       0.0060     1.000  ctx_794_don't be boring, messy code
+576   linear      +0.0142       0.0059     1.000  ctx_1113_book titles and stories
+577   linear      +0.0130       0.0059     1.000  diff_3092_seeing and noticing
+578   rule        -0.0310       0.0058     0.036  diff_399 > -0.5 and diff_11052_How to write clickbait titles > 0.5 and diff_12139_questions and technical topics <= -0.5
+579   linear      -0.0126       0.0058     1.000  ctx_2396_of using
+580   linear      +0.0090       0.0058     1.000  diff_92
+581   rule        -0.0462       0.0057     0.016  diff_543_text descriptions and examples > 0.5 and diff_1032_scenes and vehicles > -0.5 and diff_2315_you probably use <= -0.5
+582   linear      -0.0098       0.0057     1.000  diff_1032_scenes and vehicles
+583   linear      -0.0119       0.0057     1.000  ctx_2223_past actions or events
+584   rule        +0.0158       0.0056     0.149  diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything <= 0.5 and ctx_641_asking questions and seeking context > 0.5
+585   linear      +0.0113       0.0056     1.000  diff_89_first, each, last item
+586   rule        +0.0113       0.0056     0.471  diff_490_detailed explanation <= 0.5 and diff_903 <= 0.5 and diff_1249_incidents / disasters <= 0.5 and diff_8754_effortless efficiency > -0.5
+587   linear      +0.0068       0.0056     1.000  diff_634_individuals or organizations
+588   linear      -0.0077       0.0056     1.000  diff_1171
+589   rule        +0.0112       0.0055     0.566  diff_1212 <= 0.5 and diff_2497 <= 0.5 and diff_2517_Rukarara River, cerebrex > -0.5 and diff_5439_offensive content > -0.5
+590   rule        +0.0162       0.0055     0.135  diff_3669_video content and analysis > 0.5
+591   linear      +0.0123       0.0055     1.000  ctx_1160_following prepositions
+592   linear      -0.0120       0.0055     1.000  diff_6929_anger and related emotions
+593   rule        -0.0296       0.0055     0.035  diff_543_text descriptions and examples > -0.5 and diff_728_consciousness <= -0.5 and diff_892_Likely causing this <= -0.5
+594   rule        +0.0149       0.0054     0.157  diff_1115_describing people or animals <= -0.5 and diff_8878_things or anything > -0.5
+595   rule        -0.0108       0.0054     0.505  diff_75_becomes / dissolves / spun / fails > -0.5 and diff_286 <= 0.5 and diff_3244_release date <= 0.5
+596   rule        +0.0126       0.0054     0.235  diff_526_names and specific entities <= -0.5 and diff_1240 <= 0.5 and diff_1389_past events > -0.5
+597   linear      -0.0086       0.0053     1.000  diff_2982_a followed by specific nouns
+598   rule        +0.0145       0.0053     0.160  diff_1115_describing people or animals <= -0.5 and diff_1389_past events <= 0.5
+599   rule        -0.0141       0.0053     0.828  diff_2497 <= 0.5
+600   rule        +0.0390       0.0053     0.019  diff_484_positive sentiment words <= 0.5 and diff_1170_quizzes and puzzles <= 0.5 and diff_2633_descriptions of people > -0.5 and diff_7346_grab attention / appeal to senses <= -0.5
+601   linear      -0.0106       0.0053     1.000  ctx_240
+602   linear      -0.0181       0.0052     1.000  ctx_11979_sexual and explicit themes
+603   rule        -0.0180       0.0052     0.092  diff_819_time units before temporal markers > 0.5
+604   linear      +0.0105       0.0052     1.000  ctx_1342_ignoring you
+605   linear      +0.0066       0.0052     1.000  diff_10737_phrases like "by step"
+606   linear      -0.0097       0.0051     1.000  diff_53_technical terms
+607   rule        -0.0152       0.0051     0.131  diff_1280 <= -0.5
+608   rule        +0.0102       0.0051     0.538  diff_243 > -0.5 and diff_1310_发热 > -0.5
+609   linear      -0.0117       0.0051     1.000  ctx_30_specific word pairs
+610   linear      +0.0103       0.0050     1.000  ctx_2009
+611   rule        -0.0118       0.0050     0.760  diff_959_attackers and intruders > -0.5 and diff_16006_DO NOT <= 0.5
+612   rule        +0.0174       0.0050     0.092  diff_30_specific word pairs <= 0.5 and diff_2223_past actions or events <= -0.5
+613   linear      +0.0078       0.0050     1.000  diff_652_words of quantity
+614   linear      +0.0103       0.0049     1.000  ctx_1678_locations and descriptions
+615   linear      +0.0070       0.0049     1.000  diff_399
+616   linear      -0.0061       0.0049     1.000  diff_30_specific word pairs
+617   linear      +0.0065       0.0049     1.000  diff_848_initializes, calculates
+618   linear      -0.0059       0.0049     1.000  diff_73_false
+619   linear      +0.0067       0.0048     1.000  diff_928_you are / you can / i will
+620   linear      +0.0096       0.0047     1.000  ctx_184_asking about
+621   rule        +0.0161       0.0047     0.096  diff_605_past-tense narration > -0.5 and diff_2315_you probably use > 0.5
+622   rule        -0.0143       0.0047     0.127  diff_11566_analogy <= -0.5 and diff_12705_never > -0.5
+623   rule        +0.0178       0.0047     0.076  diff_53_technical terms > 0.5 and diff_926_they > -0.5 and diff_4053_joke, humor, comedy <= 0.5
+624   linear      +0.0073       0.0045     1.000  diff_3338_number followed by plus
+625   linear      +0.0074       0.0045     1.000  diff_1966_unexpected things
+626   linear      +0.0097       0.0045     1.000  ctx_264_would be
+627   linear      -0.0071       0.0045     1.000  diff_4366_80
+628   rule        -0.0142       0.0045     0.114  diff_243 > -0.5 and diff_1310_发热 <= -0.5
+629   linear      +0.0074       0.0045     1.000  diff_295_understand you
+630   linear      -0.0051       0.0045     1.000  diff_229
+631   linear      +0.0069       0.0044     1.000  diff_419
+632   rule        +0.0116       0.0043     0.832  diff_1725 <= 0.5
+633   rule        -0.0111       0.0043     0.188  diff_484_positive sentiment words > 0.5 and diff_1065_potential damage and dangers > -0.5
+634   linear      -0.0090       0.0043     1.000  ctx_1133
+635   linear      -0.0058       0.0043     1.000  diff_345
+636   linear      +0.0060       0.0043     1.000  diff_450
+637   rule        -0.0409       0.0043     0.011  diff_30_specific word pairs > 0.5 and diff_450 <= 0.5 and diff_490_detailed explanation > -0.5 and ctx_391_i am a / i'm a > 0.5 and diff_2727_internet social media slang > 0.5
+638   linear      +0.0076       0.0042     1.000  diff_45_could you tell me
+639   rule        -0.0099       0.0042     0.761  diff_45_could you tell me <= 0.5 and diff_6843_introduced person or concept > -0.5 and diff_12705_never <= 0.5
+640   linear      -0.0098       0.0042     1.000  ctx_1653_how things work
+641   rule        +0.0217       0.0041     0.038  diff_484_positive sentiment words <= 0.5 and diff_526_names and specific entities <= 0.5 and diff_750 <= -0.5 and diff_1170_quizzes and puzzles <= 0.5 and diff_1497_question mark > -0.5 and diff_2633_descriptions of people > -0.5 and diff_7346_grab attention / appeal to senses > -0.5
+642   rule        -0.0092       0.0041     0.721  diff_2400_hypothetical scenarios > -0.5
+643   rule        -0.0090       0.0041     0.714  diff_892_Likely causing this <= 0.5 and diff_2223_past actions or events <= 0.5
+644   rule        -0.0090       0.0040     0.719  diff_379_pronoun followed by a verb > -0.5 and diff_1531_discovery and revelation <= 0.5 and diff_7346_grab attention / appeal to senses > -0.5
+645   linear      +0.0092       0.0040     1.000  ctx_143_overall system complexities
+646   rule        +0.0083       0.0040     0.628  diff_512_lists with explanations > -0.5
+647   rule        +0.0109       0.0040     0.162  diff_2633_descriptions of people > 0.5
+648   rule        +0.0187       0.0040     0.048  diff_543_text descriptions and examples <= -0.5 and diff_563_defines states or conditions <= -0.5
+649   rule        +0.0110       0.0040     0.845  diff_605_past-tense narration > -0.5
+650   linear      -0.0083       0.0040     1.000  ctx_465
+651   rule        -0.0132       0.0040     0.899  diff_3332_defining a professional role <= 0.5
+652   rule        -0.0101       0.0039     0.813  diff_1170_quizzes and puzzles <= 0.5
+653   linear      -0.0063       0.0039     1.000  diff_1214
+654   linear      -0.0061       0.0039     1.000  diff_1494
+655   linear      -0.0099       0.0039     1.000  diff_469_year onward
+656   linear      +0.0067       0.0039     1.000  diff_892_Likely causing this
+657   rule        +0.0086       0.0039     0.719  diff_2400_hypothetical scenarios <= 0.5
+658   linear      -0.0093       0.0038     1.000  ctx_2633_descriptions of people
+659   linear      -0.0053       0.0038     1.000  diff_1781
+660   linear      -0.0053       0.0037     1.000  diff_131
+661   linear      -0.0117       0.0037     1.000  ctx_22_units of measurement
+662   linear      +0.0074       0.0037     1.000  ctx_606
+663   rule        +0.0118       0.0037     0.891  diff_1321_support and encouragement <= 0.5
+664   rule        +0.0099       0.0036     0.160  diff_1497_question mark <= -0.5
+665   linear      +0.0092       0.0036     1.000  ctx_5040_won't work or do
+666   linear      +0.0084       0.0036     1.000  ctx_377
+667   linear      +0.0077       0.0036     1.000  ctx_223
+668   linear      -0.0039       0.0035     1.000  diff_250
+669   linear      +0.0071       0.0035     1.000  diff_145_time and periods
+670   linear      -0.0077       0.0034     1.000  ctx_1788_support organizations and helplines
+671   rule        +0.0093       0.0034     0.164  diff_2193_tragic and horrific events <= -0.5
+672   linear      -0.0076       0.0033     1.000  ctx_5_list items and punctuation
+673   linear      +0.0071       0.0032     1.000  ctx_295_understand you
+674   rule        +0.0127       0.0032     0.067  diff_543_text descriptions and examples > -0.5 and diff_892_Likely causing this > -0.5 and diff_901 <= -0.5 and ctx_377 <= 0.5
+675   linear      +0.0053       0.0032     1.000  diff_261
+676   rule        -0.0107       0.0031     0.908  diff_819_time units before temporal markers <= 0.5
+677   rule        +0.0110       0.0031     0.086  diff_1279 > 0.5 and diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything <= 0.5 and ctx_641_asking questions and seeking context <= 0.5
+678   rule        -0.0060       0.0030     0.466  diff_83 <= 0.5 and diff_1497_question mark > -0.5 and diff_3142_asking about who <= 0.5
+679   rule        +0.0098       0.0030     0.896  diff_3092_seeing and noticing <= 0.5
+680   rule        +0.0081       0.0030     0.161  diff_543_text descriptions and examples > -0.5 and diff_892_Likely causing this > -0.5 and ctx_377 > 0.5
+681   rule        +0.0092       0.0029     0.885  diff_2315_you probably use <= 0.5
+682   linear      -0.0043       0.0029     1.000  diff_2919_introducing specific nouns
+683   linear      +0.0053       0.0029     1.000  diff_894_past time references
+684   linear      -0.0039       0.0028     1.000  diff_162
+685   rule        -0.0126       0.0028     0.053  ctx_162 <= 0.5 and diff_903 <= -0.5 and diff_1280 > -0.5
+686   linear      -0.0057       0.0028     1.000  ctx_444_values, feelings, judgments
+687   linear      -0.0048       0.0028     1.000  diff_234
+688   rule        -0.0071       0.0028     0.190  diff_484_positive sentiment words <= -0.5 and diff_3669_video content and analysis > -0.5
+689   rule        -0.0057       0.0027     0.660  diff_634_individuals or organizations > -0.5
+690   linear      -0.0059       0.0027     1.000  ctx_1275
+691   linear      -0.0055       0.0027     1.000  diff_2135_areas for improvement or concern
+692   linear      -0.0052       0.0027     1.000  diff_1236
+693   rule        +0.0059       0.0026     0.258  diff_490_detailed explanation > 0.5
+694   rule        +0.0069       0.0026     0.164  diff_5439_offensive content > 0.5 and diff_9012_time durations and speed <= 0.5
+695   rule        -0.0051       0.0025     0.468  diff_223 > -0.5 and diff_249 > -0.5 and diff_4153_roles and actions > -0.5
+696   linear      -0.0054       0.0025     1.000  ctx_6524_starts questions
+697   linear      +0.0052       0.0025     1.000  ctx_2346_filling blanks or correcting sentences
+698   linear      +0.0038       0.0025     1.000  diff_717
+699   linear      +0.0033       0.0024     1.000  diff_773
+700   linear      -0.0037       0.0024     1.000  diff_1240
+701   rule        +0.0065       0.0024     0.166  diff_5439_offensive content <= -0.5
+702   rule        -0.0069       0.0024     0.859  diff_10871_boy or girl > -0.5 and diff_11469_read the following <= 0.5
+703   rule        -0.0058       0.0024     0.210  diff_11052_How to write clickbait titles > 0.5
+704   linear      +0.0050       0.0024     1.000  diff_2315_you probably use
+705   rule        -0.0073       0.0024     0.119  diff_543_text descriptions and examples > 0.5 and diff_1032_scenes and vehicles > -0.5 and diff_2315_you probably use > -0.5
+706   rule        +0.0068       0.0023     0.138  diff_892_Likely causing this > 0.5 and diff_2223_past actions or events <= 0.5
+707   linear      +0.0051       0.0023     1.000  ctx_16357_Paste Special, ride is, Taste is
+708   rule        +0.0070       0.0023     0.129  diff_305 > 0.5 and diff_1279 <= 0.5 and diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything <= 0.5 and ctx_641_asking questions and seeking context <= 0.5
+709   rule        -0.0105       0.0023     0.949  diff_2029_strategic initiatives <= 0.5
+710   rule        +0.0059       0.0022     0.829  diff_2497 > -0.5
+711   rule        -0.0071       0.0022     0.107  diff_543_text descriptions and examples <= -0.5 and diff_1176_load balancer <= 0.5 and diff_1966_unexpected things <= 0.5
+712   rule        -0.0066       0.0022     0.125  diff_2390_images > 0.5
+713   linear      +0.0044       0.0022     1.000  ctx_728_consciousness
+714   linear      +0.0043       0.0022     1.000  ctx_1068_technical terms and concepts
+715   rule        -0.0062       0.0021     0.136  diff_416 > -0.5 and diff_484_positive sentiment words > -0.5 and diff_1315 <= -0.5
+716   linear      +0.0043       0.0021     1.000  ctx_433_problem, issue
+717   rule        +0.0062       0.0021     0.136  diff_2695_compelling and crucial appeal > 0.5
+718   rule        -0.0043       0.0021     0.372  diff_484_positive sentiment words <= 0.5 and diff_750 > -0.5 and diff_1170_quizzes and puzzles <= 0.5 and diff_1497_question mark > -0.5 and diff_2633_descriptions of people > -0.5 and diff_7346_grab attention / appeal to senses > -0.5
+719   rule        +0.0053       0.0021     0.191  diff_8878_things or anything > 0.5
+720   rule        +0.0049       0.0020     0.222  diff_391_i am a / i'm a <= 0.5 and diff_634_individuals or organizations <= -0.5 and diff_693 > -0.5
+721   linear      +0.0062       0.0020     1.000  diff_1227_professional presentations and conferences
+722   rule        -0.0051       0.0019     0.837  diff_2987 <= 0.5
+723   rule        -0.0072       0.0019     0.073  diff_1115_describing people or animals > -0.5 and diff_1389_past events <= 0.5 and diff_1531_discovery and revelation > 0.5
+724   rule        +0.0061       0.0019     0.105  diff_436 <= -0.5 and diff_641_asking questions and seeking context > -0.5 and diff_2007_numerical time durations > -0.5 and diff_11566_analogy > -0.5 and diff_12705_never > -0.5
+725   linear      -0.0037       0.0018     1.000  ctx_838_tokyo, help, start
+726   linear      -0.0046       0.0018     1.000  ctx_1285_Accelerated, Generative, Elaborately
+727   rule        -0.0053       0.0018     0.865  diff_3669_video content and analysis <= 0.5
+728   rule        +0.0053       0.0018     0.870  diff_2727_internet social media slang > -0.5
+729   rule        -0.0068       0.0018     0.927  diff_5200_recognizing or noticing > -0.5
+730   rule        +0.0067       0.0017     0.927  diff_5200_recognizing or noticing <= 0.5
+731   linear      -0.0035       0.0017     1.000  ctx_347
+732   rule        +0.0123       0.0017     0.018  diff_1234_direct, personal, necessity <= -0.5 and diff_2654_results and output > 0.5
+733   rule        +0.0132       0.0016     0.015  diff_286 > 0.5 and diff_3244_release date <= 0.5 and diff_7369_male archetypes and masculinity > 0.5
+734   rule        -0.0041       0.0015     0.163  diff_2987 > 0.5
+735   rule        +0.0071       0.0015     0.046  diff_75_becomes / dissolves / spun / fails <= -0.5 and diff_563_defines states or conditions <= -0.5 and diff_3669_video content and analysis > -0.5
+736   linear      -0.0030       0.0015     1.000  ctx_10737_phrases like "by step"
+737   linear      +0.0027       0.0014     1.000  ctx_1076_the
+738   linear      -0.0035       0.0013     1.000  ctx_1024_positive qualities and capabilities
+739   rule        -0.0039       0.0013     0.865  diff_1531_discovery and revelation <= 0.5
+740   linear      -0.0021       0.0013     1.000  diff_6863_boundingVolume and bindingMode.OneWay
+741   rule        -0.0042       0.0013     0.104  diff_543_text descriptions and examples > -0.5 and diff_728_consciousness > -0.5 and diff_892_Likely causing this <= -0.5
+742   rule        -0.0033       0.0013     0.187  diff_1170_quizzes and puzzles > 0.5
+743   linear      -0.0018       0.0012     1.000  diff_7212_all the fish
+744   rule        +0.0029       0.0012     0.758  diff_1213_intense negative emotions > -0.5
+745   rule        +0.0035       0.0012     0.875  diff_2390_images <= 0.5
+746   rule        +0.0027       0.0010     0.188  diff_4153_roles and actions <= -0.5
+747   linear      +0.0017       0.0010     1.000  diff_729
+748   linear      -0.0023       0.0010     1.000  ctx_583_concepts ending in ism
+749   rule        -0.0021       0.0010     0.666  diff_73_false > -0.5
+750   linear      +0.0020       0.0010     1.000  ctx_1119_made people or individuals
+751   rule        -0.0031       0.0009     0.102  diff_45_could you tell me > -0.5 and diff_1531_discovery and revelation > 0.5 and diff_11774_negative medical outcomes > -0.5
+752   rule        -0.0021       0.0009     0.743  diff_1170_quizzes and puzzles > -0.5 and diff_1970_3d, 4chan, 9gag > -0.5
+753   linear      -0.0014       0.0009     1.000  diff_1440
+754   rule        +0.0017       0.0008     0.548  diff_543_text descriptions and examples > -0.5 and diff_1176_load balancer <= 0.5 and diff_1966_unexpected things <= 0.5
+755   linear      -0.0010       0.0008     1.000  diff_181
+756   rule        +0.0022       0.0008     0.862  diff_16006_DO NOT <= 0.5
+757   rule        -0.0023       0.0007     0.115  diff_2315_you probably use <= -0.5
+758   rule        -0.0014       0.0007     0.652  diff_890 <= 0.5 and diff_1115_describing people or animals > -0.5
+759   linear      +0.0008       0.0007     1.000  diff_760
+760   linear      +0.0009       0.0006     1.000  diff_393
+761   linear      -0.0012       0.0006     1.000  ctx_70
+762   rule        -0.0029       0.0006     0.042  diff_12705_never <= -0.5
+763   linear      +0.0010       0.0006     1.000  diff_1725
+764   rule        +0.0011       0.0006     0.499  ctx_162 > 0.5 and diff_1280 > -0.5
+765   rule        -0.0015       0.0005     0.145  diff_2497 > 0.5 and diff_5439_offensive content > -0.5
+766   linear      +0.0009       0.0005     1.000  diff_2727_internet social media slang
+767   rule        -0.0013       0.0005     0.832  diff_1234_direct, personal, necessity > -0.5
+768   linear      +0.0007       0.0005     1.000  diff_918
+769   rule        -0.0009       0.0004     0.648  diff_538_regulation, risk, and governance > -0.5 and diff_2892_instructions or problem context <= 0.5
+770   linear      +0.0009       0.0004     1.000  ctx_472
+771   linear      +0.0005       0.0004     1.000  diff_1315
+772   rule        -0.0011       0.0004     0.159  diff_543_text descriptions and examples <= 0.5 and diff_1032_scenes and vehicles > -0.5 and diff_12139_questions and technical topics <= -0.5
+773   rule        +0.0012       0.0004     0.101  diff_3332_defining a professional role > 0.5
+774   linear      -0.0007       0.0003     1.000  ctx_391_i am a / i'm a
+775   linear      +0.0005       0.0003     1.000  diff_105
+776   linear      -0.0003       0.0002     1.000  diff_3150_Russian names and terms
+777   rule        +0.0004       0.0002     0.325  diff_305 <= 0.5 and diff_1279 <= 0.5 and diff_4053_joke, humor, comedy > -0.5 and diff_8878_things or anything <= 0.5 and ctx_641_asking questions and seeking context <= 0.5
+778   linear      -0.0004       0.0002     1.000  diff_281_okay and alright
+779   linear      +0.0002       0.0002     1.000  diff_107_dialog starters
+780   rule        -0.0018       0.0001     0.003  diff_30_specific word pairs > 0.5 and diff_450 > 0.5 and diff_490_detailed explanation > -0.5 and ctx_391_i am a / i'm a > 0.5 and diff_2727_internet social media slang > 0.5
+781   rule        +0.0001       0.0000     0.110  ctx_14718_that countsthat hasthat makesthat identifiesthat introduce > 0.5 and diff_538_regulation, risk, and governance <= 0.5 and diff_1224_YouTube platform > -0.5 and diff_1497_question mark > -0.5
+782   rule        -0.0000       0.0000     0.265  diff_83 > 0.5 and diff_1497_question mark > -0.5 and diff_3142_asking about who <= 0.5

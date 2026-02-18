@@ -1,0 +1,70 @@
+Loading sparse vectors and metadata …
+Full matrix: 57289 × 32768
+Label distribution: 0=28804, 1=28485
+Loading train/test split …
+Train: 45657, Test: 11632
+Loading cached thresholds from tree_outputs/walk_thresholds.npz …
+  Loaded.
+Applying thresholds to full matrix …
+Binarised matrix: (57289, 32768)  (29.7s)
+  ctx 1s: 27,480,865  /  diff ±1s: 45,080,775
+X_train: (45657, 32768),  X_test: (11632, 32768)
+Loading feature names …
+
+================================================================================
+Training XGBoost on binarised features …
+================================================================================
+Training done in 66.3s
+
+Accuracy:          0.6184
+Weighted Accuracy: 0.6853
+F1:                0.6195
+AUC-ROC:           0.7592
+
+              precision    recall  f1-score   support
+
+           0       0.62      0.62      0.62      5791
+           1       0.62      0.62      0.62      5841
+
+    accuracy                           0.62     11632
+   macro avg       0.62      0.62      0.62     11632
+weighted avg       0.62      0.62      0.62     11632
+
+
+Non-zero feature importances: 467 / 32768
+
+Top 30 features by importance:
+----------------------------------------------------------------------------------------------------
+    1. [17773] 0.014721  diff_1389_past events
+    2. [23227] 0.011179  diff_6843_introduced person or concept
+    3. [17416] 0.011120  diff_1032_scenes and vehicles
+    4. [27436] 0.010819  diff_11052_How to write clickbait titles
+    5. [17915] 0.010368  diff_1531_discovery and revelation
+    6. [17499] 0.009808  diff_1115_describing people or animals
+    7. [20053] 0.008910  diff_3669_video content and analysis
+    8. [21823] 0.008601  diff_5439_offensive content
+    9. [20437] 0.008354  diff_4053_joke, humor, comedy
+   10. [17597] 0.007988  diff_1213_intense negative emotions
+   11. [19111] 0.007623  diff_2727_internet social media slang
+   12. [28998] 0.007278  diff_12614_regex questions and explanations
+   13. [16922] 0.006974  diff_538_regulation, risk, and governance
+   14. [16504] 0.006880  diff_120
+   15. [16613] 0.006718  diff_229
+   16. [18577] 0.006604  diff_2193_tragic and horrific events
+   17. [18881] 0.006551  diff_2497
+   18. [25191] 0.006314  diff_8807_how to respond
+   19. [17608] 0.006182  diff_1224_YouTube platform
+   20. [18607] 0.005849  diff_2223_past actions or events
+   21. [17113] 0.005816  diff_729
+   22. [17824] 0.005687  diff_1440
+   23. [17203] 0.005656  diff_819_time units before temporal markers
+   24. [18604] 0.005641  diff_2220_'this'
+   25. [22934] 0.005619  diff_6550_disturbing, chilling, brutal, harmful content
+   26. [18391] 0.005350  diff_2007_numerical time durations
+   27. [16523] 0.005320  diff_139_error handling
+   28. [18784] 0.005115  diff_2400_hypothetical scenarios
+   29. [17031] 0.005085  diff_647
+   30. [16391] 0.005046  diff_7_programming methodologies and techniques
+
+Saved 467 non-zero feature importances to tree_outputs/feature_importances_xgb_bin.txt
+Saved metrics to tree_outputs/xgboost_bin_results.json

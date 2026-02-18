@@ -1,0 +1,15 @@
+RuleFit training complete.
+
+Accuracy:          0.5873
+Weighted Accuracy: 0.6441
+F1:                0.4352
+AUC-ROC:           0.7624
+
+              precision    recall  f1-score   support
+
+           0       0.56      0.86      0.67      5791
+           1       0.70      0.32      0.44      5841
+
+    accuracy                           0.59     11632
+   macro avg       0.63      0.59      0.56     11632
+weighted avg       0.63      0.59      0.55     11632
