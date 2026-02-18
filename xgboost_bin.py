@@ -228,8 +228,22 @@ model = XGBClassifier(
     n_jobs=-1,
     random_state=42,
     eval_metric="logloss",
+    colsample_bytree=0.7,
     verbosity=1,
 )
+# model = XGBClassifier(
+#     n_estimators=1200,
+#     max_depth=1,              # stumps = additive model
+#     learning_rate=0.05,
+#     subsample=0.8,
+#     colsample_bytree=0.5,
+#     min_child_weight=10,
+#     reg_lambda=2.0,
+#     n_jobs=-1,
+#     random_state=42,
+#     eval_metric="logloss",
+#     verbosity=1,
+# )
 model.fit(X_train, y_train, sample_weight=w_train)
 print(f"Training done in {time.time()-start:.1f}s")
 
@@ -268,7 +282,7 @@ for rank, idx in enumerate(sorted_nz[:30]):
     print(f"  {rank+1:3d}. [{idx:5d}] {imp:.6f}  {name}")
 
 # %% save non-zero feature importances to file
-out_path = Path("tree_outputs/feature_importances_xgb_bin.txt")
+out_path = Path("tree_outputs/feature_importances_xgb_bin444.txt")
 with open(out_path, "w") as f:
     for idx in sorted_nz:
         f.write(f"{idx}: {importances[idx]}\n")
@@ -286,6 +300,16 @@ results = {
     "n_ctx_thresholds": int(np.sum(~np.isnan(ctx_thresholds))),
     "n_diff_thresholds": int(np.sum(~np.isnan(diff_pos_thresholds))),
 }
-json_path = Path("tree_outputs/xgboost_bin_results.json")
+json_path = Path("tree_outputs/xgboost_bin_results444.json")
 json_path.write_text(json.dumps(results, indent=2))
 print(f"Saved metrics to {json_path}")
+
+# %% dump tree text with stats
+booster = model.get_booster()
+booster.feature_names = feature_names
+tree_dump = booster.get_dump(with_stats=True)
+dump_path = Path("tree_outputs/xgboost_bin_tree_dump444.txt")
+with open(dump_path, "w") as f:
+    for i, tree_text in enumerate(tree_dump):
+        f.write(f"booster[{i}]:\n{tree_text}\n")
+print(f"Saved {len(tree_dump)} tree dumps to {dump_path}")

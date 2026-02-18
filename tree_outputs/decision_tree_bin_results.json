@@ -1,0 +1,13 @@
+{
+  "accuracy": 0.5526134800550206,
+  "weighted_accuracy": 0.5835878584638717,
+  "f1_macro": 0.5486354881062666,
+  "auc_roc": 0.6250674150338383,
+  "n_train": 45657,
+  "n_test": 11632,
+  "tree_depth": 8,
+  "n_leaves": 116,
+  "settings": "DecisionTree(max_depth=8, min_samples_leaf=20)",
+  "data": "binarised 32768 (ctx 0/1 + diff -1/0/1), w_diff weights",
+  "split": "cluster_assignments.npz canonical split"
+}

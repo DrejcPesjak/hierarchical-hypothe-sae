@@ -1,0 +1,346 @@
+|--- diff_1389_past events <= 0.50
+|   |--- diff_6843_introduced person or concept <= -0.50
+|   |   |--- diff_5464_investment in development and public goods <= -0.50
+|   |   |   |--- ctx_833_me with prompt <= 0.50
+|   |   |   |   |--- ctx_5316_given instructions to compute <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- ctx_5316_given instructions to compute >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- ctx_833_me with prompt >  0.50
+|   |   |   |   |--- class: 0
+|   |   |--- diff_5464_investment in development and public goods >  -0.50
+|   |   |   |--- diff_8807_how to respond <= -0.50
+|   |   |   |   |--- ctx_11671_known for <= 0.50
+|   |   |   |   |   |--- diff_1281_reports, projects, papers, programs, videos, jobs <= 0.50
+|   |   |   |   |   |   |--- ctx_9816_shame, humiliation, and embarrassment <= 0.50
+|   |   |   |   |   |   |   |--- ctx_5431_br words <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ctx_5431_br words >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- ctx_9816_shame, humiliation, and embarrassment >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_1281_reports, projects, papers, programs, videos, jobs >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- ctx_11671_known for >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- diff_8807_how to respond >  -0.50
+|   |   |   |   |--- diff_647 <= -0.50
+|   |   |   |   |   |--- diff_1765_You act as <= -0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_1765_You act as >  -0.50
+|   |   |   |   |   |   |--- diff_2334_users and tables <= -0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_2334_users and tables >  -0.50
+|   |   |   |   |   |   |   |--- diff_331 <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_331 >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- diff_647 >  -0.50
+|   |   |   |   |   |--- diff_11034_modern and today <= -0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- diff_11034_modern and today >  -0.50
+|   |   |   |   |   |   |--- diff_5135_story ending climax finale <= 0.50
+|   |   |   |   |   |   |   |--- diff_7937_disease, malattie, enfermedades <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_7937_disease, malattie, enfermedades >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_5135_story ending climax finale >  0.50
+|   |   |   |   |   |   |   |--- ctx_65_capitalization inside sentences <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- ctx_65_capitalization inside sentences >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |--- diff_6843_introduced person or concept >  -0.50
+|   |   |--- diff_1531_discovery and revelation <= -0.50
+|   |   |   |--- diff_12614_questions and explanations <= -0.50
+|   |   |   |   |--- diff_42_physical gestures and actions <= 0.50
+|   |   |   |   |   |--- diff_2725_being/increasingly + participle <= -0.50
+|   |   |   |   |   |   |--- diff_1623_everyone or everybody <= -0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_1623_everyone or everybody >  -0.50
+|   |   |   |   |   |   |   |--- ctx_507_is/are <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ctx_507_is/are >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_2725_being/increasingly + participle >  -0.50
+|   |   |   |   |   |   |--- ctx_1023 <= 0.50
+|   |   |   |   |   |   |   |--- diff_764_proposals and proposing <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_764_proposals and proposing >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- ctx_1023 >  0.50
+|   |   |   |   |   |   |   |--- diff_696_expressing concerns or frustration <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_696_expressing concerns or frustration >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- diff_42_physical gestures and actions >  0.50
+|   |   |   |   |   |--- diff_681 <= 0.50
+|   |   |   |   |   |   |--- diff_870 <= 0.50
+|   |   |   |   |   |   |   |--- ctx_705 <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- ctx_705 >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_870 >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- diff_681 >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |--- diff_12614_questions and explanations >  -0.50
+|   |   |   |   |--- diff_5917_legal claims and actions <= -0.50
+|   |   |   |   |   |--- ctx_1213_intense negative emotions <= 0.50
+|   |   |   |   |   |   |--- diff_2892_instructions or problem context <= -0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_2892_instructions or problem context >  -0.50
+|   |   |   |   |   |   |   |--- diff_283_a new <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_283_a new >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- ctx_1213_intense negative emotions >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- diff_5917_legal claims and actions >  -0.50
+|   |   |   |   |   |--- diff_2390_images <= -0.50
+|   |   |   |   |   |   |--- diff_5168_multi-part compound terms <= 0.50
+|   |   |   |   |   |   |   |--- diff_1224_YouTube platform <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_1224_YouTube platform >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_5168_multi-part compound terms >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- diff_2390_images >  -0.50
+|   |   |   |   |   |   |--- diff_337 <= -0.50
+|   |   |   |   |   |   |   |--- ctx_1826_high magnitude change <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ctx_1826_high magnitude change >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_337 >  -0.50
+|   |   |   |   |   |   |   |--- diff_145_time and periods <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_145_time and periods >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |--- diff_1531_discovery and revelation >  -0.50
+|   |   |   |--- diff_5439_offensive content <= 0.50
+|   |   |   |   |--- diff_11052_How to write clickbait titles <= -0.50
+|   |   |   |   |   |--- diff_1115_describing people or animals <= -0.50
+|   |   |   |   |   |   |--- diff_5686_actions after to <= 0.50
+|   |   |   |   |   |   |   |--- diff_3673_existential dread and abstract contemplation <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_3673_existential dread and abstract contemplation >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_5686_actions after to >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- diff_1115_describing people or animals >  -0.50
+|   |   |   |   |   |   |--- diff_2082_every time or next <= 0.50
+|   |   |   |   |   |   |   |--- diff_15881_instructions below <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_15881_instructions below >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_2082_every time or next >  0.50
+|   |   |   |   |   |   |   |--- ctx_93_without <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- ctx_93_without >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- diff_11052_How to write clickbait titles >  -0.50
+|   |   |   |   |   |--- diff_2497 <= -0.50
+|   |   |   |   |   |   |--- diff_2400_hypothetical scenarios <= -0.50
+|   |   |   |   |   |   |   |--- diff_2281_solving and alleviating <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_2281_solving and alleviating >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_2400_hypothetical scenarios >  -0.50
+|   |   |   |   |   |   |   |--- diff_1213_intense negative emotions <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_1213_intense negative emotions >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- diff_2497 >  -0.50
+|   |   |   |   |   |   |--- diff_11052_How to write clickbait titles <= 0.50
+|   |   |   |   |   |   |   |--- diff_9410_subtitles <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_9410_subtitles >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_11052_How to write clickbait titles >  0.50
+|   |   |   |   |   |   |   |--- diff_1115_describing people or animals <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_1115_describing people or animals >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- diff_5439_offensive content >  0.50
+|   |   |   |   |--- diff_5095_possessive pronouns, 3rd person reference <= 0.50
+|   |   |   |   |   |--- diff_605_past-tense narration <= -0.50
+|   |   |   |   |   |   |--- diff_1177_characters and protagonists <= -0.50
+|   |   |   |   |   |   |   |--- ctx_295_understand you <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ctx_295_understand you >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_1177_characters and protagonists >  -0.50
+|   |   |   |   |   |   |   |--- diff_4867_desired behaviors <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_4867_desired behaviors >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- diff_605_past-tense narration >  -0.50
+|   |   |   |   |   |   |--- diff_15478_unprecedented, never seen before <= -0.50
+|   |   |   |   |   |   |   |--- diff_7746_code structure separators <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_7746_code structure separators >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_15478_unprecedented, never seen before >  -0.50
+|   |   |   |   |   |   |   |--- diff_41_acknowledges questions and starts answering <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_41_acknowledges questions and starts answering >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- diff_5095_possessive pronouns, 3rd person reference >  0.50
+|   |   |   |   |   |--- diff_489 <= -0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_489 >  -0.50
+|   |   |   |   |   |   |--- diff_10571_describing strong feelings <= -0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_10571_describing strong feelings >  -0.50
+|   |   |   |   |   |   |   |--- diff_1449 <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_1449 >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|--- diff_1389_past events >  0.50
+|   |--- diff_6843_introduced person or concept <= 0.50
+|   |   |--- diff_12614_questions and explanations <= 0.50
+|   |   |   |--- diff_538_regulation, risk, and governance <= -0.50
+|   |   |   |   |--- diff_150 <= -0.50
+|   |   |   |   |   |--- ctx_1862_forgets or seems to have forgotten <= 0.50
+|   |   |   |   |   |   |--- diff_1613_doctors and dentists <= -0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_1613_doctors and dentists >  -0.50
+|   |   |   |   |   |   |   |--- diff_978_non- words <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_978_non- words >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- ctx_1862_forgets or seems to have forgotten >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- diff_150 >  -0.50
+|   |   |   |   |   |--- diff_15478_unprecedented, never seen before <= -0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_15478_unprecedented, never seen before >  -0.50
+|   |   |   |   |   |   |--- diff_16073_high quality and ethical standards <= -0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_16073_high quality and ethical standards >  -0.50
+|   |   |   |   |   |   |   |--- diff_14303_explaining actions or descriptions <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_14303_explaining actions or descriptions >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- diff_538_regulation, risk, and governance >  -0.50
+|   |   |   |   |--- diff_510 <= -0.50
+|   |   |   |   |   |--- diff_2987 <= 0.50
+|   |   |   |   |   |   |--- diff_35_possessive nouns followed by descriptions <= -0.50
+|   |   |   |   |   |   |   |--- ctx_1247_career <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ctx_1247_career >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_35_possessive nouns followed by descriptions >  -0.50
+|   |   |   |   |   |   |   |--- diff_6908_status or standard description <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_6908_status or standard description >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_2987 >  0.50
+|   |   |   |   |   |   |--- ctx_1455 <= 0.50
+|   |   |   |   |   |   |   |--- ctx_1033_conversational prompts <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ctx_1033_conversational prompts >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- ctx_1455 >  0.50
+|   |   |   |   |   |   |   |--- diff_1077_causing motivation or action <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_1077_causing motivation or action >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- diff_510 >  -0.50
+|   |   |   |   |   |--- diff_15098_youtube videos <= -0.50
+|   |   |   |   |   |   |--- ctx_353 <= 0.50
+|   |   |   |   |   |   |   |--- diff_2009 <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_2009 >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- ctx_353 >  0.50
+|   |   |   |   |   |   |   |--- ctx_1730_remarkable and amazing qualities <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ctx_1730_remarkable and amazing qualities >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_15098_youtube videos >  -0.50
+|   |   |   |   |   |   |--- diff_4053_joke, humor, comedy <= -0.50
+|   |   |   |   |   |   |   |--- diff_4968_table object or class definition <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_4968_table object or class definition >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_4053_joke, humor, comedy >  -0.50
+|   |   |   |   |   |   |   |--- diff_1115_describing people or animals <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_1115_describing people or animals >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |--- diff_12614_questions and explanations >  0.50
+|   |   |   |--- diff_403 <= -0.50
+|   |   |   |   |--- diff_11382_in-house versus outsourcing <= -0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- diff_11382_in-house versus outsourcing >  -0.50
+|   |   |   |   |   |--- diff_2949_The capital <= -0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- diff_2949_The capital >  -0.50
+|   |   |   |   |   |   |--- diff_2959_improve quality performance <= -0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_2959_improve quality performance >  -0.50
+|   |   |   |   |   |   |   |--- diff_12934_words starting with n <= -0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- diff_12934_words starting with n >  -0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- diff_403 >  -0.50
+|   |   |   |   |--- diff_2411 <= -0.50
+|   |   |   |   |   |--- ctx_7772_words starting with G <= 0.50
+|   |   |   |   |   |   |--- diff_2340 <= 0.50
+|   |   |   |   |   |   |   |--- ctx_56_change or effect <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- ctx_56_change or effect >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_2340 >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- ctx_7772_words starting with G >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- diff_2411 >  -0.50
+|   |   |   |   |   |--- diff_4083_arguments for <= 0.50
+|   |   |   |   |   |   |--- diff_4172_difficult or painful situations <= 0.50
+|   |   |   |   |   |   |   |--- ctx_3083_in format or style <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- ctx_3083_in format or style >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_4172_difficult or painful situations >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_4083_arguments for >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |--- diff_6843_introduced person or concept >  0.50
+|   |   |--- ctx_2840_health resources <= 0.50
+|   |   |   |--- ctx_4478_wedding and bridal RSVP <= 0.50
+|   |   |   |   |--- diff_11052_How to write clickbait titles <= 0.50
+|   |   |   |   |   |--- diff_10378_what to do <= -0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_10378_what to do >  -0.50
+|   |   |   |   |   |   |--- diff_538_regulation, risk, and governance <= 0.50
+|   |   |   |   |   |   |   |--- ctx_1623_everyone or everybody <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- ctx_1623_everyone or everybody >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- diff_538_regulation, risk, and governance >  0.50
+|   |   |   |   |   |   |   |--- diff_283_a new <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- diff_283_a new >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- diff_11052_How to write clickbait titles >  0.50
+|   |   |   |   |   |--- diff_2792_is a <= -0.50
+|   |   |   |   |   |   |--- diff_1140_months and numbers <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- diff_1140_months and numbers >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- diff_2792_is a >  -0.50
+|   |   |   |   |   |   |--- ctx_2343_resources for support <= 0.50
+|   |   |   |   |   |   |   |--- ctx_2954 <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- ctx_2954 >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- ctx_2343_resources for support >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- ctx_4478_wedding and bridal RSVP >  0.50
+|   |   |   |   |--- ctx_1678_locations and descriptions <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- ctx_1678_locations and descriptions >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |--- ctx_2840_health resources >  0.50
+|   |   |   |--- class: 0

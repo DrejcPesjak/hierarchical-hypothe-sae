@@ -405,15 +405,30 @@ Context features (topic-level) appeared much less frequently in the top importan
 
 ## Results Summary
 
-| Experiment | Accuracy | W. Accuracy | F1 | AUC | Notes |
-|---|---|---|---|---|---|
-| Logistic Regression (v1, delta only) | ~50–55% | — | — | — | Near random; data leakage |
-| XGBoost (v1, delta only) | ~50–55% | — | — | — | Near random; too few pairs |
-| XGBoost (context+diff, weighted) | 61.0% | 67.2% | 0.610 | 0.739 | First real signal |
-| Per-cluster XGBoost (10 clusters) | 57.1% | 61.9% | 0.564 | 0.673 | Worse than global |
-| MOB Tree (Lasso per leaf) | — | — | — | R²=0.04 | Massive overfit |
-| **XGBoost on binarized features** | **61.8%** | **68.5%** | **0.620** | **0.759** | **Best accuracy** |
-| RuleFit on binarized features | 58.8% | 64.4% | 0.436 | 0.761 | Best interpretability |
+All methods below use the **canonical train/test split** (Train = 45,657, Test = 11,632) from `cluster_assignments.npz`, with sample weights = |CTR_A − CTR_B|. F1 is **macro-averaged** unless noted.
+
+### Final Comparison Table
+
+| # | Method | Features | Key Settings | Acc | F1 | AUC |
+|---|--------|----------|-------------|-----|------|------|
+| 1 | Logistic Regression | continuous 32k, StandardScaler | SGD L2 α=1e-4 | 0.606 | 0.606 | 0.750 |
+| 2 | Decision Tree | continuous 32k, StandardScaler | depth=8, leaf≥20 | 0.556 | 0.551 | 0.630 |
+| 3 | XGBoost | continuous 32k, StandardScaler | 100×d6, lr=0.1 | 0.616 | 0.616 | 0.759 |
+| 4 | XGBoost clusters (agg) | continuous diff 16k, StandardScaler | 10 clusters, 40×d6 each | 0.571 | 0.564† | 0.673 |
+| 5 | **XGBoost bin d=6** | **binarised 32k** | **100×d6, lr=0.1, csbt=0.7** | **0.618** | **0.619†** | **0.759** |
+| 6 | XGBoost bin stumps d=1 | binarised 32k | 1200×d1, lr=0.05, sub=0.8 | 0.577 | 0.578† | 0.681 |
+| 7 | Decision Tree bin | binarised 32k | depth=8, leaf≥20 | 0.553 | 0.549 | 0.625 |
+| 8 | RuleFit (XGB-selected) | binarised 467 | n_est=25, tree_sz=4, max_rules=500 | 0.588 | 0.556 | 0.761 |
+
+† Binary F1 reported (≈ macro for balanced classes; 5,791 vs 5,841).
+
+### Earlier experiments (not directly comparable — different splits or feature sets)
+
+| Experiment | Accuracy | AUC | Notes |
+|---|---|---|---|
+| Logistic Regression (v1, delta only) | ~50–55% | — | Near random; data leakage |
+| XGBoost (v1, delta only) | ~50–55% | — | Near random; too few pairs |
+| MOB Tree (Lasso per leaf) | — | Test R²=0.036 | Massive overfit (train R²=0.39) |
 
 ---
 

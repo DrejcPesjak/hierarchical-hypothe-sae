@@ -1,0 +1,71 @@
+Loading sparse vectors and metadata …
+Full matrix: 57289 × 32768
+Label distribution: 0=28804, 1=28485
+Loading train/test split …
+Train: 45657, Test: 11632
+Loading cached thresholds from tree_outputs/walk_thresholds.npz …
+  Loaded.
+Applying thresholds to full matrix …
+Binarised matrix: (57289, 32768)  (37.0s)
+  ctx 1s: 27,480,865  /  diff ±1s: 45,080,775
+X_train: (45657, 32768),  X_test: (11632, 32768)
+Loading feature names …
+
+================================================================================
+Training XGBoost on binarised features …
+================================================================================
+Training done in 351.4s
+
+Accuracy:          0.5769
+Weighted Accuracy: 0.6238
+F1:                0.5681
+AUC-ROC:           0.6808
+
+              precision    recall  f1-score   support
+
+           0       0.57      0.60      0.59      5791
+           1       0.58      0.55      0.57      5841
+
+    accuracy                           0.58     11632
+   macro avg       0.58      0.58      0.58     11632
+weighted avg       0.58      0.58      0.58     11632
+
+
+Non-zero feature importances: 109 / 32768
+
+Top 30 features by importance:
+----------------------------------------------------------------------------------------------------
+    1. [17597] 0.048446  diff_1213_intense negative emotions
+    2. [16459] 0.041232  diff_75_becomes / dissolves / spun / fails
+    3. [17018] 0.035614  diff_634_individuals or organizations
+    4. [19276] 0.027925  diff_2892_instructions or problem context
+    5. [16433] 0.026653  diff_49_positive evaluations
+    6. [16874] 0.026402  diff_490_detailed explanation
+    7. [18784] 0.025743  diff_2400_hypothetical scenarios
+    8. [16783] 0.019891  diff_399
+    9. [17310] 0.019821  diff_926_they
+   10. [16988] 0.018914  diff_604_harmful unethical behavior
+   11. [17110] 0.017996  diff_726_foreign language text
+   12. [16800] 0.017650  diff_416
+   13. [16744] 0.017117  diff_360_personal emotional struggels
+   14. [16735] 0.016321  diff_351
+   15. [17232] 0.015941  diff_848_initializes, calculates
+   16. [18529] 0.014862  diff_2145_list items
+   17. [17839] 0.014476  diff_1455
+   18. [27121] 0.014357  diff_10737_phrases like "by step"
+   19. [16467] 0.013958  diff_83
+   20. [16424] 0.013660  diff_40
+   21. [17988] 0.013095  diff_1604_adjectives describing content type
+   22. [17481] 0.012503  diff_1097_related terms and names
+   23. [20511] 0.012455  diff_4127_your, you, our
+   24. [19534] 0.012195  diff_3150_Russian names and terms
+   25. [16890] 0.012109  diff_506
+   26. [17130] 0.012042  diff_746
+   27. [17417] 0.011692  diff_1033_conversational prompts
+   28. [16613] 0.011534  diff_229
+   29. [16607] 0.011095  diff_223
+   30. [17699] 0.010960  diff_1315
+
+Saved 109 non-zero feature importances to tree_outputs/feature_importances_xgb_bin1.txt
+Saved metrics to tree_outputs/xgboost_bin_results1.json
+

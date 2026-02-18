@@ -1,0 +1,33 @@
+{
+  "logreg": {
+    "accuracy": 0.6062585969738652,
+    "weighted_accuracy": 0.6824115326431296,
+    "f1_macro": 0.6062306467509011,
+    "auc_roc": 0.7499232125023934,
+    "n_train": 45657,
+    "n_test": 11632,
+    "settings": "SGDClassifier(log_loss, L2, alpha=1e-4, max_iter=2000)"
+  },
+  "decision_tree": {
+    "accuracy": 0.5562242090784044,
+    "weighted_accuracy": 0.603995024540977,
+    "f1_macro": 0.5511231329162223,
+    "auc_roc": 0.630379308995947,
+    "n_train": 45657,
+    "n_test": 11632,
+    "settings": "DecisionTree(max_depth=8, min_samples_leaf=20)",
+    "tree_depth": 8,
+    "n_leaves": 148
+  },
+  "xgboost": {
+    "accuracy": 0.6160591471801926,
+    "weighted_accuracy": 0.6845290921980028,
+    "f1_macro": 0.6160546069208941,
+    "auc_roc": 0.7589934611551292,
+    "n_train": 45657,
+    "n_test": 11632,
+    "settings": "XGBClassifier(n_est=100, depth=6, lr=0.1)"
+  },
+  "data": "continuous 32768 (ctx+diff), StandardScaler(with_mean=False), w_diff weights",
+  "split": "cluster_assignments.npz canonical split"
+}

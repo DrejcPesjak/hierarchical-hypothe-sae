@@ -1,5 +1,5 @@
 RuleFit-Bin Results  (467 XGBoost-bin features: 126 ctx + 341 diff)
-Accuracy: 0.5884  |  Weighted Acc: 0.6440  |  F1: 0.4359  |  AUC: 0.7614
+Accuracy: 0.5884  |  Weighted Acc: 0.6440  |  F1: 0.5559  |  AUC: 0.7614
 Non-zero terms: 495  (52 rules, 443 linear terms)
 
 Rank  Type           Coef   Importance   Support  Rule

@@ -1,0 +1,11 @@
+{
+  "accuracy": 0.6133940852819807,
+  "weighted_accuracy": 0.6820182430848203,
+  "f1": 0.6150158376851297,
+  "auc_roc": 0.7581208010522178,
+  "n_train": 45657,
+  "n_test": 11632,
+  "n_nonzero_features": 456,
+  "n_ctx_thresholds": 11823,
+  "n_diff_thresholds": 11815
+}

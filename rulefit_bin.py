@@ -155,9 +155,9 @@ print("=" * 80)
 
 start_time = time.time()
 rulefit = RuleFitClassifier(
-    n_estimators=100,
+    n_estimators=25,
     tree_size=4,
-    max_rules=2000,
+    max_rules=500,
     memory_par=0.01,
     random_state=42,
 )
@@ -171,7 +171,8 @@ y_prob = rulefit.predict_proba(X_test)
 
 acc = accuracy_score(y_test, y_pred)
 w_acc = accuracy_score(y_test, y_pred, sample_weight=w_test)
-f1 = f1_score(y_test, y_pred, average="binary", zero_division=0)
+#f1 = f1_score(y_test, y_pred, average="binary", zero_division=0)
+f1 = f1_score(y_test, y_pred, average="macro", zero_division=0)
 try:
     auc = roc_auc_score(y_test, y_prob[:, 1], sample_weight=w_test)
 except ValueError:
