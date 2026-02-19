@@ -1,0 +1,123 @@
+================================================================================
+TOP 3 ACTIVATING PAIRS FOR TOP 15 RULEFIT FEATURES
+================================================================================
+
+--- Rank 1: diff_2220_'this'
+  [2343.7021]  H1 (A): I Thought I Had This PSA Figured Out. Turns Out I Was Wrong. Big Time.
+         H2 (B): I Called Grandma After I Saw The Ending. You Probably Will, Too.
+  [2343.7021]  H1 (A): I Thought I Had This PSA Figured Out. Turns Out I Was Wrong. Big Time.
+         H2 (B): An Eye-Opening Look Inside His Christmas Day Sheds Light On An Issue Too Many Of Us Ignore
+  [2341.4302]  H1 (A): You Probably Didn’t Learn This Sex History In School — But Holy Hot Peppers! Maybe You Should’ve.
+         H2 (B): The History Of Sex Is Interesting And Awkward — And You Should’ve Learned It.
+
+--- Rank 2: diff_11052_How to write clickbait titles
+  [1226.1088]  H1 (A): The Secret About Work Life In 20 Other Countries That Will Surprise You
+         H2 (B): In Japan, They Have A Word For Working Yourself To Death
+  [1226.1088]  H1 (A): The Secret About Work Life In 20 Other Countries That Will Surprise You
+         H2 (B): The Next Time You Hear Someone Say That Americans Are Lazy, Show Them This
+  [1195.3538]  H1 (A): When Everything Was Going Wrong For These Teens, A Kind Intervention Saved The Day
+         H2 (B): A Kid’s Feelings Are Always Important, Especially When They’re Not Heard
+
+--- Rank 3: diff_1730_remarkable and amazing qualities
+  [1868.5096]  H1 (A): Paul Walker's Unfinished Masterpiece Revealed. It's Not A Movie, It's Just Astonishingly Terrific.
+         H2 (B): How Come Paparazzis Never Manage To Catch Celebs Engaged In This Type Of Behavior?
+  [1824.8676]  H1 (A): Photos Of An Astonishingly Beautiful Place That's Losing So Much Of What Makes It Beautiful
+         H2 (B): Photos Of Fading Beauty And The Story Of What's Taking It Away
+  [1762.7057]  H1 (A): Photos Of Astonishingly Beautiful People Who Are Losing So Much Of What Makes Them Beautiful
+         H2 (B): Photos Of Fading Beauty And The Story Of What's Taking It Away
+
+--- Rank 4: diff_433_problem, issue
+  [3370.0698]  H1 (A): There’s One Huge Problem In Google And Facebook’s Back Yard
+         H2 (B): You’ll Be Shocked At What Exists In One Of The Richest Areas In The World
+  [3370.0698]  H1 (A): There’s One Huge Problem In Google And Facebook’s Backyard
+         H2 (B): You’ll Be Shocked At What Exists In One Of The Richest Areas In The World
+  [3299.5034]  H1 (A): Wonder Woman, Spider-Man, Captain America. All These Heroes Are Awesome. There's Just One Problem.
+         H2 (B): Most Of Us Are Able To Find Comic Book Heroes That Look Like Us. How About The People Who Don't?
+
+--- Rank 5: diff_9410_subtitles
+  [1162.9659]  H1 (A): Where Have You Gone, FDR? A Nation Turns Its Broke-Ass Eyes To You.
+         H2 (B): The Stock Market Is Up, And I'd Prefer Not To Cheer...Kthanxbye
+  [945.1539]  H1 (A): When The Price Is Wrong…So Wrong: America’s Hospitals Get Wealthy This Way.
+         H2 (B): One Minute Of How Bad Our Healthcare System Really Is
+  [883.5317]  H1 (A): 'Get Used To Me: Black. Confident. Cocky.'
+         H2 (B): These Kids Were Asked To Act Like A Famous Idol, And They Knocked It Out Of The Park
+
+--- Rank 6: diff_1531_discovery and revelation
+  [1523.9932]  H1 (A): On our first date, he deeply insulted me. I didn't realize until years later.
+         H2 (B): I'm a black guy who dates outside of my race. Here's a heart-dropping letdown moment I experienced.
+  [1477.3811]  H1 (A): A creepy parody commercial for a pet company that made me so angry until I realized it was fake.
+         H2 (B): A couple gave their son a cute little puppy. So why am I sorta creeped out?
+  [1470.3684]  H1 (A): I Thought This Ad Was Trying To Sell Me Jewelry, And Then I Realized It Had A Powerful Message
+         H2 (B): Marriage Gets A Shiny Reboot In This Fantastic Ad From India
+
+--- Rank 7: diff_2223_past actions or events
+  [1413.0588]  H1 (A): She Keeps Saying A Million Dollar Word That You've Probably Never Heard Of Because It Saved Her Life
+         H2 (B): She Tells Her Story Of Depression But She Makes Jokes About It Because, Duh, She's A Comedian
+  [1413.0588]  H1 (A): She Keeps Saying A Million Dollar Word That You've Probably Never Heard Of Because It Saved Her Life
+         H2 (B): Her Stage Show Would End And After Her Bow, The Audience Would Make All Kinds Of Confessions
+  [1406.5481]  H1 (A): These Soul-Baring Answers Prove Everything You Need To Know, You Learned As A Child
+         H2 (B): How A 5-Year-Old Totally Trumps Adults With An Incredibly Soul-Baring Answer To A Bad Question
+
+--- Rank 8: diff_1847_shocking or horrifying scenarios
+  [956.3263]  H1 (A): Here Are 5 Of The Human Rights The United States Is Forgetting
+         H2 (B): A Picture Is Worth 1000 Words. These 5 Maps Are Worth A Million.
+  [930.9567]  H1 (A): Ellen's Not Mad About Horrible Photoshopping On Women's Bodies. In Fact, She's Laughing About It.
+         H2 (B): A Photoshopped Model With A Completely Unrealistic Body Appears On 'Ellen' To Clear Up The Confusion
+  [921.6306]  H1 (A): The Clearest Explanation I've Ever Heard Of Why Black People And White People See Cops Differently
+         H2 (B): These Tweets Will Help You The Next Time You Talk About Race And The Police
+
+--- Rank 9: diff_604_harmful unethical behavior
+  [1843.3340]  H1 (A): If Watching Two Lesbians Do This Is Wrong, Then I Don't Want To Be Right
+         H2 (B): Lesbians Sure Are Good At Getting Macklemore To Help Them With Heartwarming Marriage Proposals
+  [1730.9131]  H1 (A): If You Keep Using 'Gay' In An Insulting Way, You Are Helping Ruin A Bunch Of People's Day
+         H2 (B): When Is The Appropriate Time To Call Someone Gay? Allow This Nice Gay Woman To Explain It To You.
+  [1722.2878]  H1 (A): If You're A Master Of Disguise, This Map Will Come In Handy. If You're A Racist, It Won't.
+         H2 (B): MAP: Where Does Skin Color Come From?
+
+--- Rank 10: diff_1170_quizzes and puzzles
+  [1310.9814]  H1 (A): 6 Simple Arithmetic Problems That Explain Why Our Country Needs Fixing
+         H2 (B): 6 Things We Could Be Doing To Kick-Start This Country
+  [1310.9814]  H1 (A): 6 Simple Arithmetic Problems That Explain Why Our Country Needs Fixing
+         H2 (B): Instead Of Trying To Defund Obamacare, Congress COULD Be Doing A Lot More Productive Things...
+  [1299.6577]  H1 (A): 'One Of These Things Is Not Like The Others' Shouldn't Describe A Class Picture
+         H2 (B): The World Would Be A Better Place With Less Of The 'Before' And More Of The "After'
+
+--- Rank 11: diff_2203_stereotypes about gender roles
+  [2401.0757]  H1 (A): Does This Google Search Show How The World See's Mentally Ill People?
+         H2 (B): Was Abraham Lincoln A Violent Man Just Because He Has Depression?
+  [2343.7776]  H1 (A): Soccer Is Largely Considered A Sport For Men Not Women. These Awesome Women Are Changing That.
+         H2 (B): These Women Wanted Equality To Men – So They Could Play Soccer
+  [2122.3118]  H1 (A): Watch A Prison Baseball Team Challenge The 'Hardened Criminal' Stereotype
+         H2 (B): This Is A Fascinating Way To Keep The Peace. In A Maximum Security Prison.
+
+--- Rank 12: diff_11979_sexual and explicit themes
+  [2564.9929]  H1 (A): A Subway Experiment About Taking Up Space And Sexism At The Same Time
+         H2 (B): She Tried Riding The Subway Like A Dude. She Couldn't Believe When People Took Pictures.
+  [2564.9929]  H1 (A): A Subway Experiment About Taking Up Space And Sexism At The Same Time
+         H2 (B): They Both Spread Their Legs On The Subway, But Only One Raised Eyebrows
+  [2564.9929]  H1 (A): A Subway Experiment About Taking Up Space And Sexism At The Same Time
+         H2 (B): What Happens When One Woman And One Man Take Up Too Much Space On The Train? Nothing And Everything.
+
+--- Rank 13: diff_5439_offensive content
+  [1684.5411]  H1 (A): The Most Honest, Not Safe For Work, And Awful Corporate Ad I Have Ever Laid My Eyes On. Trust Me.
+         H2 (B): FUNNY: What Energy Executives Really Think Of You
+  [1594.9388]  H1 (A): WARNING: The Video You're About To Watch Contains A Serious Substance Known As Injustice
+         H2 (B): Nearly 4 Billion Was Spent On This Unjust War. Not Iraq or Afghanistan, The Other One.
+  [1579.2667]  H1 (A): This Epic Response To 'Fat People Can't Be Sexy' Is Slightly Not Safe For Work But So Worth It
+         H2 (B): The Sad Misconception People Have About Being Fat Is Slaughtered Through Dance
+
+--- Rank 14: diff_70
+  [2222.1689]  H1 (A): When It Comes To Privacy Of Information, I Can't Even Tell Who To Be Mad At Anymore
+         H2 (B): If The Government Wants Us To Trust It More, What's Happening Here Definitely Isn't Helping
+  [2086.4270]  H1 (A): I Hope Soon We Can Look Back At Information Like This As "The Bad Old Days"
+         H2 (B): They're Young. They're People Of Color. And They're A Lot More Likely To End Up Here.
+  [1993.4739]  H1 (A): The Internet Is Like An Ever Expanding Wild West Of Ideas. Let's Not Let The Bad Guys Take Control.
+         H2 (B): Let's Have A 'Hug An Internet Inventor' Day! Here Are The People We'll Be Digitally Hugging.
+
+--- Rank 15: diff_2161_female names and women
+  [1236.3768]  H1 (A): Lots Of Crazy Things Happen In A White House. Like A First Lady Standing In As President.
+         H2 (B): A Lot Of Crazy Things Have Happened In Our Government. This Has To Be One Of The Craziest.
+  [1210.5753]  H1 (A): Once Upon A Time, There Was A Prince, A Knight, And A Princess. Guess Which Two End Up Together.
+         H2 (B): The Best Thing About This Kid's Book Is The Ending Would've Been Called Weird 10 Years Ago. Not Now.
+  [1165.0134]  H1 (A): In 1980, She Made A Statement. In 2014, All These Awesome Famous People Did Too.
+         H2 (B): Dozens Of Famous People Make A Statement From 1980 That's *Exactly* What You Need To Hear Today

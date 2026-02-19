@@ -224,9 +224,9 @@ for row, (fidx, ax_pair) in enumerate(zip(FEATURES, axes)):
                 bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.7))
 
 fig.subplots_adjust(hspace=0.45, top=0.97)
-fig.savefig(OUT_DIR / "feature_ctx_distributions.png", dpi=150, bbox_inches="tight")
+# fig.savefig(OUT_DIR / "feature_ctx_distributions.png", dpi=150, bbox_inches="tight")
 plt.show()
-print(f"Saved {OUT_DIR / 'feature_ctx_distributions.png'}")
+# print(f"Saved {OUT_DIR / 'feature_ctx_distributions.png'}")
 
 # %% print headline examples per context feature (walk-right threshold)
 print("\n" + "=" * 80)
@@ -477,10 +477,10 @@ for row, (fidx, manual_th, ax_pair) in enumerate(
                 bbox=dict(boxstyle="round,pad=0.2", fc="white", alpha=0.7))
 
 fig.subplots_adjust(hspace=0.45, top=0.97)
-fig.savefig(OUT_DIR / "feature_diff_distributions.png", dpi=150,
-            bbox_inches="tight")
+# fig.savefig(OUT_DIR / "feature_diff_distributions.png", dpi=150,
+#             bbox_inches="tight")
 plt.show()
-print(f"Saved {OUT_DIR / 'feature_diff_distributions.png'}")
+# print(f"Saved {OUT_DIR / 'feature_diff_distributions.png'}")
 
 # %% print headline examples per diff feature (positive side, walk-outward threshold)
 print("\n" + "=" * 80)
@@ -574,4 +574,79 @@ for row, fidx in enumerate(FEATURES):
     print(f"    M4 Walk right:   {cth4:.4f}" if cth4 is not None else "    M4 Walk right:   (none)")
 
 print("\nDone.")
+
+# %% plot feature 604: context and diff distributions side by side with walk threshold only
+print("\n" + "=" * 80)
+print("PLOTTING FEATURE 604: CONTEXT AND DIFF DISTRIBUTIONS")
+print("=" * 80)
+
+fidx = 604
+
+# Extract context data for feature 604
+ctx_col_603 = np.array([fidx])
+X_ctx_603 = X_full[:, ctx_col_603].toarray().flatten()
+scaler_603 = StandardScaler(with_mean=False)
+X_ctx_603_std = scaler_603.fit_transform(X_ctx_603.reshape(-1, 1)).flatten()
+
+# Extract diff data for feature 604
+diff_col_603 = np.array([d_sae + fidx])
+X_diff_603 = X_full[:, diff_col_603].toarray().flatten()
+scaler_diff_603 = StandardScaler(with_mean=False)
+X_diff_603_std = scaler_diff_603.fit_transform(X_diff_603.reshape(-1, 1)).flatten()
+
+# Get non-zero values
+ctx_nonzero_raw = X_ctx_603[X_ctx_603 != 0]
+ctx_nonzero_std = X_ctx_603_std[X_ctx_603 != 0]
+
+diff_nz_mask = X_diff_603 != 0
+diff_raw_nz = X_diff_603[diff_nz_mask]
+diff_std_nz = X_diff_603_std[diff_nz_mask]
+
+# Compute walk thresholds
+ctx_th_walk = ctx_method4_walk_right(ctx_nonzero_raw)
+ctx_th_walk_std = ctx_th_walk / scaler_603.scale_[0] if ctx_th_walk is not None else None
+
+diff_th_walk_std = diff_method4_walk_outward(diff_std_nz)
+diff_th_walk_raw = [t * scaler_diff_603.scale_[0] for t in diff_th_walk_std] if len(diff_th_walk_std) > 0 else []
+
+desc = explanation_map.get(fidx, "")
+
+# Create side-by-side plot
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# --- Context distribution ---
+ax = axes[0]
+ax.hist(ctx_nonzero_raw, bins=100, alpha=0.7, color="steelblue", edgecolor="none")
+if ctx_th_walk is not None:
+    ax.axvline(ctx_th_walk, color="deepskyblue", ls=(0, (3, 1, 1, 1)), lw=1.5, label="Walk right")
+ax.set_title(f"SAE {fidx} — Context (non-zero)", fontsize=12, pad=8)
+ax.set_xlabel("activation", fontsize=10)
+ax.set_ylabel("count", fontsize=10)
+ax.legend(fontsize=9, loc="upper right")
+if desc:
+    ax.text(0.02, 0.95, desc[:100], transform=ax.transAxes,
+            fontsize=8, va="top", ha="left", color="0.3",
+            bbox=dict(boxstyle="round,pad=0.3", fc="white", alpha=0.8))
+
+# --- Diff distribution ---
+ax = axes[1]
+ax.hist(diff_raw_nz, bins=200, alpha=0.65, color="darkorange", edgecolor="none")
+if len(diff_th_walk_raw) > 0:
+    for k, t in enumerate(diff_th_walk_raw):
+        ax.axvline(t, color="deepskyblue", ls=(0, (3, 1, 1, 1)), lw=1.5,
+                   label="Walk outward" if k == 0 else "")
+ax.set_title(f"SAE {fidx} — Diff (non-zero)", fontsize=12, pad=8)
+ax.set_xlabel("diff activation", fontsize=10)
+ax.set_ylabel("count", fontsize=10)
+ax.legend(fontsize=9, loc="upper right")
+if desc:
+    ax.text(0.02, 0.95, desc[:100], transform=ax.transAxes,
+            fontsize=8, va="top", ha="left", color="0.3",
+            bbox=dict(boxstyle="round,pad=0.3", fc="white", alpha=0.8))
+
+fig.tight_layout()
+fig.savefig(OUT_DIR / f"feature_{fidx}_distributions_walk_threshold.pdf", dpi=300,
+            bbox_inches="tight")
+plt.show()
+print(f"Saved {OUT_DIR / f'feature_{fidx}_distributions_walk_threshold.pdf'}")
 
