@@ -60,7 +60,7 @@
 A/B testing is a standard method for optimizing news headlines, yet it reveals only \emph{which} variant wins, not \emph{why}. We propose representing headline pairs through Sparse Autoencoder (SAE) features extracted from a large language model. For each within-test pair we construct a \emph{context} vector (shared topic) and a \emph{diff} vector (wording differences), apply histogram-based binarization to suppress activation noise, and train gradient-boosted trees followed by RuleFit to extract interpretable feature patterns. On approximately 57,000 pairs from the Upworthy Research Archive, our best model achieves 61.8\% pairwise accuracy and 0.76 AUC. The dominant predictive features are \emph{diff} features with recognizable labels such as ``clickbait-style framing,'' ``curiosity gaps,'' ``emotional intensity,'' and use of the demonstrative ``this.'' We also test a \emph{hierarchy hypothesis}---that topic context gates which diff features matter---but find no stable topic-gated regimes. The results demonstrate that SAE features provide a viable middle ground between opaque dense embeddings and shallow bag-of-words representations for interpretable text analysis.
 \end{abstract}
 
-\keywords{sparse autoencoders, A/B testing, headline optimization, interpretable machine learning, mechanistic interpretability}
+\keywords{large language models, sparse autoencoders, A/B testing, headline optimization, interpretable machine learning, mechanistic interpretability}
 
 \maketitle
 
@@ -68,23 +68,29 @@ A/B testing is a standard method for optimizing news headlines, yet it reveals o
 \section{Introduction}
 %% ====================================================================
 
-A/B testing is the gold standard for comparing content variants in digital media: show two headlines to random audiences and measure which one gets more clicks. Yet the outcome of such a test is merely a winner and a loser. Practitioners learn \emph{which} headline performed better but not \emph{why}---making it difficult to transfer insights to future headline writing or to build systematic understanding of what drives engagement.
+% A/B testing is the gold standard for comparing content variants in digital media: show two headlines to random audiences and measure which one gets more clicks. Yet the outcome of such a test is merely a winner and a loser. Practitioners learn \emph{which} headline performed better but not \emph{why}---making it difficult to transfer insights to future headline writing or to build systematic understanding of what drives engagement.
+Many decisions in digital media come down to a choice between two variants of the same
+content, where small differences in wording translate into large differences in reach.
+A/B testing settles such questions empirically: show both variants to random audiences
+and measure which one wins. The outcome, however, is merely a winner and a loser. An
+explanation of why would be more useful, as it carries over to headlines that were
+never tested.
 
-Moving from winner identification to interpretable explanation requires a text representation that a statistical model can learn from. Early approaches---bag-of-words, TF-IDF, n-grams---are interpretable but miss context and meaning. Dense contextual embeddings from Transformer models~\cite{vaswani2017attention} such as BERT~\cite{devlin2019bert} capture rich semantics but are completely opaque: no single dimension has a human-readable meaning.
+Moving from winner identification to interpretable explanation requires a text representation that a statistical model can learn from. Early approaches---bag-of-words, TF-IDF, n-grams---are interpretable but miss context and meaning. Dense contextual embeddings from Transformer models~\cite{vaswani2017attention} such as BERT~\cite{devlin2019bert} capture rich semantics but are opaque: no single dimension has a human-readable meaning.
 
-Mechanistic interpretability research offers a promising resolution. Sparse Autoencoders (SAEs)~\cite{bricken2023monosemanticity, cunningham2023sparse} trained on LLM activations decompose dense activation vectors into a much larger, sparse set of features---each corresponding to a recognizable concept such as ``shocking scenarios'' or ``use of the word \emph{this}.'' These features can be labeled automatically~\cite{bills2023language}, and the GemmaScope project~\cite{lieberum2024gemma} provides pre-trained SAEs for the Gemma model family with human-readable descriptions hosted on Neuronpedia.
+Mechanistic interpretability research offers a promising resolution. Sparse Autoencoders (SAEs)~\cite{bricken2023monosemanticity, cunningham2023sparse} trained on LLM activations decompose dense activation vectors into a much larger, sparse set of features---each corresponding to a recognizable concept such as ``shocking scenarios'' or ``use of the word \emph{this}.'' These features can be labeled automatically~\cite{bills2023language}, and the GemmaScope-2 project~\cite{lieberum2024gemma} provides pre-trained SAEs for the Gemma model family with human-readable descriptions hosted on Neuronpedia.
 
-In this work we use SAE features as the representation layer for analyzing A/B-tested headlines from the Upworthy Research Archive~\cite{matias2021upworthy}. We encode each headline through Gemma-3-4B-IT, decompose the activations with a 16,384-width SAE, and construct pairwise \emph{context + diff} vectors that separate shared topic content from wording differences. After binarizing the features to suppress activation noise, we train XGBoost and RuleFit models to identify which SAE features predict the winner and to extract human-readable rules.
+In this work we use SAE features as the representation layer for analyzing A/B-tested news headlines from the Upworthy Research Archive~\cite{matias2021upworthy}. We encode each headline through Gemma-3-4B-IT, decompose the activations with a 16,384-width SAE, and construct pairwise \emph{context + diff} vectors that separate shared topic content from wording differences. After binarizing the features to suppress activation noise, we train XGBoost and RuleFit models to identify which SAE features predict the winner and to extract human-readable rules.
 
 We also investigate a hierarchical regime hypothesis: the possibility that the topic or context of an article gates which ``difference'' features matter for clickability, and test this through unsupervised clustering and model-based recursive partitioning.
 
-The main contributions of this paper are:
-\begin{enumerate}
-    \item An SAE-based feature representation for pairwise headline A/B test analysis, using context+diff decomposition to separate topic from wording effects.
-    \item A histogram-based binarization method that denoises SAE activations and improves both interpretability and predictive performance.
-    \item An investigation of the hierarchy hypothesis---whether article context gates which diff features matter---through clustering and model-based partitioning.
-    \item Extraction of interpretable features and conjunctive rules that describe clickability in human-readable terms.
-\end{enumerate}
+% The main contributions of this paper are:
+% \begin{enumerate}
+%     \item An SAE-based feature representation for pairwise headline A/B test analysis, using context+diff decomposition to separate topic from wording effects.
+%     \item A histogram-based binarization method that denoises SAE activations and improves both interpretability and predictive performance.
+%     \item An investigation of the hierarchy hypothesis---whether article context gates which diff features matter---through clustering and model-based partitioning.
+%     \item Extraction of interpretable features and conjunctive rules that describe clickability in human-readable terms.
+% \end{enumerate}
 
 %% ====================================================================
 \section{Related Work}
@@ -105,7 +111,7 @@ RuleFit~\cite{friedman2008rulefit} combines tree-derived conjunction rules with 
 
 \subsection{Dataset}
 
-We use the Upworthy Research Archive~\cite{matias2021upworthy}, which contains A/B test data from the news website Upworthy. Each ``test'' compared 2--5 headline variants for the same article, with real impression and click counts. We use the \emph{confirmatory} split, comprising approximately 13,500 unique test IDs.
+We use the Upworthy Research Archive~\cite{matias2021upworthy}, which contains A/B test data from the news website Upworthy. Each ``test'' compared 2--5 headline variants for the same article, with real impression and click counts used to calculate click-through rate (CTR). We use the \emph{confirmatory} split, comprising approximately 13,500 unique test IDs.
 
 After preprocessing (HTML tag removal, deduplication, removal of single-headline tests), we sample within-test headline pairs. For each test with $N$ headlines, we draw up to $\min\bigl(\binom{N}{2},\, 10\bigr)$ random pairs, yielding approximately 57,289 pairs with balanced labels. The pair order is randomized, and the binary label is:
 \begin{equation}
@@ -116,13 +122,7 @@ where $\mathrm{CTR} = \text{clicks} / \text{impressions}$ for each headline. We 
 
 \subsection{SAE Feature Extraction}
 
-For each headline, we construct a Gemma-3 chat prompt:
-\begin{verbatim}
-<start_of_turn>user
-{headline}<end_of_turn>
-<start_of_turn>model
-\end{verbatim}
-and pass it through Gemma-3-4B-IT (Google's 4-billion parameter instruction-tuned model). We extract residual stream activations $\mathbf{h}_t \in \mathbb{R}^{2560}$ at layer~22 for each token position $t$, masking out instruction template tokens so that only headline content tokens remain.
+Each headline is wrapped in a Gemma-3 chat template and passed through Gemma-3-4B-IT (Google's 4-billion parameter instruction-tuned model). We extract residual stream activations $\mathbf{h}_t \in \mathbb{R}^{2560}$ at layer~22 for each token position $t$, masking out instruction template tokens so that only headline content tokens remain.
 
 The content-token activations are then encoded through a pre-trained JumpReLU SAE from the GemmaScope-2 project~\cite{lieberum2024gemma}:
 \begin{equation}
@@ -158,7 +158,7 @@ and concatenate them into a single feature vector:
 \end{equation}
 
 % The diff vector captures what distinguishes the two headlines---the signal most relevant for predicting the winner. 
-The diff vector encodes \emph{wording} (not just word) \emph{ differences} between the two variants in the SAE feature basis: it captures whatever changes in the model's representation when the phrasing is altered, from surface cues (e.g., demonstratives, punctuation, syntactic templates) to higher-level semantic or stylistic framing (e.g., emotion, moral framing, curiosity gaps).
+The diff vector encodes \emph{wording} (not just word) \emph{differences} between the two variants in the SAE feature basis: it captures whatever changes in the model's representation when the phrasing is altered, from surface cues (e.g., demonstratives, punctuation, syntactic templates) to higher-level semantic or stylistic framing (e.g., emotion, moral framing, curiosity gaps).
 The context vector captures the shared topic, included to allow models to potentially learn context-dependent rules (e.g., ``emotional language helps for political articles but not for lifestyle content'').
 
 Each pair is weighted by the absolute CTR difference to emphasize pairs with clearer outcomes:
@@ -187,7 +187,8 @@ We separate noise from signal with a histogram-based ``walk'' threshold. For con
 \begin{figure}[t]
     \centering
     \includegraphics[width=\columnwidth]{figures/feature_604_distributions_walk_threshold.pdf}
-    \caption{Non-zero activation distributions for SAE feature~604 (``harmful unethical behavior''). Left: context (mean) activations show a decaying exponential from single-headline activations overlaid with a bell-shaped body from pairs where both headlines fire; the walk-right threshold (dashed) separates them. Right: diff activations form a central Gaussian at zero flanked by exponential tails; the symmetric walk-outward thresholds (dashed) yield trinary encoding.}
+    % \caption{Non-zero activation distributions for SAE feature~604 (``harmful unethical behavior''). Left: context (mean) activations show a decaying exponential from single-headline activations overlaid with a bell-shaped body from pairs where both headlines fire; the walk-right threshold (dashed) separates them. Right: diff activations form a central Gaussian at zero flanked by exponential tails; the symmetric walk-outward thresholds (dashed) yield trinary encoding.}
+    \caption{Activation distributions for SAE feature~604 (``harmful unethical behavior''). Context activations show a decaying single-headline component and a higher-valued body when both headlines fire; diff activations show a central mass with positive and negative tails. Dashed lines mark the walk thresholds.}
     \Description{Side-by-side histograms of SAE feature 604 mean and diff activations with walk thresholds marked.}
     \label{fig:distributions}
 \end{figure}
@@ -202,7 +203,7 @@ We evaluate the following models, all on the same group-based train/test split:
 
 \textbf{RuleFit on XGBoost-selected features.} We extract the 467 features with non-zero XGBoost importance and train a RuleFit model~\cite{friedman2008rulefit} (25~estimators, tree size~4, maximum 500~rules). RuleFit generates both linear terms (each binarized feature with a coefficient) and conjunction rules (tree-derived feature combinations), producing a fully interpretable model.
 
-\textbf{Additional baselines.} We also train a depth-8 decision tree (for visual interpretability), XGBoost with depth-1 stumps (to test whether additive features suffice), and per-cluster XGBoost models (to test the hierarchy hypothesis). Full details are in Table~\ref{tab:results}.
+\textbf{Additional baselines.} We also train a depth-8 decision tree (for visual interpretability), XGBoost with depth-1 stumps (to test whether additive features suffice), and per-cluster XGBoost models (to test the hierarchy hypothesis). %Full details are in Table~\ref{tab:results}.
 
 %% ====================================================================
 \section{Results}
@@ -210,11 +211,17 @@ We evaluate the following models, all on the same group-based train/test split:
 
 \subsection{Main Results}
 
-Table~\ref{tab:results} summarizes all models evaluated on the canonical train/test split with sample weights $w = |\mathrm{CTR}_A - \mathrm{CTR}_B|$.
+% Table~\ref{tab:results} summarizes all models evaluated on the canonical train/test split with sample weights $w = |\mathrm{CTR}_A - \mathrm{CTR}_B|$.
+Experimental evaluation compares all models on the same group-based train/test split
+with sample weights $w = |\mathrm{CTR}_A - \mathrm{CTR}_B|$.
+Table~\ref{tab:results} summarizes the results giving three commonly used evaluation
+metrics: classification accuracy (Acc), harmonic mean of precision and recall (F1) and
+area under the Receiver Operating Characteristic curve (AUC).
 
-\begin{table}[t]
+\begin{table}[ht]
 \centering
-\caption{Model comparison on the test set (11,632 pairs). All models use \texttt{GroupShuffleSplit} by \texttt{test\_id}. Best results per metric in \textbf{bold}.}
+% \caption{Model comparison on the test set (11,632 pairs). All models use \texttt{GroupShuffleSplit} by \texttt{test\_id}. Best results per metric in \textbf{bold}.}
+\caption{Performance of all evaluated models on the held-out test set.}
 \label{tab:results}
 \begin{tabular}{@{}llccc@{}}
 \toprule
@@ -232,7 +239,8 @@ Table~\ref{tab:results} summarizes all models evaluated on the canonical train/t
 \end{tabular}
 \end{table}
 
-Several patterns emerge from the comparison. Logistic regression is competitive (AUC~0.750), indicating a substantial additive/global signal in the SAE features. XGBoost slightly outperforms LR (AUC~0.759 vs.\ 0.750), suggesting nonlinear feature interactions exist but are not dominant. Depth-6 trees substantially outperform depth-1 stumps (AUC~0.759 vs.\ 0.681), confirming that multi-way feature interactions carry predictive information beyond additive effects. Binarization provides a small but consistent improvement (accuracy 61.6\% $\rightarrow$ 61.8\%), while also concentrating importance on just 467 of 32,768 features. RuleFit achieves comparable AUC (0.761) to the best XGBoost model with a fully interpretable output of 52 conjunction rules and 443 linear terms.
+% Several patterns emerge from the comparison. Logistic regression is competitive (AUC~0.750), indicating a substantial additive/global signal in the SAE features. XGBoost slightly outperforms LR (AUC~0.759 vs.\ 0.750), suggesting nonlinear feature interactions exist but are not dominant. Depth-6 trees substantially outperform depth-1 stumps (AUC~0.759 vs.\ 0.681), confirming that multi-way feature interactions carry predictive information beyond additive effects. Binarization provides a small but consistent improvement (accuracy 61.6\% $\rightarrow$ 61.8\%), while also concentrating importance on just 467 of 32,768 features. RuleFit achieves comparable AUC (0.761) to the best XGBoost model with a fully interpretable output of 52 conjunction rules and 443 linear terms.
+Logistic regression is competitive (AUC~0.750), while XGBoost performs slightly better (0.759), indicating useful but limited nonlinear interactions. Depth-6 trees outperform stumps (0.759 vs.\ 0.681 AUC). Binarization slightly improves accuracy (61.6\% $\rightarrow$ 61.8\%) and concentrates importance on 467 of 32,768 features. RuleFit reaches comparable AUC (0.761) with 52 conjunction rules and 443 linear terms.
 
 \subsection{Top Predictive Features}
 
@@ -264,23 +272,25 @@ The features tell a coherent story: headlines that use the demonstrative ``this'
 
 \subsection{Example Interpretable Rules}
 
-Beyond linear terms, RuleFit produces conjunction rules that capture feature interactions. Table~\ref{tab:rules} shows selected examples. These rules combine multiple binarized SAE features, illustrating how clickability depends on feature combinations rather than any single dimension.
+% Beyond linear terms, RuleFit produces conjunction rules that capture feature interactions. Table~\ref{tab:rules} shows selected examples. These rules combine multiple binarized SAE features, illustrating how clickability depends on feature combinations rather than any single dimension.
+Table~\ref{tab:rules} shows selected RuleFit conjunction rules capturing interactions among binarized SAE features.
 
 \begin{table}[t]
 \centering
-\caption{Selected RuleFit conjunction rules. ``$> 0.5$'' on a binarized diff feature means headline~A activates it more; ``$\leq -0.5$'' means B activates it more.}
+% \caption{Selected RuleFit conjunction rules. ``$> 0.5$'' on a binarized diff feature means headline~A activates it more; ``$\leq -0.5$'' means B activates it more.}
+\caption{Examples of interpretable conjunction rules extracted by RuleFit. Positive and negative diff values favor headline A and B, respectively.}
 \label{tab:rules}
 \small
-\begin{tabular}{@{}p{0.55\columnwidth}cp{0.0\columnwidth}@{}}
+\begin{tabular}{@{}c p{0.8\columnwidth} c@{}}
 \toprule
-Rule & Coef \\
+\# & Rule & Coef \\
 \midrule
-\texttt{clickbait titles} $> 0.5$ & $+$0.07 \\
-\texttt{unexpected things} $> 0.5$ & $+$0.06 \\
-\texttt{intense negative emotions} $\leq -0.5$ & $-$0.05 \\
-\texttt{recognizing or noticing} $\leq -0.5$ & $-$0.14 \\
-\texttt{joke, humor} $> {-}0.5$ and \texttt{things or anything} $\leq 0.5$ and ctx: \texttt{asking questions} $> 0.5$ & $+$0.03 \\
-\texttt{regulation, risk} $> 0.5$ and \texttt{past events} $> {-}0.5$ & $-$0.04 \\
+1 & \texttt{clickbait titles} $> 0.5$ & $+$0.07 \\
+2 & \texttt{unexpected things} $> 0.5$ & $+$0.06 \\
+3 & \texttt{intense negative emotions} $\leq -0.5$ & $-$0.05 \\
+4 & \texttt{recognizing or noticing} $\leq -0.5$ & $-$0.14 \\
+5 & \texttt{joke, humor} $> {-}0.5$ and \texttt{things or anything} $\leq 0.5$ and ctx: \texttt{asking questions} $> 0.5$ & $+$0.03 \\
+6 & \texttt{regulation, risk} $> 0.5$ and \texttt{past events} $> {-}0.5$ & $-$0.04 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -303,29 +313,71 @@ A central question was whether \emph{context-dependent rules} govern clickabilit
 
 These results indicate that while non-additive interactions exist (depth-6 substantially outperforms depth-1 stumps), they are predominantly \emph{among diff features}---not between context and diff. The hierarchy hypothesis, as tested, is not supported.
 
+% %% ====================================================================
+% \section{Discussion}
+% %% ====================================================================
+% Our experimental analysis has shown that on our data
+% the best model achieves 61.8\% accuracy and 0.76 AUC---a modest but real signal given that many A/B test pairs have very small CTR differences, making the ground-truth label itself noisy. The SAE features come from a general-purpose LLM not fine-tuned for headline effectiveness, yet they capture recognizable engagement patterns. Across all models, diff features dominate: \emph{what distinguishes two headlines} matters far more than \emph{what the article is about}. The top features---clickbait framing, curiosity gaps, emotional intensity, use of ``this''---align with known headline optimization principles, providing independent empirical validation. Depth-6 trees outperform depth-1 stumps by 7.8 AUC points, confirming that multi-way feature interactions carry signal, yet our attempts to find stable \emph{topic-gated} regimes were unsuccessful---the interactions are among diff features themselves rather than context-diff gating.
+
+% \paragraph{Limitations.}
+% The multi-stage pipeline compounds approximation errors, and SAE feature labels---generated automatically---may not perfectly describe what each feature detects. All reported associations are predictive, not causal: without controlled experiments we cannot claim that activating a particular SAE feature \emph{causes} more clicks. Hard partitioning methods (k-means, MOB) may also miss soft or overlapping regime structure.
+
+% %% ====================================================================
+% \section{Conclusion}
+% %% ====================================================================
+
+% We demonstrated that Sparse Autoencoder features extracted from a large language model provide an interpretable representation for analyzing headline A/B test outcomes. The context + diff decomposition, combined with histogram-based binarization, yields a pipeline that achieves modest but real predictive performance (AUC~0.76) while producing human-readable feature importances and conjunctive rules. The dominant predictive patterns---clickbait framing, curiosity gaps, emotional language, and demonstrative pronouns---align with known engagement heuristics, validating SAE features as a middle ground between opaque embeddings and shallow bag-of-words representations.
+
+% Our investigation of topic-gated hierarchical structure produced informative negative results: while feature interactions exist, stable topic-dependent regimes did not emerge. Future work could explore larger SAE dictionaries (65k or 262k width), models fine-tuned for headline tasks, causal validation through controlled generation, and soft mixture-of-experts approaches to regime discovery.
+
+
 %% ====================================================================
-\section{Discussion}
+\section{Discussion and Conclusions}
 %% ====================================================================
+Our experimental analysis has shown that on our data the best model achieves 61.8\%
+accuracy and 0.76 AUC. This is a modest but real signal, given that many A/B test pairs
+have very small CTR differences, which makes the ground-truth label itself noisy. The
+SAE features come from a general-purpose LLM that was never fine-tuned for headline
+effectiveness, yet they capture recognizable engagement patterns. Across all models the
+diff features dominate, so what distinguishes two headlines matters far more than what
+the article is about. The top features (clickbait framing, curiosity gaps, emotional
+intensity, use of ``this'') align with known headline optimization principles and
+provide independent empirical validation. Depth-6 trees outperform depth-1 stumps by
+7.8 AUC points, suggesting that multi-way feature interactions carry signal, yet our
+attempts to find stable topic-gated regimes were unsuccessful. The interactions are
+among the diff features themselves rather than between context and diff, an informative
+negative result suggesting that hierarchical structure, if present, does not follow the
+topic dimension we assumed.
 
-\paragraph{Signal strength and noise.}
-The best model achieves 61.8\% accuracy and 0.76 AUC on pairwise headline comparison. This represents a modest but real signal, consistent with the inherent noise in the data: many A/B test pairs have very small CTR differences, making the ground-truth label itself noisy. The SAE features are extracted from a general-purpose LLM not fine-tuned for headline effectiveness, yet they capture recognizable engagement-related patterns.
+We conclude that Sparse Autoencoder features extracted from a large language model
+provide an interpretable representation for analyzing headline A/B test outcomes. The
+context + diff decomposition, combined with histogram-based binarization, produces
+human-readable feature importances and conjunctive rules at predictive performance
+comparable to continuous representations, placing SAE features between opaque dense
+embeddings and shallow bag-of-words representations.
 
-\paragraph{Diff features dominate.}
-Across all models, diff features are far more important than context features. This confirms that \emph{what distinguishes two headlines} matters more than \emph{what the article is about} for predicting the winner. The top features---clickbait framing, curiosity gaps, emotional intensity, use of ``this''---align with known principles of headline optimization, providing empirical validation through an independent feature extraction method.
-
-\paragraph{Interactions without regimes.}
-Depth-6 trees outperform depth-1 stumps by 7.8 AUC points, confirming that multi-way feature interactions carry meaningful signal. However, our attempts to discover stable \emph{topic-gated} regimes (via clustering and MOB) were unsuccessful. This suggests that the interactions are predominantly among diff features themselves (e.g., ``clickbait framing AND emotional intensity'') rather than context-diff gating (e.g., ``in political articles, use strategy X'').
-
-\paragraph{Limitations.}
-Our pipeline chains multiple approximation stages: LLM encoding, SAE decomposition, histogram-based binarization, XGBoost feature selection, and RuleFit modeling. Each stage introduces its own bias and noise, compounding uncertainty. SAE feature labels are generated by an automated process and may not perfectly describe what each feature detects. All reported associations are predictive, not causal---without controlled experiments that intervene on specific headline features, we cannot claim that activating a particular SAE feature \emph{causes} more clicks. Finally, hard partitioning methods (k-means, MOB) may miss soft or overlapping regime structure that could exist in the data.
+\paragraph{Limitations and future work.}
+The multi-stage pipeline compounds approximation errors, and the SAE feature labels are
+generated automatically, so they may not perfectly describe what each feature detects.
+All reported associations are predictive rather than causal: without controlled
+experiments we cannot claim that activating a particular SAE feature causes more
+clicks. Hard partitioning methods (k-means, MOB) may also miss soft or overlapping
+regime structure. Future work could explore larger SAE dictionaries (65k or 262k
+width), models fine-tuned for headline tasks, causal validation through controlled
+generation, and soft mixture-of-experts approaches to regime discovery.
 
 %% ====================================================================
-\section{Conclusion}
-%% ====================================================================
+\begin{acks}
+This research was financially supported by the Slovenian Research and Innovation Agency (ARIS)
+through the Young Researcher Grant (PR-13856), the research program Knowledge
+Technologies (P2-0103) and the Gravity project AI for Science (GC-0001) and European HE
+project DataPact (GA 101189771).
 
-We demonstrated that Sparse Autoencoder features extracted from a large language model provide an interpretable representation for analyzing headline A/B test outcomes. The context + diff decomposition, combined with histogram-based binarization, yields a pipeline that achieves modest but real predictive performance (AUC~0.76) while producing human-readable feature importances and conjunctive rules. The dominant predictive patterns---clickbait framing, curiosity gaps, emotional language, and demonstrative pronouns---align with known engagement heuristics, validating SAE features as a viable middle ground between opaque dense embeddings and shallow bag-of-words representations.
-
-Our investigation of topic-gated hierarchical structure produced informative negative results: while feature interactions exist, stable topic-dependent regimes did not emerge through the methods we tested. Future work could explore larger SAE dictionaries (65k or 262k width), SAEs trained on models fine-tuned for headline tasks, causal validation through controlled generation experiments, and soft mixture-of-experts approaches to regime discovery.
+The authors acknowledge the use of Claude to support paper organization
+and language and grammar refinement. All AI-generated suggestions were carefully
+reviewed and revised by the authors, who take full responsibility for the content
+of this paper.
+\end{acks}
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
