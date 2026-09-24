@@ -2,19 +2,22 @@
 % !TeX encoding = UTF-8
 % !TeX root = exp_SAE.tex
 % !TeX TS-program = pdflatex
-% !BIB TS-program = bibtex
+% !BIB TS-program = biber
 
-\documentclass[sigconf, language=english]{acmart}
+\documentclass[sigconf,natbib=false, language=english]{acmart}
+
+\usepackage[datamodel=acmdatamodel, style=acmnumeric, backend=biber]{biblatex}
+\addbibresource{references.bib}
 
 \AtBeginDocument{%
   \providecommand\BibTeX{{%
     Bib\TeX}}}
 
 \setcopyright{rightsretained}
-\copyrightyear{2025}
-\acmDOI{}
+\copyrightyear{2026}
+\acmDOI{10.70314/is.2026.sikdd.89}
 
-\acmConference[Information Society 2025]{Information Society 2025: 28th international multiconference}{6--10 October 2025}{Ljubljana, Slovenia}
+\acmConference[Information Society 2026]{Information Society 2026: 29th international multiconference}{5--9 October 2026}{Ljubljana, Slovenia}
 \acmISBN{}
 \settopmatter{printccs=false, printacmref=false}
 
@@ -30,14 +33,14 @@
 \title[SAE Features for Headline A/B Tests]{Explaining Headline A/B Test Outcomes with Sparse Autoencoder Features}
 
 \author{Drejc Pesjak}
-\email{drejc.pesjak@ijs.si}
-\orcid{0009-0003-0750-8157}
 \affiliation{%
   \institution{Jo\v{z}ef Stefan Institute}
   \institution{Jo\v{z}ef Stefan International Postgraduate School}
   \city{Ljubljana}
   \country{Slovenia}
 }
+\email{drejc.pesjak@ijs.si}
+\orcid{0009-0003-0750-8157}
 
 \author{Dunja Mladeni\'{c}}
 \affiliation{%
@@ -80,7 +83,7 @@ Moving from winner identification to interpretable explanation requires a text r
 
 Mechanistic interpretability research offers a promising resolution. Sparse Autoencoders (SAEs)~\cite{bricken2023monosemanticity, cunningham2023sparse} trained on LLM activations decompose dense activation vectors into a much larger, sparse set of features---each corresponding to a recognizable concept such as ``shocking scenarios'' or ``use of the word \emph{this}.'' These features can be labeled automatically~\cite{bills2023language}, and the GemmaScope-2 project~\cite{lieberum2024gemma} provides pre-trained SAEs for the Gemma model family with human-readable descriptions hosted on Neuronpedia.
 
-In this work we use SAE features as the representation layer for analyzing A/B-tested news headlines from the Upworthy Research Archive~\cite{matias2021upworthy}. We encode each headline through Gemma-3-4B-IT, decompose the activations with a 16,384-width SAE, and construct pairwise \emph{context + diff} vectors that separate shared topic content from wording differences. After binarizing the features to suppress activation noise, we train XGBoost and RuleFit models to identify which SAE features predict the winner and to extract human-readable rules.
+In this work we use SAE features as the representation layer for analyzing A/B-tested news headlines from the Upworthy Research Archive~\cite{matias2021upworthy}. We encode each headline through Gemma-3-4B-IT\footnote{\href{https://huggingface.co/google/gemma-3-4b-it}{google/gemma-3-4b-it on Hugging Face.}}, decompose the activations with a 16,384-width SAE, and construct pairwise \emph{context + diff} vectors that separate shared topic content from wording differences. After binarizing the features to suppress activation noise, we train XGBoost and RuleFit models to identify which SAE features predict the winner and to extract human-readable rules.
 
 We also investigate a hierarchical regime hypothesis: the possibility that the topic or context of an article gates which ``difference'' features matter for clickability, and test this through unsupervised clustering and model-based recursive partitioning.
 
@@ -184,11 +187,11 @@ We separate noise from signal with a histogram-based ``walk'' threshold. For con
     \label{eq:bin_diff}
 \end{equation}
 
-\begin{figure}[t]
+\begin{figure}[h]
     \centering
     \includegraphics[width=\columnwidth]{figures/feature_604_distributions_walk_threshold.pdf}
     % \caption{Non-zero activation distributions for SAE feature~604 (``harmful unethical behavior''). Left: context (mean) activations show a decaying exponential from single-headline activations overlaid with a bell-shaped body from pairs where both headlines fire; the walk-right threshold (dashed) separates them. Right: diff activations form a central Gaussian at zero flanked by exponential tails; the symmetric walk-outward thresholds (dashed) yield trinary encoding.}
-    \caption{Activation distributions for SAE feature~604 (``harmful unethical behavior''). Context activations show a decaying single-headline component and a higher-valued body when both headlines fire; diff activations show a central mass with positive and negative tails. Dashed lines mark the walk thresholds.}
+    \caption{Context (left) and difference (right) activations for SAE feature~604 (``harmful unethical behavior''). Dashed lines mark walk thresholds.}
     \Description{Side-by-side histograms of SAE feature 604 mean and diff activations with walk thresholds marked.}
     \label{fig:distributions}
 \end{figure}
@@ -365,6 +368,8 @@ clicks. Hard partitioning methods (k-means, MOB) may also miss soft or overlappi
 regime structure. Future work could explore larger SAE dictionaries (65k or 262k
 width), models fine-tuned for headline tasks, causal validation through controlled
 generation, and soft mixture-of-experts approaches to regime discovery.
+Future work should compare SAE features against lexical and dense representations
+and isolate the contributions of context and binarization through controlled ablations.
 
 %% ====================================================================
 \begin{acks}
@@ -379,7 +384,6 @@ reviewed and revised by the authors, who take full responsibility for the conten
 of this paper.
 \end{acks}
 
-\bibliographystyle{ACM-Reference-Format}
-\bibliography{references}
+\printbibliography
 
 \end{document}

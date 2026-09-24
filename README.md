@@ -6,6 +6,21 @@ This repository documents a sequence of experiments exploring those questions, u
 
 The short answer: SAE features carry a real but modest predictive signal (~62% accuracy, 0.76 AUC), and the features that matter most are interpretable — clickbait-style framing, emotional intensity, curiosity gaps, and use of demonstrative pronouns like "this."
 
+[Read the paper here (PDF)](ml-report/exp_SAE.pdf). If you use this work, please cite:
+
+```bibtex
+@inproceedings{pesjak2026headlines,
+  author    = {Pesjak, Drejc and Mladeni{\'c}, Dunja and Rupnik, Jan},
+  title     = {Explaining Headline {A/B} Test Outcomes
+               with Sparse Autoencoder Features},
+  year      = {2026},
+  booktitle = {Information Society 2026},
+  address   = {Ljubljana, Slovenia},
+  doi       = {10.70314/is.2026.sikdd.89},
+  url       = {https://doi.org/10.70314/is.2026.sikdd.89}
+}
+```
+
 ---
 
 ## Table of Contents

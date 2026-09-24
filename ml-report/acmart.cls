@@ -36,9 +36,10 @@
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{acmart}
-[2025/01/11 v2.13 Typesetting articles for the Association for Computing Machinery]
+[2025/08/27 v2.16 Typesetting articles for the Association for Computing Machinery]
 \def\@classname{acmart}
 \InputIfFileExists{acmart-preload-hook.tex}{%
   \ClassWarning{\@classname}{%
@@ -858,11 +859,8 @@
     have the newtxmath package installed.  Please upgrade your
     TeX}\@ACM@newfontsfalse}
 \if@ACM@newfonts
-  % Note that the order in which packages are loaded matters,
-  % and the correct order depends on the LaTeX engine used.
-  % See https://github.com/borisveytsman/acmart/issues/402
-  % and https://github.com/borisveytsman/acmart/issues/410
   \ifxetex
+    \RequirePackage{amssymb}
     \RequirePackage{unicode-math}
     \setmathfont[Scale=MatchUppercase]{LibertinusMath-Regular.otf}
     \setmathfont{latinmodern-math.otf}[range={cal}]
@@ -870,6 +868,7 @@
     \setmonofont[StylisticSet=3]{inconsolata}
   \else
     \ifluatex
+      \RequirePackage{amssymb}
       \RequirePackage{unicode-math}
       \setmathfont[Scale=MatchUppercase]{LibertinusMath-Regular.otf}
       \setmathfont{latinmodern-math.otf}[range={cal}]
@@ -1096,6 +1095,8 @@
 \@ACM@maketitle@typesetfalse
 \define@choicekey*+{ACM}{acmJournal}[\@journalCode\@journalCode@nr]{%
   ACMJCSS,%
+  ACMJDS,%
+  AILET,%
   CIE,%
   CSUR,%
   DGOV,%
@@ -1124,6 +1125,8 @@
   TAAS,%
   TACCESS,%
   TACO,%
+  TAIS,%
+  TAISAP,%
   TALG,%
   TALLIP,%
   TAP,%
@@ -1175,6 +1178,16 @@
   \def\@journalNameShort{ACM J. Comput. Sustain. Soc.}%
   \def\@permissionCodeOne{2834-5533}%
   \def\@permissionCodeTwo{2834-5533}%
+\or % ACMJCDS
+  \def\@journalName{ACM Journal of Data Science}%
+  \def\@journalNameShort{ACM J. Data Sci.}%
+  \def\@permissionCodeOne{0000-0000}%
+  \def\@permissionCodeTwo{0000-0000}%
+\or % AILET
+  \def\@journalName{ACM AI Letters}%
+  \def\@journalNameShort{ACM AI Lett.}%
+  \def\@permissionCodeOne{3068-8590}%
+  \def\@permissionCodeTwo{3068-8590}%
 \or % CIE
   \def\@journalName{ACM Computers in Entertainment}%
   \def\@journalNameShort{ACM Comput. Entertain.}%
@@ -1326,6 +1339,16 @@
   \def\@journalNameShort{ACM Trans. Arch. Code Optim.}%
   \def\@permissionCodeOne{1544-3566}%
   \def\@permissionCodeTwo{1544-3973}%
+\or % TAIS
+  \def\@journalName{ACM Transactions on AI for Science}%
+  \def\@journalNameShort{ACM Trans. AI Sci.}%
+  \def\@permissionCodeOne{3066-4438}%
+  \def\@permissionCodeTwo{3066-4438}%
+\or % TAISAP
+  \def\@journalName{ACM Transactions on AI Security and Privacy}%
+  \def\@journalNameShort{ACM Trans. AI Secur. Priv.}%
+  \def\@permissionCodeOne{3068-3564}%
+  \def\@permissionCodeTwo{3068-3564}%
 \or % TALG
   \def\@journalName{ACM Transactions on Algorithms}%
   \def\@journalNameShort{ACM Trans. Algor.}%
@@ -1667,13 +1690,14 @@
     \g@addto@macro\addresses{\email{#1}{#2}}%
   \fi}
 \def\orcid#1{\unskip\ignorespaces%
+  \protected\def\orcidsite{https://orcid.org/}%
   \IfBeginWith{#1}{http}{%
     \expandafter\gdef\csname
         typeset@author\the\num@authors\endcsname##1{%
           \href{#1}{##1}}}{%
     \expandafter\gdef\csname
         typeset@author\the\num@authors\endcsname##1{%
-          \href{https://orcid.org/#1}{##1}}}}
+          \href{\orcidsite#1}{##1}}}}
 \def\authorsaddresses#1{\def\@authorsaddresses{#1}}
 \authorsaddresses{\@mkauthorsaddresses}
 \newcommand\@mktranslatedkeywords[2]{\bgroup
@@ -2868,8 +2892,10 @@
     addresses are mandatory for ACM journals}%
   \fi\fi\fi}
 \def\@setaddresses{}
-\def\@authornotemark{\g@addto@macro\@currentauthors{\footnotemark\relax}}
-\def\@@authornotemark#1{\g@addto@macro\@currentauthors{\footnotemark[#1]}}
+\def\@authornotemark{\g@addto@macro\@currentauthors{%
+    \advance\hfuzz by 5pt\relax\footnotemark\relax}}
+\def\@@authornotemark#1{\g@addto@macro\@currentauthors{%
+    \advance\hfuzz by 5pt\relax\footnotemark[#1]}}
 \def\@mkteasers{%
   \ifx\@teaserfigures\@empty\else
     \def\@teaser##1{\par\bigskip\bgroup
@@ -3602,6 +3628,26 @@
 \AtEndDocument{\ifx\baselinestretch\ACM@origbaselinestretch\else
   \ClassError{\@classname}{An attempt to redefine
     \string\baselinestretch\space detected.  Please do not do this for
+    ACM submissions!}\fi}
+\let\ACM@origsection\section
+\AtEndDocument{\ifx\section\ACM@origsection\else
+  \ClassError{\@classname}{An attempt to redefine
+    \string\section\space detected.  Please do not do this for
+    ACM submissions!}\fi}
+\let\ACM@origsubsection\subsection
+\AtEndDocument{\ifx\subsection\ACM@origsubsection\else
+  \ClassError{\@classname}{An attempt to redefine
+    \string\subsection\space detected.  Please do not do this for
+    ACM submissions!}\fi}
+\let\ACM@origsubsubsection\subsubsection
+\AtEndDocument{\ifx\subsubsection\ACM@origsubsubsection\else
+  \ClassError{\@classname}{An attempt to redefine
+    \string\subsubsection\space detected.  Please do not do this for
+    ACM submissions!}\fi}
+\let\ACM@origparagraph\paragraph
+\AtEndDocument{\ifx\paragraph\ACM@origparagraph\else
+  \ClassError{\@classname}{An attempt to redefine
+    \string\paragraph\space detected.  Please do not do this for
     ACM submissions!}\fi}
 \normalsize\normalfont\frenchspacing
 \endinput

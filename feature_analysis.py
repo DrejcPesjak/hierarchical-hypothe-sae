@@ -611,42 +611,33 @@ diff_th_walk_raw = [t * scaler_diff_603.scale_[0] for t in diff_th_walk_std] if 
 
 desc = explanation_map.get(fidx, "")
 
-# Create side-by-side plot
-fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+# Design at column width; recover internal whitespace for the plotting areas.
+fig, axes = plt.subplots(1, 2, figsize=(3.4, 3.4 * 351.029 / 1000.1))
+fig.subplots_adjust(left=0.075, right=0.99, bottom=0.14, top=0.87, wspace=0.13)
 
-# --- Context distribution ---
-ax = axes[0]
-ax.hist(ctx_nonzero_raw, bins=100, alpha=0.7, color="steelblue", edgecolor="none")
+# Keep the data, histogram bins, and automatically determined ranges unchanged.
+axes[0].hist(ctx_nonzero_raw, bins=100, alpha=0.7, color="steelblue", edgecolor="none")
+axes[1].hist(diff_raw_nz, bins=200, alpha=0.65, color="darkorange", edgecolor="none")
 if ctx_th_walk is not None:
-    ax.axvline(ctx_th_walk, color="deepskyblue", ls=(0, (3, 1, 1, 1)), lw=1.5, label="Walk right")
-ax.set_title(f"SAE {fidx} — Context (non-zero)", fontsize=12, pad=8)
-ax.set_xlabel("activation", fontsize=10)
-ax.set_ylabel("count", fontsize=10)
-ax.legend(fontsize=9, loc="upper right")
-if desc:
-    ax.text(0.02, 0.95, desc[:100], transform=ax.transAxes,
-            fontsize=8, va="top", ha="left", color="0.3",
-            bbox=dict(boxstyle="round,pad=0.3", fc="white", alpha=0.8))
+    axes[0].axvline(ctx_th_walk, color="0.2", ls="--", lw=0.75)
+for threshold in diff_th_walk_raw:
+    axes[1].axvline(threshold, color="0.2", ls="--", lw=0.75)
 
-# --- Diff distribution ---
-ax = axes[1]
-ax.hist(diff_raw_nz, bins=200, alpha=0.65, color="darkorange", edgecolor="none")
-if len(diff_th_walk_raw) > 0:
-    for k, t in enumerate(diff_th_walk_raw):
-        ax.axvline(t, color="deepskyblue", ls=(0, (3, 1, 1, 1)), lw=1.5,
-                   label="Walk outward" if k == 0 else "")
-ax.set_title(f"SAE {fidx} — Diff (non-zero)", fontsize=12, pad=8)
-ax.set_xlabel("diff activation", fontsize=10)
-ax.set_ylabel("count", fontsize=10)
-ax.legend(fontsize=9, loc="upper right")
-if desc:
-    ax.text(0.02, 0.95, desc[:100], transform=ax.transAxes,
-            fontsize=8, va="top", ha="left", color="0.3",
-            bbox=dict(boxstyle="round,pad=0.3", fc="white", alpha=0.8))
+axes[0].set_xticks([0, 1000, 2000], labels=["0", "1k", "2k"])
+axes[0].set_yticks([0, 1000, 2000, 3000], labels=["0", "1k", "2k", "3k"])
+axes[1].set_xticks([-2000, 0, 2000], labels=["−2k", "0", "2k"])
+axes[1].set_yticks([0, 1000], labels=["0", "1k"])
+for ax, title in zip(axes, ["Context", "Difference"]):
+    ax.set_title(title, fontsize=7.5, pad=2)
+    ax.tick_params(axis="both", labelsize=6, length=1.5, pad=1.5, width=0.6)
+    for spine in ax.spines.values():
+        spine.set_linewidth(0.6)
+axes[0].set_ylabel("Count", fontsize=6.5, labelpad=1)
 
-fig.tight_layout()
-fig.savefig(OUT_DIR / f"feature_{fidx}_distributions_walk_threshold.pdf", dpi=300,
-            bbox_inches="tight")
+# Also update the paper asset, cropping to the content with no extra padding.
+figure_name = f"feature_{fidx}_distributions_walk_threshold.pdf"
+report_path = Path("ml-report/figures") / figure_name
+for output_path in (OUT_DIR / figure_name, report_path):
+    fig.savefig(output_path, bbox_inches="tight", pad_inches=0)
+    print(f"Saved {output_path}")
 plt.show()
-print(f"Saved {OUT_DIR / f'feature_{fidx}_distributions_walk_threshold.pdf'}")
-
